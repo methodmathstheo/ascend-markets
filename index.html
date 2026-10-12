@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ascend Markets</title>
-<meta name="description" content="Ascend Markets: weekly market notes by Christian Walton (Mathematics with Data Science, LSE) and Theo Elwell (Economics, Loughborough University).">
+<meta name="description" content="Ascend Markets: weekly market notes by Christian Walton, Theo Elwell, Jimmy Carlton and Zac Kemp. One market story a week, explained properly.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme:light)">
@@ -13,14 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ascend Markets">
 <meta property="og:title" content="Ascend Markets">
-<meta property="og:description" content="Weekly market notes by Christian Walton and Theo Elwell. One story a week: what happened, why it matters, and what to watch next.">
+<meta property="og:description" content="Weekly market notes from four students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
 <link rel="canonical" href="https://ascendmarkets.co.uk/">
 <meta property="og:url" content="https://ascendmarkets.co.uk/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://ascendmarkets.co.uk/assets/logo.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ascend Markets">
-<meta name="twitter:description" content="Weekly market notes by Christian Walton and Theo Elwell. One story a week: what happened, why it matters, and what to watch next.">
+<meta name="twitter:description" content="Weekly market notes from four students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,10 +124,17 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
 .hero h1{font-family:var(--serif);font-size:clamp(2.4rem,7vw,4.5rem);line-height:1.01;
   letter-spacing:-.034em;font-weight:500;margin:0 0 1.3rem;max-width:22ch}
 .hero .lead{font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--ink-2);margin:0;max-width:64ch}
-.foundedby{display:flex;align-items:center;gap:.7rem;margin-top:2rem;flex-wrap:wrap}
-.foundedby .names{font-size:.9rem;color:var(--ink-2)}
-.foundedby .names a{text-decoration:none;border-bottom:1px solid var(--rule-2);color:var(--ink)}
-.foundedby .names a:hover{border-color:var(--accent);color:var(--accent)}
+.teamstrip{margin-top:2.2rem}
+.teamstrip .label{display:block;margin-bottom:.9rem}
+.teamstrip ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
+  gap:.9rem clamp(1.1rem,3.5vw,2.4rem)}
+.teamstrip a{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.teamstrip .who{display:block;line-height:1.25}
+.teamstrip .n{display:block;font-size:.92rem;font-weight:500;color:var(--ink)}
+.teamstrip .r{display:block;font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:600;color:var(--ink-3);margin-top:.12rem}
+.teamstrip a:hover .n{color:var(--accent)}
+.teamstrip a:hover .avatar{border-color:var(--accent)}
 
 /* Avatars */
 .avatar{position:relative;display:inline-block;width:var(--s,28px);height:var(--s,28px);
@@ -427,6 +434,9 @@ footer nav a:hover{color:var(--ink)}
   .mast-right{width:100%;justify-content:space-between;align-items:flex-end}
   .dateline{text-align:right}
 }
+@media (max-width:520px){
+  .teamstrip ul{flex-direction:column;gap:.85rem}
+}
 @media (max-width:640px){
   .posts a{grid-template-columns:1fr;gap:.45rem}
   .posts .when{flex-direction:row;align-items:center;gap:.7rem}
@@ -519,6 +529,7 @@ const SECTIONS = [
 const AUTHORS = {
   christian: {
     key:'christian', name:'Christian Walton', first:'Christian', initials:'CW',
+    founder:true,
     desk:'Head of Commodities', section:'commodities',
     course:'Mathematics with Data Science, LSE',
     bio:'Christian is a second-year BSc Mathematics with Data Science student at the London School of Economics. He works through the data behind each story, from pricing and volatility to the statistics underneath the headline numbers.',
@@ -529,6 +540,7 @@ const AUTHORS = {
   },
   theo: {
     key:'theo', name:'Theo Elwell', first:'Theo', initials:'TE',
+    founder:true,
     desk:'Head of Options & Futures', section:'derivatives',
     course:'Economics, Loughborough University',
     bio:'Theo is a final-year BSc Economics student at Loughborough University and an options and futures analyst on the Loughborough Quantitative and Discretionary Fund.',
@@ -811,21 +823,26 @@ function sectionsGridHTML(){
     + '<p class="label">Seven asset classes, one note a week</p></div>'
     + '<div class="grid">'+cards+'</div></section>';
 }
+const homeRole = a => a.founder ? 'Co-founder' : (a.desk || '');
+function teamStripHTML(){
+  const items = Object.values(AUTHORS).map(a =>
+    '<li><a href="#/about">' + avatarHTML(a,34,false)
+    + '<span class="who"><span class="n">'+esc(a.name)+'</span>'
+    + '<span class="r">'+esc(homeRole(a))+'</span></span></a></li>').join('');
+  return '<div class="teamstrip"><span class="label">The team</span><ul>'+items+'</ul></div>';
+}
 function renderHome(){
   setNav('home');
   document.title = 'Ascend Markets';
-  const founders = {author:'both'};
   const latest = posts[0];
   app.innerHTML =
     '<section class="hero fade">'
     + '<h1>Notes on markets, every week.</h1>'
-    + '<p class="lead">We&#39;re Christian and Theo. Christian studies Mathematics with Data Science '
-    + 'at LSE and Theo studies Economics at Loughborough University. Each week we break down one '
-    + 'market story: what happened, why it matters, and what to watch next.</p>'
-    + '<div class="foundedby"><span class="label">Founded by</span>'
-    + avatarsHTML(founders,30)
-    + '<span class="names"><a href="#/about">Christian Walton</a> and <a href="#/about">Theo Elwell</a></span>'
-    + '</div></section>'
+    + '<p class="lead">We&#39;re four students across four universities, each covering a desk. '
+    + 'Every week we break down one market story: what happened, why it matters, and what to '
+    + 'watch next.</p>'
+    + teamStripHTML()
+    + '</section>'
     + (latest ? featuredHTML(latest) : '')
     + cadenceHTML()
     + sectionsGridHTML()
