@@ -364,8 +364,12 @@ a.cell:hover{transform:scale(1.2)}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .founder h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.022em;
   margin:0 0 .3rem;line-height:1.2}
-.founder .role{margin:0 0 1rem;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;
-  font-weight:600;color:var(--accent)}
+.founder .desk{display:inline-block;margin:0 0 .25rem;font-size:.76rem;letter-spacing:.13em;
+  text-transform:uppercase;font-weight:600;color:var(--c,var(--accent));text-decoration:none;
+  border-bottom:1px solid transparent}
+a.desk:hover{border-bottom-color:currentColor}
+.founder .course{margin:0 0 1rem;font-size:.88rem;color:var(--ink-3)}
+.team-label{margin:0 0 .9rem}
 .founder .bio{margin:0 0 1.1rem;color:var(--ink-2);max-width:60ch}
 .contact{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin:0;padding:0;list-style:none}
 .contact li{font-size:.9rem;color:var(--ink-3)}
@@ -515,23 +519,43 @@ const SECTIONS = [
 const AUTHORS = {
   christian: {
     key:'christian', name:'Christian Walton', first:'Christian', initials:'CW',
-    role:'Mathematics with Data Science, LSE',
+    desk:'Head of Commodities', section:'commodities',
+    course:'Mathematics with Data Science, LSE',
     bio:'Christian is a second-year BSc Mathematics with Data Science student at the London School of Economics. He works through the data behind each story, from pricing and volatility to the statistics underneath the headline numbers.',
     email:'c.walton2@lse.ac.uk',
-    phone:'+44 7843 160935',
-    tel:'+447843160935',
+    phone:'+44 7843 160935', tel:'+447843160935',
     photo:'assets/founders/christian.jpg',
     alt:'Portrait of Christian Walton, co-founder of Ascend Markets'
   },
   theo: {
     key:'theo', name:'Theo Elwell', first:'Theo', initials:'TE',
-    role:'Economics, Loughborough University',
-    bio:'Theo is a final-year BSc Economics student at Loughborough University and a macroeconomic analyst on the Loughborough Quantitative and Discretionary Fund.',
+    desk:'Head of Options & Futures', section:'derivatives',
+    course:'Economics, Loughborough University',
+    bio:'Theo is a final-year BSc Economics student at Loughborough University and an options and futures analyst on the Loughborough Quantitative and Discretionary Fund.',
     email:'T.Elwell1-24@student.lboro.ac.uk',
-    phone:'07471 901 337',
-    tel:'+447471901337',
+    phone:'+44 7471 901337', tel:'+447471901337',
     photo:'assets/founders/theo.jpg',
     alt:'Portrait of Theo Elwell, co-founder of Ascend Markets'
+  },
+  jimmy: {
+    key:'jimmy', name:'Jimmy', first:'Jimmy', initials:'J',
+    desk:'Head of Bonds', section:'bonds',
+    course:'Economics, Accounting and Finance, University of Kent',
+    bio:'Jimmy studies Economics, Accounting and Finance at the University of Kent. He covers the bond market, from government curves to corporate credit, and doubles as rugby social secretary and club legend.',
+    email:'Jc2315@kent.ac.uk',
+    phone:'+44 7834 720207', tel:'+447834720207',
+    photo:'assets/founders/jimmy.jpg',
+    alt:'Portrait of Jimmy, head of bonds at Ascend Markets'
+  },
+  zac: {
+    key:'zac', name:'Zac', first:'Zac', initials:'Z',
+    desk:'Head of Macro News', section:'macro',
+    course:'Mathematics, University of Nottingham',
+    bio:'Zac is a Mathematics student at the University of Nottingham. He heads macro news, tracking the data releases, central bank decisions and policy shifts that set the backdrop for every other section.',
+    email:'pmyzk2@nottingham.ac.uk',
+    phone:'+44 7493 214246', tel:'+447493214246',
+    photo:'assets/founders/zac.jpg',
+    alt:'Portrait of Zac, head of macro news at Ascend Markets'
   }
 };
 
@@ -589,7 +613,12 @@ const postsIn = key => posts.filter(p => sectionOf(p).key === key);
 
 function authorsOf(p){
   const a = p && p.author;
-  if(a === 'both') return [AUTHORS.christian, AUTHORS.theo];
+  if(Array.isArray(a)){
+    const list = a.map(k=>AUTHORS[k]).filter(Boolean);
+    if(list.length) return list;
+  }
+  if(a === 'both') return [AUTHORS.christian, AUTHORS.theo];   // the two founders
+  if(a === 'all') return Object.values(AUTHORS);
   return AUTHORS[a] ? [AUTHORS[a]] : [AUTHORS.christian, AUTHORS.theo];
 }
 const authorNames = p => authorsOf(p).map(a=>a.name).join(' and ');
@@ -902,12 +931,19 @@ function founderCard(a, eager){
   const contact = ['<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>'];
   if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.tel || a.phone.replace(/\s+/g,''))+'">'
     + esc(a.phone)+'</a></li>');
-  return '<div class="founder">'
+  const sec = SEC_BY_KEY[a.section];
+  const desk = a.desk
+    ? (sec ? '<a class="desk" href="#/section/'+sec.key+'">'+esc(a.desk)+'</a>'
+           : '<span class="desk">'+esc(a.desk)+'</span>')
+    : '';
+  return '<div class="founder"'+(sec ? ' style="'+secVar(sec)+'"' : '')+'>'
     + '<div class="portrait">'
     + '<span class="mono" aria-hidden="true">'+esc(a.initials)+'</span>'
     + '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt)+'" width="800" height="1000" '
     + 'decoding="async" loading="'+(eager?'eager':'lazy')+'" onerror="this.remove()">'
-    + '</div><div><h2>'+esc(a.name)+'</h2><p class="role">'+esc(a.role)+'</p>'
+    + '</div><div><h2>'+esc(a.name)+'</h2>'
+    + desk
+    + (a.course ? '<p class="course">'+esc(a.course)+'</p>' : '')
     + '<p class="bio">'+esc(a.bio)+'</p>'
     + '<ul class="contact">'+contact.join('')+'</ul></div></div>';
 }
@@ -917,9 +953,12 @@ function renderAbout(){
   app.innerHTML =
     '<section class="about fade">'
     + '<h1>About Ascend Markets</h1>'
-    + '<p class="lead">One market story a week, written by two students: what happened, why it '
+    + '<p class="lead">One market story a week, written by four students: what happened, why it '
     + 'matters, and what to watch next.</p>'
-    + '<div class="founders">'+founderCard(AUTHORS.christian,true)+founderCard(AUTHORS.theo,false)+'</div>'
+    + '<p class="label team-label">The team</p>'
+    + '<div class="founders">'
+    + Object.values(AUTHORS).map((a,i)=>founderCard(a, i===0)).join('')
+    + '</div>'
     + '<div class="body"><h3>Why this blog</h3>'
     + '<p>We started writing a weekly note to sharpen our thinking about markets and to build a '
     + 'public record of it. Each piece takes one story and works through the numbers behind it.</p>'
