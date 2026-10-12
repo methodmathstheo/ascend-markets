@@ -123,6 +123,14 @@ The repository includes a `Dockerfile` that serves the folder with Caddy on Rail
 
 Every push to the connected branch redeploys the site.
 
+### Security headers
+
+`Caddyfile` sets the response headers for the deployed site: a content security policy that
+allows only the Google Fonts stylesheet and the pinned `marked` build from outside, plus
+`nosniff`, `X-Frame-Options: DENY`, a strict referrer policy and a locked down permissions
+policy. If you ever add a new external script, stylesheet or image host, add it to the matching
+`Content-Security-Policy` directive or the browser will block it.
+
 ### The custom domain
 
 The site runs on `ascendmarkets.co.uk`. Railway serves it from the generated
