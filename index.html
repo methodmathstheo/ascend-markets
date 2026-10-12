@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ascend Markets</title>
-<meta name="description" content="Ascend Markets: weekly market notes by Christian Walton, Theo Elwell, Jimmy Carlton and Zac Kemp. One market story a week, explained properly.">
+<meta name="description" content="Ascend Markets: weekly market notes by Christian Walton, Theo Elwell, Jimmy Carlton, Zac Kemp and Billy Hyams. One market story a week, explained properly.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme:light)">
@@ -13,14 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ascend Markets">
 <meta property="og:title" content="Ascend Markets">
-<meta property="og:description" content="Weekly market notes from four students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
+<meta property="og:description" content="Weekly market notes from five students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
 <link rel="canonical" href="https://ascendmarkets.co.uk/">
 <meta property="og:url" content="https://ascendmarkets.co.uk/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://ascendmarkets.co.uk/assets/logo.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ascend Markets">
-<meta name="twitter:description" content="Weekly market notes from four students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
+<meta name="twitter:description" content="Weekly market notes from five students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,14 +120,14 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
 /* ===========================================================
    HOME: HERO
    =========================================================== */
-.hero{padding:clamp(2.4rem,6vw,4rem) 0 2.2rem;max-width:860px}
+.hero{padding:clamp(2.4rem,6vw,4rem) 0 1.5rem;max-width:860px}
 .hero h1{font-family:var(--serif);font-size:clamp(2.4rem,7vw,4.5rem);line-height:1.01;
   letter-spacing:-.034em;font-weight:500;margin:0 0 1.3rem;max-width:22ch}
 .hero .lead{font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--ink-2);margin:0;max-width:64ch}
-.teamstrip{margin-top:2.2rem}
+.teamstrip{margin:0 0 2.6rem}
 .teamstrip .label{display:block;margin-bottom:.9rem}
 .teamstrip ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
-  gap:.9rem clamp(1.1rem,3.5vw,2.4rem)}
+  gap:.9rem clamp(1rem,2.4vw,1.8rem)}
 .teamstrip a{display:flex;align-items:center;gap:.6rem;text-decoration:none}
 .teamstrip .who{display:block;line-height:1.25}
 .teamstrip .n{display:block;font-size:.92rem;font-weight:500;color:var(--ink)}
@@ -573,6 +573,16 @@ const AUTHORS = {
     phone:'+44 7493 214246', tel:'+447493214246',
     photo:'assets/founders/zac.jpg',
     alt:'Portrait of Zac Kemp, head of macro news at Ascend Markets'
+  },
+  billy: {
+    key:'billy', name:'Billy Hyams', first:'Billy', initials:'BH',
+    desk:'Head of Real Estate', section:'realestate',
+    course:'Economics, University of Nottingham',
+    bio:'Billy Hyams is an Economics student at the University of Nottingham. He covers real estate, from housing and commercial property to the listed landlords and the cost of financing them.',
+    email:'leybh12@nottingham.ac.uk',
+    phone:'+44 7852 151955', tel:'+447852151955',
+    photo:'assets/founders/billy.jpg',
+    alt:'Portrait of Billy Hyams, head of real estate at Ascend Markets'
   }
 };
 
@@ -837,7 +847,7 @@ function teamStripHTML(){
     '<li><a href="#/about">' + avatarHTML(a,34,false)
     + '<span class="who"><span class="n">'+esc(a.name)+'</span>'
     + '<span class="r">'+esc(homeRole(a))+'</span></span></a></li>').join('');
-  return '<div class="teamstrip"><span class="label">The team</span><ul>'+items+'</ul></div>';
+  return '<div class="teamstrip fade"><span class="label">The team</span><ul>'+items+'</ul></div>';
 }
 function renderHome(){
   setNav('home');
@@ -846,11 +856,11 @@ function renderHome(){
   app.innerHTML =
     '<section class="hero fade">'
     + '<h1>Notes on markets, every week.</h1>'
-    + '<p class="lead">We&#39;re four students across four universities, each covering a desk. '
+    + '<p class="lead">We&#39;re five students across four universities, each covering a desk. '
     + 'Every week we break down one market story: what happened, why it matters, and what to '
     + 'watch next.</p>'
-    + teamStripHTML()
     + '</section>'
+    + teamStripHTML()
     + (latest ? featuredHTML(latest) : '')
     + cadenceHTML()
     + sectionsGridHTML()
@@ -982,7 +992,7 @@ function renderAbout(){
   app.innerHTML =
     '<section class="about fade">'
     + '<h1>About Ascend Markets</h1>'
-    + '<p class="lead">One market story a week, written by four students: what happened, why it '
+    + '<p class="lead">One market story a week, written by five students: what happened, why it '
     + 'matters, and what to watch next.</p>'
     + '<p class="label team-label">The team</p>'
     + '<div class="founders">'
