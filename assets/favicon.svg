@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Ascend Markets">
+  <title>Ascend Markets</title>
+  <style>
+    .plate{fill:#FBFAF7}
+    .mark{stroke:#0E6F52}
+    @media (prefers-color-scheme:dark){
+      .plate{fill:#0B1220}
+      .mark{stroke:#35C891}
+    }
+  </style>
+  <rect class="plate" width="32" height="32" rx="7"/>
+  <g class="mark" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 25 L11.4 16.8 L14.6 19.4 L19.6 7.8"/>
+    <path d="M19.6 7.8 L26 25"/>
+    <path d="M13.9 20.8 H24.1"/>
+  </g>
+</svg>

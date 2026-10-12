@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ascend Markets</title>
+<meta name="description" content="Ascend Markets: weekly market notes by Theo Elwell (Economics, Loughborough University) and Christian Walton (Mathematics with Data Science, LSE).">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#0B1220" media="(prefers-color-scheme:dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ascend Markets">
+<meta property="og:title" content="Ascend Markets">
+<meta property="og:description" content="Weekly market notes by Theo Elwell and Christian Walton. One story a week: what happened, why it matters, and what to watch next.">
+<meta property="og:url" content="https://waltonchris.github.io/ascend/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://waltonchris.github.io/ascend/assets/logo.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ascend Markets">
+<meta name="twitter:description" content="Weekly market notes by Theo Elwell and Christian Walton. One story a week: what happened, why it matters, and what to watch next.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+/* ===========================================================
+   TOKENS
+   =========================================================== */
+:root{
+  --paper:#FBFAF7; --paper-2:#F4F1E9; --surface:#FFFFFF;
+  --ink:#101A2B; --ink-2:#4B5769; --ink-3:#64707F;
+  --rule:#E3DED4; --rule-2:#CFC8BA;
+  --accent:#0E6F52; --accent-2:#0B5A43; --accent-soft:#E6F0EA;
+  --lift:0 1px 2px rgba(16,26,43,.05), 0 14px 34px -16px rgba(16,26,43,.22);
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1220; --paper-2:#101A28; --surface:#121C2C;
+    --ink:#EBF0F7; --ink-2:#9EABBE; --ink-3:#8793A6;
+    --rule:#22304A; --rule-2:#30415F;
+    --accent:#35C891; --accent-2:#5FDAAB; --accent-soft:#102A24;
+    --lift:0 1px 2px rgba(0,0,0,.34), 0 16px 36px -16px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B1220; --paper-2:#101A28; --surface:#121C2C;
+  --ink:#EBF0F7; --ink-2:#9EABBE; --ink-3:#8793A6;
+  --rule:#22304A; --rule-2:#30415F;
+  --accent:#35C891; --accent-2:#5FDAAB; --accent-soft:#102A24;
+  --lift:0 1px 2px rgba(0,0,0,.34), 0 16px 36px -16px rgba(0,0,0,.6);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit}
+::selection{background:var(--accent-soft);color:var(--ink)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--surface);color:var(--ink);
+  padding:.7rem 1rem;border:1px solid var(--rule);z-index:80}
+.skip:focus{left:1rem;top:1rem}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--ink-3)}
+.rule-t{border-top:1px solid var(--rule)}
+
+/* ===========================================================
+   MASTHEAD
+   =========================================================== */
+.masthead{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;
+  padding:1.6rem 0 1.3rem}
+.lockup{display:inline-flex;align-items:center;gap:.62rem;text-decoration:none;color:var(--ink)}
+.lockup svg{width:30px;height:30px;flex:none;color:var(--accent)}
+.lockup .word{font-family:var(--serif);font-size:1.62rem;font-weight:500;letter-spacing:-.022em;
+  line-height:1;display:block}
+.lockup .sub{display:block;font-size:.56rem;font-weight:600;letter-spacing:.34em;
+  color:var(--ink-3);margin-top:.22rem}
+.mast-right{display:flex;align-items:center;gap:clamp(1rem,3vw,2rem)}
+.mast-nav{display:flex;gap:clamp(.9rem,2.4vw,1.6rem)}
+.mast-nav a{text-decoration:none;color:var(--ink-2);font-weight:500;font-size:.94rem;
+  position:relative;padding-bottom:2px}
+.mast-nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.mast-nav a:hover{color:var(--ink)}
+.mast-nav a:hover::after{transform:scaleX(1)}
+.mast-nav a[aria-current="page"]{color:var(--ink)}
+.mast-nav a[aria-current="page"]::after{transform:scaleX(1);background:var(--accent)}
+.dateline{text-align:right;font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);line-height:1.5;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dateline b{color:var(--ink-2);font-weight:600}
+
+/* Section nav */
+.secnav-wrap{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.secnav{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  -webkit-overflow-scrolling:touch}
+.secnav::-webkit-scrollbar{display:none}
+.secnav a{flex:none;text-decoration:none;color:var(--ink-2);font-size:.8rem;font-weight:500;
+  letter-spacing:.02em;padding:.72rem .85rem;position:relative;white-space:nowrap}
+.secnav a:first-child{padding-left:0}
+.secnav a::after{content:"";position:absolute;left:.85rem;right:.85rem;bottom:0;height:2px;
+  background:var(--c,var(--accent));transform:scaleX(0);transition:transform .2s ease}
+.secnav a:first-child::after{left:0}
+.secnav a:hover{color:var(--ink)}
+.secnav a:hover::after,.secnav a[aria-current="page"]::after{transform:scaleX(1)}
+.secnav a[aria-current="page"]{color:var(--ink)}
+
+/* ===========================================================
+   HOME: HERO
+   =========================================================== */
+.hero{padding:clamp(2.4rem,6vw,4rem) 0 2.2rem;max-width:860px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,7vw,4.5rem);line-height:1.01;
+  letter-spacing:-.034em;font-weight:500;margin:0 0 1.3rem;max-width:22ch}
+.hero .lead{font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--ink-2);margin:0;max-width:64ch}
+.foundedby{display:flex;align-items:center;gap:.7rem;margin-top:2rem;flex-wrap:wrap}
+.foundedby .names{font-size:.9rem;color:var(--ink-2)}
+.foundedby .names a{text-decoration:none;border-bottom:1px solid var(--rule-2);color:var(--ink)}
+.foundedby .names a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Avatars */
+.avatar{position:relative;display:inline-block;width:var(--s,28px);height:var(--s,28px);
+  border-radius:50%;overflow:hidden;border:1px solid var(--rule-2);background:var(--accent-soft);
+  flex:none;vertical-align:middle}
+.avatar .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:600;font-size:calc(var(--s,28px) * .4);color:var(--accent);
+  letter-spacing:.01em}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.avatars{display:inline-flex;align-items:center}
+.avatars .avatar+.avatar{margin-left:calc(var(--s,28px) * -.32);box-shadow:0 0 0 2px var(--paper)}
+
+/* Byline */
+.byline{display:inline-flex;align-items:center;gap:.45rem;color:var(--ink-2);font-size:.86rem}
+
+/* ===========================================================
+   FEATURED
+   =========================================================== */
+.featured{border-top:1px solid var(--rule);padding-top:1.5rem;margin-bottom:3rem}
+.featured .bar{height:2px;background:var(--c,var(--accent));width:72px;margin-bottom:1.15rem}
+.featured a.card{display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,2.6fr);
+  gap:clamp(1rem,4vw,3rem);text-decoration:none;padding-bottom:.4rem}
+.fmeta{display:flex;flex-direction:column;gap:.5rem}
+.kicker{display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-size:.7rem;
+  letter-spacing:.15em;text-transform:uppercase;font-weight:600}
+.kicker .now{color:var(--accent)}
+.kicker .iss{color:var(--ink-3);font-variant-numeric:tabular-nums}
+.fmeta time{font-size:.86rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.featured h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.85rem,4.6vw,3.1rem);
+  line-height:1.07;letter-spacing:-.028em;margin:0 0 .85rem;
+  background-image:linear-gradient(var(--ink),var(--ink));background-size:0 1px;
+  background-position:0 100%;background-repeat:no-repeat;transition:background-size .3s ease}
+.featured a.card:hover h2{background-size:100% 1px}
+.featured .sum{margin:0 0 1.1rem;color:var(--ink-2);font-size:1.06rem;max-width:62ch}
+.featured .foot{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;
+  font-size:.85rem;color:var(--ink-3)}
+.sec-tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--c,var(--accent))}
+.dot{width:3px;height:3px;border-radius:50%;background:var(--rule-2);flex:none}
+
+/* ===========================================================
+   CADENCE
+   =========================================================== */
+.cadence{border-top:1px solid var(--rule);padding:2.1rem 0 2.4rem}
+.cadence .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
+  gap:.6rem;margin-bottom:1.1rem}
+.streak{font-size:.82rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.streak b{color:var(--ink);font-weight:600}
+.cells{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.1rem}
+.cell{width:22px;height:22px;border-radius:5px;border:1px solid var(--rule-2);
+  background:transparent;display:block;position:relative}
+a.cell{background:var(--c,var(--accent));border-color:var(--c,var(--accent));
+  transition:transform .16s ease}
+a.cell:hover{transform:scale(1.2)}
+.tip{position:absolute;left:50%;bottom:calc(100% + 9px);transform:translateX(-50%) translateY(3px);
+  background:var(--surface);border:1px solid var(--rule);box-shadow:var(--lift);border-radius:7px;
+  padding:.5rem .65rem;width:max-content;max-width:14rem;text-align:left;
+  opacity:0;pointer-events:none;transition:opacity .16s ease,transform .16s ease;z-index:30}
+.tip b{display:block;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-bottom:.2rem;font-variant-numeric:tabular-nums}
+.tip span{display:block;font-size:.82rem;line-height:1.35;color:var(--ink)}
+.tip i{display:block;font-size:.76rem;color:var(--ink-3);font-style:normal;margin-top:.15rem}
+.cell:hover .tip,.cell:focus .tip,.cell:focus-visible .tip{
+  opacity:1;transform:translateX(-50%) translateY(0)}
+.cells .cell:nth-child(-n+3) .tip{left:0;transform:translateX(0) translateY(3px)}
+.cells .cell:nth-child(-n+3):hover .tip,.cells .cell:nth-child(-n+3):focus .tip,
+.cells .cell:nth-child(-n+3):focus-visible .tip{transform:translateX(0) translateY(0)}
+.legend{display:flex;flex-wrap:wrap;gap:.45rem 1.1rem;margin:0 0 1rem}
+.legend span{display:inline-flex;align-items:center;gap:.4rem;font-size:.76rem;color:var(--ink-3)}
+.legend i{width:9px;height:9px;border-radius:2px;background:var(--c);flex:none}
+.legend .empty i{background:transparent;border:1px solid var(--rule-2)}
+.cadence p{margin:0;color:var(--ink-2);font-size:.92rem;font-variant-numeric:tabular-nums}
+.cadence p strong{color:var(--ink);font-weight:600}
+
+/* ===========================================================
+   SECTIONS GRID
+   =========================================================== */
+.sections{border-top:1px solid var(--rule);padding:2.1rem 0 2.6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,232px),1fr));
+  gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.grid a{position:relative;background:var(--paper);text-decoration:none;padding:1.25rem 1.2rem 1.1rem;
+  display:flex;flex-direction:column;gap:.45rem;
+  border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  transition:background .2s ease,box-shadow .2s ease}
+.grid a:hover{background:var(--surface);box-shadow:var(--lift);z-index:2}
+.grid a .bar{transition:width .22s ease}
+.grid a:hover .bar{width:44px}
+.grid a .bar{height:2px;width:26px;background:var(--c);margin-bottom:.35rem}
+.grid a h3{font-family:var(--serif);font-weight:500;font-size:1.18rem;letter-spacing:-.015em;
+  margin:0;line-height:1.2}
+.grid a:hover h3{color:var(--c)}
+.grid a .desc{margin:0;font-size:.88rem;color:var(--ink-2);line-height:1.5}
+.grid a .foot{margin-top:auto;padding-top:.7rem;font-size:.78rem;color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+.grid a .foot .latest{display:block;color:var(--ink-2);margin-top:.15rem;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ===========================================================
+   ARCHIVE LIST
+   =========================================================== */
+.list{border-top:1px solid var(--rule);padding:2.1rem 0 3.4rem}
+.list-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
+  gap:.8rem 1.4rem;margin-bottom:1.3rem}
+.list-head h2{font-family:var(--serif);font-weight:500;margin:0;font-size:1.55rem;letter-spacing:-.02em}
+.filterbar{display:flex;flex-wrap:wrap;gap:.55rem 1.3rem}
+.fgroup{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem}
+.fgroup .label{margin-right:.15rem}
+.fgroup button{font-size:.83rem;border:1px solid var(--rule-2);background:transparent;
+  color:var(--ink-2);padding:.26rem .78rem;border-radius:999px;cursor:pointer;
+  transition:background .18s ease,color .18s ease,border-color .18s ease}
+.fgroup button:hover{color:var(--ink);border-color:var(--ink-3)}
+.fgroup button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.posts{list-style:none;margin:0;padding:0}
+.posts li{border-top:1px solid var(--rule)}
+.posts li:last-child{border-bottom:1px solid var(--rule)}
+.posts a{display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:clamp(.8rem,3vw,2rem);
+  padding:1.5rem .6rem 1.5rem .8rem;text-decoration:none;border-left:2px solid transparent;
+  margin-left:-.8rem;transition:border-color .2s ease,background .2s ease}
+.posts a:hover{border-left-color:var(--c,var(--accent));background:var(--paper-2)}
+.posts .when{display:flex;flex-direction:column;gap:.3rem;padding-top:.15rem}
+.posts time{color:var(--ink-3);font-size:.86rem;font-variant-numeric:tabular-nums}
+.posts .iss{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);font-variant-numeric:tabular-nums}
+.posts h3{font-family:var(--serif);font-weight:500;margin:0 0 .35rem;font-size:1.32rem;
+  line-height:1.25;letter-spacing:-.018em}
+.posts a:hover h3{color:var(--accent)}
+.posts .sum{margin:0 0 .7rem;color:var(--ink-2);max-width:66ch;font-size:.97rem}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .85rem;font-size:.84rem;color:var(--ink-3)}
+.tag{color:var(--ink-2)}
+.empty-state{color:var(--ink-2);padding:2.4rem 1.6rem;border:1px dashed var(--rule-2);
+  border-radius:4px;max-width:58ch;margin:0;background:var(--paper-2)}
+.empty-state a{color:var(--accent)}
+.emptywrap{padding:.6rem 0 3.4rem}
+
+/* ===========================================================
+   SECTION PAGE
+   =========================================================== */
+.sechero{padding:clamp(2rem,5vw,3.2rem) 0 1.8rem;max-width:720px}
+.sechero .bar{height:2px;width:46px;background:var(--c);margin-bottom:1.1rem}
+.sechero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,6vw,3.4rem);
+  line-height:1.04;letter-spacing:-.03em;margin:0 0 .9rem}
+.sechero p{margin:0;color:var(--ink-2);font-size:1.08rem;max-width:58ch}
+.sechero .count{margin-top:1.1rem;font-size:.84rem;color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+
+/* ===========================================================
+   ARTICLE
+   =========================================================== */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);
+  transform:scaleX(0);transform-origin:0 50%;z-index:60;will-change:transform}
+.article{padding:2rem 0 3.5rem}
+.back{display:inline-flex;align-items:center;gap:.45rem;color:var(--ink-3);text-decoration:none;
+  font-size:.86rem;letter-spacing:.02em;margin-bottom:2.2rem}
+.back:hover{color:var(--ink)}
+.back svg{width:13px;height:13px}
+.ahead{max-width:68ch;border-bottom:1px solid var(--rule);padding-bottom:1.5rem;margin-bottom:2.2rem}
+.ahead .kicker{margin-bottom:1rem}
+.article h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5.4vw,3.35rem);
+  line-height:1.06;letter-spacing:-.03em;margin:0 0 1rem}
+.standfirst{font-size:1.14rem;color:var(--ink-2);margin:0 0 1.6rem;max-width:62ch}
+.arow{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;font-size:.86rem;color:var(--ink-3)}
+.arow time{font-variant-numeric:tabular-nums}
+.copy{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--rule-2);
+  background:transparent;color:var(--ink-2);border-radius:999px;padding:.26rem .8rem;
+  font-size:.8rem;cursor:pointer;transition:color .18s ease,border-color .18s ease}
+.copy:hover{color:var(--ink);border-color:var(--ink-3)}
+.copy[data-done="1"]{color:var(--accent);border-color:var(--accent)}
+.copy svg{width:12px;height:12px}
+
+.prose{max-width:68ch;font-size:1.1rem;line-height:1.74}
+.prose>:first-child{margin-top:0}
+.prose p,.prose ul,.prose ol{margin:0 0 1.3rem}
+.prose h2{font-family:var(--serif);font-weight:500;font-size:1.62rem;letter-spacing:-.022em;
+  line-height:1.22;margin:2.7rem 0 .85rem}
+.prose h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:2.1rem 0 .55rem;
+  letter-spacing:-.015em}
+.prose li{margin-bottom:.45rem}
+.prose li::marker{color:var(--ink-3)}
+.prose strong{font-weight:600;color:var(--ink)}
+.prose blockquote{margin:2.2rem 0;padding:.1rem 0 .1rem 1.3rem;border-left:2px solid var(--accent);
+  font-family:var(--serif);font-style:italic;font-size:1.38rem;line-height:1.42;color:var(--ink);
+  letter-spacing:-.012em}
+.prose blockquote p{margin:0}
+.prose a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+.prose a:hover{border-bottom-color:var(--accent)}
+.prose .table-scroll{overflow-x:auto;margin:1.7rem 0;border:1px solid var(--rule);border-radius:3px}
+.prose table{border-collapse:collapse;width:100%;font-size:.95rem;
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.prose th,.prose td{text-align:left;padding:.6rem .85rem;border-bottom:1px solid var(--rule);
+  white-space:nowrap}
+.prose thead th{font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);background:var(--paper-2)}
+.prose tbody tr:last-child td{border-bottom:0}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;
+  background:var(--accent-soft);padding:.12em .36em;border-radius:3px}
+.prose pre{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;
+  padding:1rem;overflow-x:auto}
+.prose pre code{background:none;padding:0}
+.prose hr{border:0;border-top:1px solid var(--rule);margin:2.6rem 0}
+.prose img{margin:1.6rem 0;border-radius:4px}
+
+.more{border-top:1px solid var(--rule);margin-top:3.2rem;padding-top:1.5rem}
+.more h2{font-family:var(--serif);font-weight:500;font-size:1.25rem;margin:0 0 1.1rem;
+  letter-spacing:-.018em}
+.more .grid a{background:var(--paper)}
+.more .grid a .t{font-family:var(--serif);font-size:1.04rem;font-weight:500;line-height:1.3;margin:0}
+.more .grid a:hover .t{color:var(--accent)}
+.more .grid a time{font-size:.78rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem clamp(1rem,4vw,2.5rem);
+  border-top:1px solid var(--rule);margin-top:2.6rem;padding-top:1.5rem}
+.pager a{text-decoration:none;display:block}
+.pager span{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--ink-3);margin-bottom:.35rem}
+.pager strong{font-family:var(--serif);font-weight:500;font-size:1.06rem;line-height:1.3;
+  letter-spacing:-.015em}
+.pager a:hover strong{color:var(--accent)}
+.pager .next{text-align:right;grid-column:2}
+
+/* ===========================================================
+   ABOUT
+   =========================================================== */
+.about{padding:2rem 0 3.5rem}
+.about h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,6vw,3.4rem);
+  line-height:1.05;letter-spacing:-.03em;margin:0 0 1rem;max-width:20ch}
+.about .lead{font-size:1.12rem;color:var(--ink-2);max-width:62ch;margin:0 0 2.6rem}
+.founders{display:grid;gap:1px;background:var(--rule);border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule)}
+.founder{background:var(--paper);display:grid;grid-template-columns:200px minmax(0,1fr);
+  gap:clamp(1.2rem,4vw,2.2rem);padding:1.9rem 0}
+.portrait{position:relative;width:100%;aspect-ratio:4/5;border-radius:8px;overflow:hidden;
+  border:1px solid var(--rule-2);background:var(--accent-soft)}
+.portrait .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:500;font-size:2.6rem;letter-spacing:.02em;color:var(--accent)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.founder h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.022em;
+  margin:0 0 .3rem;line-height:1.2}
+.founder .role{margin:0 0 1rem;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:600;color:var(--accent)}
+.founder .bio{margin:0 0 1.1rem;color:var(--ink-2);max-width:60ch}
+.contact{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin:0;padding:0;list-style:none}
+.contact li{font-size:.9rem;color:var(--ink-3)}
+.contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-2);
+  font-weight:500;word-break:break-word}
+.contact a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.about h3{font-family:var(--serif);font-weight:500;font-size:1.35rem;letter-spacing:-.02em;
+  margin:2.8rem 0 .7rem}
+.about .body{max-width:66ch}
+.about .body p{margin:0 0 1.1rem;color:var(--ink-2)}
+.about .body p strong{color:var(--ink);font-weight:600}
+
+/* ===========================================================
+   NOT FOUND
+   =========================================================== */
+.nf{padding:3rem 0 4.5rem;max-width:56ch}
+.nf h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,5vw,2.9rem);
+  letter-spacing:-.028em;margin:0 0 1rem;line-height:1.1}
+.nf p{color:var(--ink-2);margin:0 0 1.5rem}
+.btn{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;border:1px solid var(--ink);
+  color:var(--ink);padding:.5rem 1.1rem;border-radius:999px;font-size:.9rem;font-weight:500;
+  transition:background .2s ease,color .2s ease}
+.btn:hover{background:var(--ink);color:var(--paper)}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+footer{border-top:1px solid var(--rule);padding:2.2rem 0 3rem;color:var(--ink-3);font-size:.86rem}
+footer .frow{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;align-items:center}
+footer p{margin:0;max-width:72ch}
+footer nav{display:flex;gap:1.1rem}
+footer nav a{text-decoration:none;color:var(--ink-3)}
+footer nav a:hover{color:var(--ink)}
+
+/* ===========================================================
+   MOTION
+   =========================================================== */
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fade{animation:rise .5s cubic-bezier(.22,.61,.36,1) both}
+.fade:nth-child(2){animation-delay:.05s}
+.fade:nth-child(3){animation-delay:.1s}
+.fade:nth-child(4){animation-delay:.15s}
+.fade:nth-child(5){animation-delay:.2s}
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width:860px){
+  .founder{grid-template-columns:150px minmax(0,1fr)}
+  .featured a.card{grid-template-columns:1fr;gap:1rem}
+  .fmeta{flex-direction:row;align-items:center;gap:.8rem;flex-wrap:wrap}
+}
+@media (max-width:720px){
+  .masthead{flex-direction:column;align-items:flex-start;gap:1rem;padding-bottom:1.1rem}
+  .mast-right{width:100%;justify-content:space-between;align-items:flex-end}
+  .dateline{text-align:right}
+}
+@media (max-width:640px){
+  .posts a{grid-template-columns:1fr;gap:.45rem}
+  .posts .when{flex-direction:row;align-items:center;gap:.7rem}
+  .pager{grid-template-columns:1fr}
+  .pager .next{grid-column:1;text-align:left}
+  .founder{grid-template-columns:1fr;gap:1.2rem}
+  .portrait{max-width:190px}
+  .cell{width:19px;height:19px}
+  .copy{margin-left:0}
+  .prose{font-size:1.06rem}
+}
+@media (max-width:400px){
+  .lockup svg{width:26px;height:26px}
+  .lockup .word{font-size:1.4rem}
+  .dateline{font-size:.64rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .featured h2{background-size:100% 1px}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#app">Skip to content</a>
+
+<div class="wrap">
+  <header class="masthead">
+    <a class="lockup" href="#/" aria-label="Ascend Markets, home">
+      <svg viewBox="0 0 34 34" aria-hidden="true" focusable="false" fill="none"
+           stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.5 28.5 L11.6 17.6 L15.7 20.8 L22 7"/>
+        <path d="M22 7 L29.5 28.5"/>
+        <path d="M14.8 22.6 H26.6"/>
+      </svg>
+      <span>
+        <span class="word">Ascend</span>
+        <span class="sub">MARKETS</span>
+      </span>
+    </a>
+    <div class="mast-right">
+      <nav class="mast-nav" aria-label="Main">
+        <a href="#/" data-nav="home">Notes</a>
+        <a href="#/about" data-nav="about">About</a>
+      </nav>
+      <p class="dateline" id="dateline"></p>
+    </div>
+  </header>
+</div>
+
+<div class="secnav-wrap">
+  <div class="wrap">
+    <nav class="secnav" id="secnav" aria-label="Sections"></nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <main id="app" tabindex="-1"></main>
+  <footer>
+    <div class="frow">
+      <p>&copy; <span id="yr" class="num"></span> Ascend Markets, founded by Theo Elwell and Christian Walton. Views are our own and do not constitute investment advice.</p>
+      <nav aria-label="Footer">
+        <a href="#/">Notes</a>
+        <a href="#/about">About</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+<script src="posts.js"></script>
+<script>
+/* =================================================================
+   CONFIG
+   Sections and authors live here. Add or rename a section by
+   editing SECTIONS, then use its key in posts.js.
+   ================================================================= */
+const SECTIONS = [
+  {key:'equities',    name:'Equities',         desc:'Single names, indices and the earnings that move them.',          light:'#1C6B58', dark:'#4FC0A3'},
+  {key:'fx',          name:'FX',               desc:'Currency pairs, policy divergence and cross-border flows.',       light:'#2F5FA8', dark:'#7FA8EE'},
+  {key:'bonds',       name:'Bonds',            desc:'Government and corporate debt, yields and the shape of the curve.', light:'#64479C', dark:'#B29BE8'},
+  {key:'derivatives', name:'Options & Futures',desc:'Volatility, positioning and the contracts behind the price.',     light:'#8F3F5E', dark:'#EC8FAE'},
+  {key:'commodities', name:'Commodities',      desc:'Energy, metals and agriculture, from production to price.',       light:'#8A5A1E', dark:'#DDA75A'},
+  {key:'realestate',  name:'Real Estate',      desc:'Property markets, listed landlords and the cost of financing them.', light:'#9A4F28', dark:'#E39572'},
+  {key:'macro',       name:'Macro',            desc:'Cross-asset and economics: growth, inflation, labour and policy.', light:'#45566B', dark:'#9DAFC6'},
+  /* Editorial is a housekeeping category: it appears in filters, not in the sections grid. */
+  {key:'editorial',   name:'Editorial',        desc:'Notes about the blog itself.',                                    light:'#5E6472', dark:'#A3ADBE', listed:false}
+];
+
+const AUTHORS = {
+  theo: {
+    key:'theo', name:'Theo Elwell', first:'Theo', initials:'TE',
+    role:'Economics, Loughborough University',
+    bio:'Theo is a final-year BSc Economics student at Loughborough University. In July 2025 he worked on the LME base metals desk at DV Trading and in base metals and oil broking at Sigma Broking. He is also a macroeconomic analyst on the Loughborough Student Managed Fund.',
+    email:'T.Elwell1-24@student.lboro.ac.uk',
+    phone:'',
+    photo:'assets/founders/theo.jpg',
+    alt:'Portrait of Theo Elwell, co-founder of Ascend Markets'
+  },
+  christian: {
+    key:'christian', name:'Christian Walton', first:'Christian', initials:'CW',
+    role:'Mathematics with Data Science, LSE',
+    bio:'Christian is a second-year BSc Mathematics with Data Science student at the London School of Economics. He works through the data behind each story, from pricing and volatility to the statistics underneath the headline numbers.',
+    email:'c.walton2@lse.ac.uk',
+    phone:'+44 7843 160935',
+    photo:'assets/founders/christian.jpg',
+    alt:'Portrait of Christian Walton, co-founder of Ascend Markets'
+  }
+};
+
+/* =================================================================
+   SITE LOGIC (nothing to edit weekly)
+   ================================================================= */
+const app = document.getElementById('app');
+const progressEl = document.getElementById('progress');
+const ALL_POSTS = (typeof POSTS !== 'undefined' && Array.isArray(POSTS)) ? POSTS
+  : (window.POSTS || []);
+const posts = ALL_POSTS.slice().sort((a,b)=> b.date.localeCompare(a.date));
+
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate = d => new Date(d+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const fmtLong = d => new Date(d+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+const fmtShort = d => d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+const readTime = t => Math.max(1, Math.round(String(t).trim().split(/\s+/).length/220)) + ' min read';
+const plural = (n,w) => n + ' ' + w + (n===1?'':'s');
+
+function md(text){
+  if (window.marked) {
+    const html = marked.parse(String(text).trim());
+    return html.replace(/<table>/g,'<div class="table-scroll"><table>').replace(/<\/table>/g,'</table></div>');
+  }
+  return String(text).trim().split(/\n\s*\n/).map(p=>'<p>'+esc(p)+'</p>').join('');
+}
+function monday(d){
+  const x = (d instanceof Date) ? new Date(d) : new Date(d+'T12:00:00');
+  x.setHours(12,0,0,0);
+  const day = (x.getDay()+6)%7;
+  x.setDate(x.getDate()-day);
+  return x;
+}
+const WEEK = 604800000;
+const weeksBetween = (a,b) => Math.round((b.getTime()-a.getTime())/WEEK);
+
+const firstDate = posts.length ? posts[posts.length-1].date : null;
+const firstMonday = firstDate ? monday(firstDate) : null;
+
+function issueNo(post){
+  if(!firstMonday) return '';
+  const n = weeksBetween(firstMonday, monday(post.date)) + 1;
+  return 'No. ' + String(Math.max(1,n)).padStart(2,'0');
+}
+const isThisWeek = post => firstMonday && monday(post.date).getTime() === monday(new Date()).getTime();
+
+/* --- sections and authors --------------------------------------- */
+const SEC_BY_KEY = Object.fromEntries(SECTIONS.map(s=>[s.key,s]));
+const FALLBACK_SEC = {key:'macro', name:'Macro', desc:'', light:'#45566B', dark:'#9DAFC6'};
+const sectionOf = p => SEC_BY_KEY[p && p.section] || FALLBACK_SEC;
+const secVar = s => '--c:var(--sec-' + s.key + ')';
+const listedSections = () => SECTIONS.filter(s => s.listed !== false);
+const postsIn = key => posts.filter(p => sectionOf(p).key === key);
+
+function authorsOf(p){
+  const a = p && p.author;
+  if(a === 'both') return [AUTHORS.theo, AUTHORS.christian];
+  return AUTHORS[a] ? [AUTHORS[a]] : [AUTHORS.theo, AUTHORS.christian];
+}
+const authorNames = p => authorsOf(p).map(a=>a.name).join(' and ');
+const writesFor = (p,key) => authorsOf(p).some(a=>a.key===key);
+
+function avatarHTML(a, size, eager){
+  return '<span class="avatar" style="--s:'+size+'px">'
+    + '<span class="mono" aria-hidden="true">'+esc(a.initials)+'</span>'
+    + '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt)+'" width="'+size+'" height="'+size+'"'
+    + ' decoding="async" loading="'+(eager?'eager':'lazy')+'" onerror="this.remove()">'
+    + '</span>';
+}
+function avatarsHTML(p, size){
+  const list = authorsOf(p);
+  return '<span class="avatars" style="--s:'+size+'px">'
+    + list.map(a=>avatarHTML(a,size,false)).join('') + '</span>';
+}
+function bylineHTML(p, size){
+  return '<span class="byline">'+avatarsHTML(p,size||24)+'<span>'+esc(authorNames(p))+'</span></span>';
+}
+
+/* --- section colour variables, generated from SECTIONS ----------- */
+(function injectSectionColours(){
+  const light = SECTIONS.map(s=>'--sec-'+s.key+':'+s.light+';').join('');
+  const dark  = SECTIONS.map(s=>'--sec-'+s.key+':'+s.dark+';').join('');
+  const css = ':root{'+light+'}'
+    + '@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){'+dark+'}}'
+    + ':root[data-theme="dark"]{'+dark+'}';
+  const el = document.createElement('style');
+  el.textContent = css;
+  document.head.appendChild(el);
+})();
+
+/* --- chrome ------------------------------------------------------ */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+(function buildDateline(){
+  const el = document.getElementById('dateline');
+  const latest = posts[0];
+  const today = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  el.innerHTML = (latest ? '<b>'+esc(issueNo(latest))+'</b> &middot; ' : '') + esc(today);
+})();
+
+(function buildSecNav(){
+  const nav = document.getElementById('secnav');
+  nav.innerHTML = '<a href="#/" data-nav="home">All notes</a>' + listedSections().map(s =>
+    '<a href="#/section/'+s.key+'" data-sec="'+s.key+'" style="'+secVar(s)+'">'+esc(s.name)+'</a>'
+  ).join('');
+})();
+
+function setNav(which, secKey){
+  document.querySelectorAll('[data-nav]').forEach(a=>{
+    if(a.dataset.nav===which && !secKey) a.setAttribute('aria-current','page');
+    else a.removeAttribute('aria-current');
+  });
+  document.querySelectorAll('[data-sec]').forEach(a=>{
+    if(a.dataset.sec===secKey) a.setAttribute('aria-current','page');
+    else a.removeAttribute('aria-current');
+  });
+}
+
+/* --- cadence ----------------------------------------------------- */
+const byWeek = new Map();
+posts.forEach(p => { const k = monday(p.date).getTime(); if(!byWeek.has(k)) byWeek.set(k, p); });
+
+function weekList(){
+  if(!posts.length) return [];
+  const now = monday(new Date());
+  const out = [];
+  for(let w = new Date(firstMonday); w <= now; w.setDate(w.getDate()+7)) out.push(new Date(w));
+  if(!out.length) out.push(new Date(firstMonday));
+  return out;
+}
+function currentStreak(){
+  let cur = monday(new Date());
+  if(!byWeek.has(cur.getTime())) cur.setDate(cur.getDate()-7);
+  let n = 0;
+  while(byWeek.has(cur.getTime())){ n++; cur.setDate(cur.getDate()-7); }
+  return n;
+}
+function cadenceHTML(){
+  if(!posts.length) return '';
+  const weeks = weekList();
+  const cells = weeks.map(w => {
+    const p = byWeek.get(w.getTime());
+    const wk = 'Week of ' + fmtShort(w);
+    if(!p) return '<span class="cell" title="'+esc(wk+', no note')+'" aria-hidden="true"></span>';
+    const s = sectionOf(p);
+    const aria = wk + ', ' + issueNo(p) + ': ' + p.title + ', by ' + authorNames(p);
+    return '<a class="cell" style="'+secVar(s)+'" href="#/post/'+encodeURIComponent(p.slug)+'"'
+      + ' aria-label="'+esc(aria)+'">'
+      + '<span class="tip" aria-hidden="true">'
+      + '<b>'+esc(wk+' · '+issueNo(p))+'</b>'
+      + '<span>'+esc(p.title)+'</span>'
+      + '<i>'+esc(s.name+' · '+authorNames(p))+'</i>'
+      + '</span></a>';
+  }).join('');
+
+  const used = [];
+  SECTIONS.forEach(s => { if(posts.some(p=>sectionOf(p).key===s.key)) used.push(s); });
+  const legend = used.map(s =>
+    '<span style="'+secVar(s)+'"><i></i>'+esc(s.name)+'</span>').join('')
+    + '<span class="empty"><i></i>No note</span>';
+
+  const n = posts.length, wk = weeks.length, streak = currentStreak();
+  const everyWeek = byWeek.size === weeks.length;
+  const line = '<strong>'+plural(n,'note')+'</strong> across '+plural(wk,'week')+', '
+    + (everyWeek ? 'published every week since ' : 'the first published ')
+    + fmtDate(firstDate) + '.';
+
+  return '<section class="cadence fade" aria-labelledby="cadence-h">'
+    + '<div class="head"><h2 class="label" id="cadence-h">Publishing record</h2>'
+    + '<p class="streak">Current streak: <b>'+plural(streak,'week')+'</b></p></div>'
+    + '<div class="cells">'+cells+'</div>'
+    + '<div class="legend">'+legend+'</div>'
+    + '<p>'+line+'</p></section>';
+}
+
+/* --- shared card and row builders -------------------------------- */
+function postRow(p){
+  const s = sectionOf(p);
+  return '<li><a href="#/post/'+encodeURIComponent(p.slug)+'" style="'+secVar(s)+'">'
+    + '<span class="when"><span class="iss">'+esc(issueNo(p))+'</span>'
+    + '<time datetime="'+esc(p.date)+'">'+esc(fmtDate(p.date))+'</time></span>'
+    + '<div><h3>'+esc(p.title)+'</h3><p class="sum">'+esc(p.summary)+'</p>'
+    + '<div class="meta"><span class="sec-tag">'+esc(s.name)+'</span>'
+    + bylineHTML(p,22)
+    + (p.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join('')
+    + '<span>'+esc(readTime(p.body))+'</span></div></div></a></li>';
+}
+const postListHTML = list => '<ol class="posts">' + list.map(postRow).join('') + '</ol>';
+
+function featuredHTML(p){
+  const s = sectionOf(p);
+  return '<section class="featured fade" style="'+secVar(s)+'" aria-labelledby="feat-h">'
+    + '<div class="bar"></div>'
+    + '<a class="card" href="#/post/'+encodeURIComponent(p.slug)+'">'
+    + '<div class="fmeta">'
+    + '<span class="kicker"><span class="now">'+(isThisWeek(p)?'This week':'Latest note')+'</span>'
+    + '<span class="dot"></span><span class="iss">'+esc(issueNo(p))+'</span></span>'
+    + '<time datetime="'+esc(p.date)+'">'+esc(fmtLong(p.date))+'</time>'
+    + '<span class="sec-tag">'+esc(s.name)+'</span></div>'
+    + '<div><h2 id="feat-h">'+esc(p.title)+'</h2>'
+    + '<p class="sum">'+esc(p.summary)+'</p>'
+    + '<div class="foot">'+bylineHTML(p,26)+'<span class="dot"></span>'
+    + '<span>'+esc(readTime(p.body))+'</span></div></div></a></section>';
+}
+
+/* --- home -------------------------------------------------------- */
+let activeSection = 'All', activeAuthor = 'All';
+
+function filteredPosts(){
+  return posts.filter(p =>
+    (activeSection==='All' || sectionOf(p).key===activeSection) &&
+    (activeAuthor==='All' || writesFor(p, activeAuthor)));
+}
+function archiveBodyHTML(){
+  const shown = filteredPosts();
+  if(!shown.length) return '<p class="empty-state">No notes match this filter yet. '
+    + 'Choose All to see every note.</p>';
+  return postListHTML(shown);
+}
+function filterBarHTML(){
+  const used = SECTIONS.filter(s => posts.some(p=>sectionOf(p).key===s.key));
+  const secPills = [{key:'All',name:'All'}].concat(used).map(s =>
+    '<button type="button" data-kind="section" data-val="'+esc(s.key)+'" aria-pressed="'
+    + (activeSection===s.key) + '">'+esc(s.name)+'</button>').join('');
+  const authPills = [{key:'All',first:'All'}]
+    .concat(Object.values(AUTHORS).filter(a=>posts.some(p=>writesFor(p,a.key))))
+    .map(a => '<button type="button" data-kind="author" data-val="'+esc(a.key)+'" aria-pressed="'
+    + (activeAuthor===a.key) + '">'+esc(a.first)+'</button>').join('');
+  return '<div class="filterbar">'
+    + '<div class="fgroup" role="group" aria-label="Filter by section">'
+    + '<span class="label">Section</span>'+secPills+'</div>'
+    + '<div class="fgroup" role="group" aria-label="Filter by author">'
+    + '<span class="label">Author</span>'+authPills+'</div></div>';
+}
+function sectionsGridHTML(){
+  const cards = listedSections().map(s => {
+    const ps = postsIn(s.key), latest = ps[0];
+    return '<a href="#/section/'+s.key+'" style="'+secVar(s)+'">'
+      + '<span class="bar"></span><h3>'+esc(s.name)+'</h3>'
+      + '<p class="desc">'+esc(s.desc)+'</p>'
+      + '<span class="foot">'+(ps.length ? esc(plural(ps.length,'note')) : 'First note coming soon')
+      + (latest ? '<span class="latest">'+esc(latest.title)+'</span>' : '')
+      + '</span></a>';
+  }).join('');
+  return '<section class="sections fade" aria-labelledby="sections-h">'
+    + '<div class="list-head"><h2 id="sections-h">Sections</h2>'
+    + '<p class="label">Seven asset classes, one note a week</p></div>'
+    + '<div class="grid">'+cards+'</div></section>';
+}
+function renderHome(){
+  setNav('home');
+  document.title = 'Ascend Markets';
+  const founders = {author:'both'};
+  const latest = posts[0];
+  app.innerHTML =
+    '<section class="hero fade">'
+    + '<h1>Notes on markets, every week.</h1>'
+    + '<p class="lead">We&#39;re Theo and Christian. Theo studies Economics at Loughborough University '
+    + 'and Christian studies Mathematics with Data Science at LSE. Each week we break down one market '
+    + 'story: what happened, why it matters, and what to watch next.</p>'
+    + '<div class="foundedby"><span class="label">Founded by</span>'
+    + avatarsHTML(founders,30)
+    + '<span class="names"><a href="#/about">Theo Elwell</a> and <a href="#/about">Christian Walton</a></span>'
+    + '</div></section>'
+    + (latest ? featuredHTML(latest) : '')
+    + cadenceHTML()
+    + sectionsGridHTML()
+    + '<section class="list fade" aria-labelledby="archive-h">'
+    + '<div class="list-head"><h2 id="archive-h">All notes</h2>'+filterBarHTML()+'</div>'
+    + '<div id="archive-body">'+archiveBodyHTML()+'</div></section>';
+  wireFilters();
+}
+function wireFilters(){
+  app.querySelectorAll('[data-kind]').forEach(b => b.addEventListener('click', () => {
+    if(b.dataset.kind==='section') activeSection = b.dataset.val;
+    else activeAuthor = b.dataset.val;
+    app.querySelectorAll('[data-kind]').forEach(o => o.setAttribute('aria-pressed',
+      String((o.dataset.kind==='section' ? activeSection : activeAuthor) === o.dataset.val)));
+    const body = document.getElementById('archive-body');
+    if(body) body.innerHTML = archiveBodyHTML();
+  }));
+}
+
+/* --- section page ------------------------------------------------ */
+function renderSection(key){
+  const s = SEC_BY_KEY[key];
+  if(!s){
+    setNav('home');
+    document.title = 'Section not found | Ascend Markets';
+    app.innerHTML = '<section class="nf fade"><h1>Section not found</h1>'
+      + '<p>This link does not match any section. The sections are listed on the home page.</p>'
+      + '<a class="btn" href="#/">Back to all notes</a></section>';
+    return;
+  }
+  setNav('home', s.listed===false ? null : s.key);
+  document.title = s.name + ' | Ascend Markets';
+  const ps = postsIn(s.key);
+  app.innerHTML =
+    '<section class="sechero fade" style="'+secVar(s)+'">'
+    + '<div class="bar"></div><h1>'+esc(s.name)+'</h1><p>'+esc(s.desc)+'</p>'
+    + (ps.length ? '<p class="count">'+esc(plural(ps.length,'note'))+' so far</p>' : '')
+    + '</section>'
+    + (ps.length
+      ? '<section class="list fade" aria-label="'+esc(s.name)+' notes">'+postListHTML(ps)+'</section>'
+      : '<section class="emptywrap fade" aria-label="'+esc(s.name)+' notes">'
+        + '<p class="empty-state"><strong>First note coming soon.</strong><br>We publish one note a '
+        + 'week, so this section will fill out as we go. In the meantime, the other sections are '
+        + 'listed on the <a href="#/">home page</a>.</p></section>');
+}
+
+/* --- article ----------------------------------------------------- */
+function renderPost(slug){
+  const i = posts.findIndex(p => p.slug === slug);
+  if(i < 0){
+    setNav('home');
+    document.title = 'Article not found | Ascend Markets';
+    app.innerHTML = '<section class="nf fade"><h1>Article not found</h1>'
+      + '<p>This link does not match any article. Go back to the list to find it.</p>'
+      + '<a class="btn" href="#/">Back to all notes</a></section>';
+    return;
+  }
+  const p = posts[i], newer = posts[i-1], older = posts[i+1], s = sectionOf(p);
+  setNav('home', s.listed===false ? null : s.key);
+  document.title = p.title + ' | Ascend Markets';
+  const related = posts.filter(o => o.slug!==p.slug && sectionOf(o).key===s.key).slice(0,3);
+
+  app.innerHTML =
+    '<article class="article fade" style="'+secVar(s)+'">'
+    + '<a class="back" href="#/">'
+    + '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" '
+    + 'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<path d="M10 3 L5 8 L10 13"/></svg>All notes</a>'
+    + '<header class="ahead">'
+    + '<span class="kicker"><a class="sec-tag" href="#/section/'+s.key+'" '
+    + 'style="text-decoration:none">'+esc(s.name)+'</a>'
+    + '<span class="dot"></span><span class="iss">'+esc(issueNo(p))+'</span></span>'
+    + '<h1>'+esc(p.title)+'</h1>'
+    + '<p class="standfirst">'+esc(p.summary)+'</p>'
+    + '<div class="arow">'+bylineHTML(p,26)
+    + '<span class="dot"></span><time datetime="'+esc(p.date)+'">'+esc(fmtLong(p.date))+'</time>'
+    + '<span class="dot"></span><span>'+esc(readTime(p.body))+'</span>'
+    + (p.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join('')
+    + '<button class="copy" type="button" data-copy>'
+    + '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" '
+    + 'stroke-linecap="round" aria-hidden="true">'
+    + '<path d="M6.5 9.5 L9.5 6.5"/><path d="M7 4.5 L8.8 2.7a2.6 2.6 0 0 1 3.7 3.7L10.7 8.2"/>'
+    + '<path d="M9 11.5 L7.2 13.3a2.6 2.6 0 0 1-3.7-3.7L5.3 7.8"/></svg>'
+    + '<span data-copy-label>Copy link</span></button>'
+    + '</div></header>'
+    + '<div class="prose">'+md(p.body)+'</div>'
+    + (related.length ? '<section class="more"><h2>More from '+esc(s.name)+'</h2><div class="grid">'
+      + related.map(r => '<a href="#/post/'+encodeURIComponent(r.slug)+'" style="'+secVar(sectionOf(r))+'">'
+        + '<span class="bar"></span><p class="t">'+esc(r.title)+'</p>'
+        + '<time datetime="'+esc(r.date)+'">'+esc(fmtDate(r.date))+'</time></a>').join('')
+      + '</div></section>' : '')
+    + ((newer||older) ? '<nav class="pager" aria-label="More notes">'
+      + (older ? '<a href="#/post/'+encodeURIComponent(older.slug)+'"><span>Previous note</span>'
+        + '<strong>'+esc(older.title)+'</strong></a>' : '')
+      + (newer ? '<a class="next" href="#/post/'+encodeURIComponent(newer.slug)+'"><span>Next note</span>'
+        + '<strong>'+esc(newer.title)+'</strong></a>' : '')
+      + '</nav>' : '')
+    + '</article>';
+}
+
+/* --- about ------------------------------------------------------- */
+function founderCard(a, eager){
+  const contact = ['<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>'];
+  if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.phone.replace(/\s+/g,''))+'">'
+    + esc(a.phone)+'</a></li>');
+  return '<div class="founder">'
+    + '<div class="portrait">'
+    + '<span class="mono" aria-hidden="true">'+esc(a.initials)+'</span>'
+    + '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt)+'" width="800" height="1000" '
+    + 'decoding="async" loading="'+(eager?'eager':'lazy')+'" onerror="this.remove()">'
+    + '</div><div><h2>'+esc(a.name)+'</h2><p class="role">'+esc(a.role)+'</p>'
+    + '<p class="bio">'+esc(a.bio)+'</p>'
+    + '<ul class="contact">'+contact.join('')+'</ul></div></div>';
+}
+function renderAbout(){
+  setNav('about');
+  document.title = 'About | Ascend Markets';
+  app.innerHTML =
+    '<section class="about fade">'
+    + '<h1>About Ascend Markets</h1>'
+    + '<p class="lead">One market story a week, written by two students: what happened, why it '
+    + 'matters, and what to watch next.</p>'
+    + '<div class="founders">'+founderCard(AUTHORS.theo,true)+founderCard(AUTHORS.christian,false)+'</div>'
+    + '<div class="body"><h3>Why this blog</h3>'
+    + '<p>We started writing a weekly note to sharpen our thinking about markets and to build a '
+    + 'public record of it. Each piece takes one story and works through the numbers behind it.</p>'
+    + '<h3>What we cover</h3>'
+    + '<p>Every note sits in one of seven sections: equities, FX, bonds, options and futures, '
+    + 'commodities, real estate and macro. Editorial covers the blog itself.</p>'
+    + '<h3>A note on views</h3>'
+    + '<p>Everything here is our own analysis, written for learning and discussion. None of it is '
+    + 'investment advice.</p></div></section>';
+}
+
+/* --- reading progress, copy link --------------------------------- */
+function updateProgress(){
+  const art = document.querySelector('.article');
+  if(!art){ progressEl.style.transform = 'scaleX(0)'; return; }
+  const top = art.offsetTop;
+  const span = art.offsetHeight - window.innerHeight;
+  const p = span > 0 ? (window.scrollY - top) / span : (window.scrollY > top ? 1 : 0);
+  progressEl.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')';
+}
+window.addEventListener('scroll', updateProgress, {passive:true});
+window.addEventListener('resize', updateProgress);
+
+document.addEventListener('click', ev => {
+  const btn = ev.target.closest && ev.target.closest('[data-copy]');
+  if(!btn) return;
+  const url = location.href;
+  const done = () => {
+    const label = btn.querySelector('[data-copy-label]');
+    if(label) label.textContent = 'Link copied';
+    btn.dataset.done = '1';
+    setTimeout(() => { if(label) label.textContent = 'Copy link'; btn.removeAttribute('data-done'); }, 2200);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(done, fallbackCopy);
+  } else fallbackCopy();
+  function fallbackCopy(){
+    const t = document.createElement('textarea');
+    t.value = url; t.setAttribute('readonly',''); t.style.position='fixed'; t.style.opacity='0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); done(); } catch(e){ /* clipboard unavailable */ }
+    document.body.removeChild(t);
+  }
+});
+
+/* --- router ------------------------------------------------------ */
+function route(){
+  const h = location.hash.replace(/^#\/?/,'');
+  if(h.startsWith('post/')) renderPost(decodeURIComponent(h.slice(5)));
+  else if(h.startsWith('section/')) renderSection(decodeURIComponent(h.slice(8)));
+  else if(h === 'about') renderAbout();
+  else renderHome();
+  window.scrollTo(0,0);
+  updateProgress();
+}
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
