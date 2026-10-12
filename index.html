@@ -372,7 +372,11 @@ a.cell:hover{transform:scale(1.2)}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .founder h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.022em;
   margin:0 0 .3rem;line-height:1.2}
-.founder .desk{display:inline-block;margin:0 0 .25rem;font-size:.76rem;letter-spacing:.13em;
+.founder .titleline{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin:0 0 .25rem}
+.founder .cofounder{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-2)}
+.founder .tsep{color:var(--rule-2);line-height:1}
+.founder .desk{display:inline-block;margin:0;font-size:.76rem;letter-spacing:.13em;
   text-transform:uppercase;font-weight:600;color:var(--c,var(--accent));text-decoration:none;
   border-bottom:1px solid transparent}
 a.desk:hover{border-bottom-color:currentColor}
@@ -518,7 +522,7 @@ footer nav a:hover{color:var(--ink)}
 const SECTIONS = [
   {key:'equities',    name:'Equities',         desc:'Single names, indices and the earnings that move them.',          light:'#1C6B58', dark:'#4FC0A3'},
   {key:'fx',          name:'FX',               desc:'Currency pairs, policy divergence and cross-border flows.',       light:'#2F5FA8', dark:'#7FA8EE'},
-  {key:'bonds',       name:'Bonds',            desc:'Government and corporate debt, yields and the shape of the curve.', light:'#64479C', dark:'#B29BE8'},
+  {key:'fixedincome', name:'Fixed Income',     desc:'Government and corporate debt, yields and the shape of the curve.', light:'#64479C', dark:'#B29BE8'},
   {key:'derivatives', name:'Options & Futures',desc:'Volatility, positioning and the contracts behind the price.',     light:'#8F3F5E', dark:'#EC8FAE'},
   {key:'commodities', name:'Commodities',      desc:'Energy, metals and agriculture, from production to price.',       light:'#8A5A1E', dark:'#DDA75A'},
   {key:'realestate',  name:'Real Estate',      desc:'Property markets, listed landlords and the cost of financing them.', light:'#9A4F28', dark:'#E39572'},
@@ -552,13 +556,13 @@ const AUTHORS = {
   },
   jimmy: {
     key:'jimmy', name:'Jimmy Carlton', first:'Jimmy', initials:'JC',
-    desk:'Head of Bonds', section:'bonds',
+    desk:'Head of Fixed Income', section:'fixedincome',
     course:'Economics, Accounting and Finance, University of Kent',
-    bio:'Jimmy Carlton studies Economics, Accounting and Finance at the University of Kent. He covers the bond market, from government curves to corporate credit, and doubles as rugby social secretary and club legend.',
+    bio:'Jimmy Carlton studies Economics, Accounting and Finance at the University of Kent. He covers fixed income, from government curves to corporate credit, and doubles as rugby social secretary and club legend.',
     email:'Jc2315@kent.ac.uk',
     phone:'+44 7834 720207', tel:'+447834720207',
     photo:'assets/founders/jimmy.jpg',
-    alt:'Portrait of Jimmy Carlton, head of bonds at Ascend Markets'
+    alt:'Portrait of Jimmy Carlton, head of fixed income at Ascend Markets'
   },
   zac: {
     key:'zac', name:'Zac Kemp', first:'Zac', initials:'ZK',
@@ -618,8 +622,11 @@ const isThisWeek = post => firstMonday && monday(post.date).getTime() === monday
 
 /* --- sections and authors --------------------------------------- */
 const SEC_BY_KEY = Object.fromEntries(SECTIONS.map(s=>[s.key,s]));
+/* Renamed sections: old keys and old links keep working. */
+const SECTION_ALIASES = {bonds:'fixedincome'};
+const resolveSec = k => SEC_BY_KEY[k] || SEC_BY_KEY[SECTION_ALIASES[k]] || null;
 const FALLBACK_SEC = {key:'macro', name:'Macro', desc:'', light:'#45566B', dark:'#9DAFC6'};
-const sectionOf = p => SEC_BY_KEY[p && p.section] || FALLBACK_SEC;
+const sectionOf = p => resolveSec(p && p.section) || FALLBACK_SEC;
 const secVar = s => '--c:var(--sec-' + s.key + ')';
 const listedSections = () => SECTIONS.filter(s => s.listed !== false);
 const postsIn = key => posts.filter(p => sectionOf(p).key === key);
@@ -865,7 +872,7 @@ function wireFilters(){
 
 /* --- section page ------------------------------------------------ */
 function renderSection(key){
-  const s = SEC_BY_KEY[key];
+  const s = resolveSec(key);
   if(!s){
     setNav('home');
     document.title = 'Section not found | Ascend Markets';
@@ -949,11 +956,15 @@ function founderCard(a, eager){
   const contact = ['<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>'];
   if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.tel || a.phone.replace(/\s+/g,''))+'">'
     + esc(a.phone)+'</a></li>');
-  const sec = SEC_BY_KEY[a.section];
-  const desk = a.desk
+  const sec = resolveSec(a.section);
+  const deskEl = a.desk
     ? (sec ? '<a class="desk" href="#/section/'+sec.key+'">'+esc(a.desk)+'</a>'
            : '<span class="desk">'+esc(a.desk)+'</span>')
     : '';
+  const desk = '<p class="titleline">'
+    + (a.founder ? '<span class="cofounder">Co-founder</span>'
+                 + (deskEl ? '<span class="tsep" aria-hidden="true">&middot;</span>' : '') : '')
+    + deskEl + '</p>';
   return '<div class="founder"'+(sec ? ' style="'+secVar(sec)+'"' : '')+'>'
     + '<div class="portrait">'
     + '<span class="mono" aria-hidden="true">'+esc(a.initials)+'</span>'
@@ -981,7 +992,7 @@ function renderAbout(){
     + '<p>We started writing a weekly note to sharpen our thinking about markets and to build a '
     + 'public record of it. Each piece takes one story and works through the numbers behind it.</p>'
     + '<h3>What we cover</h3>'
-    + '<p>Every note sits in one of seven sections: equities, FX, bonds, options and futures, '
+    + '<p>Every note sits in one of seven sections: equities, FX, fixed income, options and futures, '
     + 'commodities, real estate and macro. Editorial covers the blog itself.</p>'
     + '<h3>A note on views</h3>'
     + '<p>Everything here is our own analysis, written for learning and discussion. None of it is '

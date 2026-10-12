@@ -10,7 +10,7 @@
     slug: "short-url-name",                 // lowercase, hyphens, never change it after publishing
     title: "The headline of the note",
     date: "2026-10-19",                     // YYYY-MM-DD, the Monday of the week you publish
-    section: "equities",                    // equities | fx | bonds | derivatives | commodities | realestate | macro | editorial
+    section: "equities",                    // equities | fx | fixedincome | derivatives | commodities | realestate | macro | editorial
     author: "theo",                         // theo | christian | both
     tags: ["Earnings", "US"],               // one to three short labels
     summary: "One or two sentences that tell the reader what the note covers.",
@@ -70,7 +70,7 @@ Each note sits in one of seven sections:
 
 - **Equities.** Single names, indices and the earnings that move them.
 - **FX.** Currency pairs, policy divergence and cross-border flows.
-- **Bonds.** Government and corporate debt, yields and the shape of the curve.
+- **Fixed Income.** Government and corporate debt, yields and the shape of the curve.
 - **Options & Futures.** Volatility, positioning and the contracts behind the price.
 - **Commodities.** Energy, metals and agriculture, from production to price.
 - **Real Estate.** Property markets, listed landlords and the cost of financing them.

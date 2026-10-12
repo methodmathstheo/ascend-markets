@@ -60,7 +60,7 @@ Who is affected, and what the move says about the wider market.
 | --- | --- |
 | `slug` | The URL is `#/post/<slug>`. Changing it breaks existing links, so set it once. |
 | `date` | Use the Monday of the publishing week. The issue number ("No. 07") and the cadence strip are both worked out from it. |
-| `section` | One of `equities`, `fx`, `bonds`, `derivatives`, `commodities`, `realestate`, `macro`, or `editorial` for housekeeping posts. |
+| `section` | One of `equities`, `fx`, `fixedincome`, `derivatives`, `commodities`, `realestate`, `macro`, or `editorial` for housekeeping posts. |
 | `author` | `theo`, `christian` or `both`. Controls the byline, the avatars and the author filter. |
 | `tags` | Free text labels shown on the card and the article. |
 | `summary` | Shown on cards and as the standfirst on the article. |
