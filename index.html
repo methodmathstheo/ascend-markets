@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ascend Markets</title>
-<meta name="description" content="Ascend Markets: weekly market notes by Theo Elwell (Economics, Loughborough University) and Christian Walton (Mathematics with Data Science, LSE).">
+<meta name="description" content="Ascend Markets: weekly market notes by Christian Walton (Mathematics with Data Science, LSE) and Theo Elwell (Economics, Loughborough University).">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme:light)">
@@ -13,13 +13,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ascend Markets">
 <meta property="og:title" content="Ascend Markets">
-<meta property="og:description" content="Weekly market notes by Theo Elwell and Christian Walton. One story a week: what happened, why it matters, and what to watch next.">
+<meta property="og:description" content="Weekly market notes by Christian Walton and Theo Elwell. One story a week: what happened, why it matters, and what to watch next.">
 <meta property="og:url" content="https://waltonchris.github.io/ascend/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://waltonchris.github.io/ascend/assets/logo.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ascend Markets">
-<meta name="twitter:description" content="Weekly market notes by Theo Elwell and Christian Walton. One story a week: what happened, why it matters, and what to watch next.">
+<meta name="twitter:description" content="Weekly market notes by Christian Walton and Theo Elwell. One story a week: what happened, why it matters, and what to watch next.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -483,7 +483,7 @@ footer nav a:hover{color:var(--ink)}
   <main id="app" tabindex="-1"></main>
   <footer>
     <div class="frow">
-      <p>&copy; <span id="yr" class="num"></span> Ascend Markets, founded by Theo Elwell and Christian Walton. Views are our own and do not constitute investment advice.</p>
+      <p>&copy; <span id="yr" class="num"></span> Ascend Markets, founded by Christian Walton and Theo Elwell. Views are our own and do not constitute investment advice.</p>
       <nav aria-label="Footer">
         <a href="#/">Notes</a>
         <a href="#/about">About</a>
@@ -512,23 +512,25 @@ const SECTIONS = [
 ];
 
 const AUTHORS = {
-  theo: {
-    key:'theo', name:'Theo Elwell', first:'Theo', initials:'TE',
-    role:'Economics, Loughborough University',
-    bio:'Theo is a final-year BSc Economics student at Loughborough University. In July 2025 he worked on the LME base metals desk at DV Trading and in base metals and oil broking at Sigma Broking. He is also a macroeconomic analyst on the Loughborough Student Managed Fund.',
-    email:'T.Elwell1-24@student.lboro.ac.uk',
-    phone:'',
-    photo:'assets/founders/theo.jpg',
-    alt:'Portrait of Theo Elwell, co-founder of Ascend Markets'
-  },
   christian: {
     key:'christian', name:'Christian Walton', first:'Christian', initials:'CW',
     role:'Mathematics with Data Science, LSE',
     bio:'Christian is a second-year BSc Mathematics with Data Science student at the London School of Economics. He works through the data behind each story, from pricing and volatility to the statistics underneath the headline numbers.',
     email:'c.walton2@lse.ac.uk',
     phone:'+44 7843 160935',
+    tel:'+447843160935',
     photo:'assets/founders/christian.jpg',
     alt:'Portrait of Christian Walton, co-founder of Ascend Markets'
+  },
+  theo: {
+    key:'theo', name:'Theo Elwell', first:'Theo', initials:'TE',
+    role:'Economics, Loughborough University',
+    bio:'Theo is a final-year BSc Economics student at Loughborough University and a macroeconomic analyst on the Loughborough Quantitative and Discretionary Fund.',
+    email:'T.Elwell1-24@student.lboro.ac.uk',
+    phone:'07471 901 337',
+    tel:'+447471901337',
+    photo:'assets/founders/theo.jpg',
+    alt:'Portrait of Theo Elwell, co-founder of Ascend Markets'
   }
 };
 
@@ -586,8 +588,8 @@ const postsIn = key => posts.filter(p => sectionOf(p).key === key);
 
 function authorsOf(p){
   const a = p && p.author;
-  if(a === 'both') return [AUTHORS.theo, AUTHORS.christian];
-  return AUTHORS[a] ? [AUTHORS[a]] : [AUTHORS.theo, AUTHORS.christian];
+  if(a === 'both') return [AUTHORS.christian, AUTHORS.theo];
+  return AUTHORS[a] ? [AUTHORS[a]] : [AUTHORS.christian, AUTHORS.theo];
 }
 const authorNames = p => authorsOf(p).map(a=>a.name).join(' and ');
 const writesFor = (p,key) => authorsOf(p).some(a=>a.key===key);
@@ -787,12 +789,12 @@ function renderHome(){
   app.innerHTML =
     '<section class="hero fade">'
     + '<h1>Notes on markets, every week.</h1>'
-    + '<p class="lead">We&#39;re Theo and Christian. Theo studies Economics at Loughborough University '
-    + 'and Christian studies Mathematics with Data Science at LSE. Each week we break down one market '
-    + 'story: what happened, why it matters, and what to watch next.</p>'
+    + '<p class="lead">We&#39;re Christian and Theo. Christian studies Mathematics with Data Science '
+    + 'at LSE and Theo studies Economics at Loughborough University. Each week we break down one '
+    + 'market story: what happened, why it matters, and what to watch next.</p>'
     + '<div class="foundedby"><span class="label">Founded by</span>'
     + avatarsHTML(founders,30)
-    + '<span class="names"><a href="#/about">Theo Elwell</a> and <a href="#/about">Christian Walton</a></span>'
+    + '<span class="names"><a href="#/about">Christian Walton</a> and <a href="#/about">Theo Elwell</a></span>'
     + '</div></section>'
     + (latest ? featuredHTML(latest) : '')
     + cadenceHTML()
@@ -897,7 +899,7 @@ function renderPost(slug){
 /* --- about ------------------------------------------------------- */
 function founderCard(a, eager){
   const contact = ['<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>'];
-  if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.phone.replace(/\s+/g,''))+'">'
+  if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.tel || a.phone.replace(/\s+/g,''))+'">'
     + esc(a.phone)+'</a></li>');
   return '<div class="founder">'
     + '<div class="portrait">'
@@ -916,7 +918,7 @@ function renderAbout(){
     + '<h1>About Ascend Markets</h1>'
     + '<p class="lead">One market story a week, written by two students: what happened, why it '
     + 'matters, and what to watch next.</p>'
-    + '<div class="founders">'+founderCard(AUTHORS.theo,true)+founderCard(AUTHORS.christian,false)+'</div>'
+    + '<div class="founders">'+founderCard(AUTHORS.christian,true)+founderCard(AUTHORS.theo,false)+'</div>'
     + '<div class="body"><h3>Why this blog</h3>'
     + '<p>We started writing a weekly note to sharpen our thinking about markets and to build a '
     + 'public record of it. Each piece takes one story and works through the numbers behind it.</p>'

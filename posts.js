@@ -76,7 +76,7 @@ Each note sits in one of seven sections:
 - **Real Estate.** Property markets, listed landlords and the cost of financing them.
 - **Macro.** Cross-asset and economics: growth, inflation, labour and policy.
 
-Where it helps, we lean on Theo's economics and trading desk experience and Christian's mathematics and data science background to look at the numbers behind a story rather than just the headline.
+Where it helps, we lean on Christian's mathematics and data science background and Theo's economics to look at the numbers behind a story rather than just the headline.
 
 > The aim is simple: one clear, well-supported idea every week.
 
