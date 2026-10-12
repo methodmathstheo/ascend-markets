@@ -568,7 +568,7 @@ const AUTHORS = {
     key:'zac', name:'Zac Kemp', first:'Zac', initials:'ZK',
     desk:'Head of Macro News', section:'macro',
     course:'Mathematics, University of Nottingham',
-    bio:'Zac Kemp is a Mathematics student at the University of Nottingham. He heads macro news, tracking the data releases, central bank decisions and policy shifts that set the backdrop for every other section. He doubles as paddle sock football manager and resident angry bloke.',
+    bio:'Zac Kemp is a Mathematics student at the University of Nottingham. He heads macro news, tracking the data releases, central bank decisions and policy shifts that set the backdrop for every other section. He doubles as padel society football manager and resident angry bloke.',
     email:'pmyzk2@nottingham.ac.uk',
     phone:'+44 7493 214246', tel:'+447493214246',
     photo:'assets/founders/zac.jpg',
@@ -974,9 +974,9 @@ function founderCard(a, eager){
   const desk = '<p class="titleline">'
     + (a.founder ? '<span class="cofounder">Co-founder</span>'
                  + (deskEl ? '<span class="tsep" aria-hidden="true">&middot;</span>' : '') : '')
+    + (a.extra ? '<span class="cofounder">'+esc(a.extra)+'</span>'
+               + (deskEl ? '<span class="tsep" aria-hidden="true">&middot;</span>' : '') : '')
     + deskEl
-    + (a.extra ? (deskEl ? '<span class="tsep" aria-hidden="true">&middot;</span>' : '')
-               + '<span class="cofounder">'+esc(a.extra)+'</span>' : '')
     + '</p>';
   return '<div class="founder"'+(sec ? ' style="'+secVar(sec)+'"' : '')+'>'
     + '<div class="portrait">'
