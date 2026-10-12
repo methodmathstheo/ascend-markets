@@ -143,7 +143,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
 .avatar .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-family:var(--serif);font-weight:600;font-size:calc(var(--s,28px) * .4);color:var(--accent);
   letter-spacing:.01em}
-.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:50% 0%}   /* portraits put the face at 40% height: this centres it in the circle */
 .avatars{display:inline-flex;align-items:center}
 .avatars .avatar+.avatar{margin-left:calc(var(--s,28px) * -.32);box-shadow:0 0 0 2px var(--paper)}
 

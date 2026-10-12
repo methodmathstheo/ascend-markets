@@ -93,7 +93,9 @@ Drop the files in `assets/founders/` with these exact names:
 - `assets/founders/theo.jpg`
 - `assets/founders/christian.jpg`
 
-Recommended: **800 x 1000px** (4:5 portrait), JPG or WebP, **under 300KB**. If you use WebP, change
+Recommended: **800 x 1000px** (4:5 portrait), JPG or WebP, **under 300KB**. Crop so the face is
+centred horizontally and sits about **40% down** the frame: the small round avatars are cut from
+the top of the portrait and that is what lines the face up in them. If you use WebP, change
 the `photo` path in the `AUTHORS` config in `index.html` to match the new extension.
 
 The photos are used in three places: the profile cards on the About page, the small circular avatars
