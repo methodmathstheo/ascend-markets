@@ -123,6 +123,21 @@ The repository includes a `Dockerfile` that serves the folder with Caddy on Rail
 
 Every push to the connected branch redeploys the site.
 
+### The custom domain
+
+The site runs on `ascendmarkets.co.uk`. Railway serves it from the generated
+`*.up.railway.app` host, and two DNS records at the registrar point the domain at it:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| CNAME (or ALIAS / ANAME) | `@` | the `*.up.railway.app` host Railway shows |
+| TXT | `_railway-verify` | `railway-verify=<token Railway shows>` |
+
+Both records are required: without the TXT record Railway will not verify ownership and the
+domain returns a 404. A root domain needs a registrar that supports CNAME flattening or ALIAS
+records, such as Cloudflare, Namecheap or DNSimple. If the domain changes, update the
+`canonical`, `og:url` and `og:image` tags in the head of `index.html` to match.
+
 ## Checking it locally
 
 ```bash
