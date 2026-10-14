@@ -17,5 +17,12 @@
 		-Server
 	}
 
+	# The page and the note data must never serve stale: revalidate every time.
+	# Everything under assets is content-addressed by name, so it can cache.
+	@fresh path / /index.html /posts.js /charts.js
+	header @fresh Cache-Control "no-cache"
+	@static path /assets/*
+	header @static Cache-Control "public, max-age=86400"
+
 	file_server
 }
