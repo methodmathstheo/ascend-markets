@@ -355,6 +355,60 @@ a.cell:hover{transform:scale(1.2)}
 .pager .next{text-align:right;grid-column:2}
 
 /* ===========================================================
+   CHARTS
+   =========================================================== */
+figure.chart{margin:2.2rem 0;padding:0}
+.chart-svg{display:block;width:100%;height:auto;font-family:var(--sans);
+  font-variant-numeric:tabular-nums;overflow:visible}
+.chart-svg .cg{stroke:var(--rule);stroke-width:1}
+.chart-svg .caxis{stroke:var(--rule-2);stroke-width:1}
+.chart-svg .cref{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:4 4;opacity:.8}
+.chart-svg .cline{fill:none;stroke:var(--c,var(--accent));stroke-width:1.7;
+  stroke-linejoin:round;stroke-linecap:round}
+.chart-svg .cl{fill:var(--ink-3);font-size:var(--fs)}
+.chart-svg .cdim{opacity:.85}
+.chart-svg .clab{fill:var(--ink-2);font-weight:500}
+.chart-svg .cval{fill:var(--ink);font-size:var(--fs);font-weight:600}
+.chart-svg .cvalin{fill:var(--paper);font-size:var(--fs);font-weight:600}
+.chart-svg .cvalin2{fill:var(--ink);font-size:var(--fs);font-weight:600}
+.chart-svg .csub{fill:var(--ink-2);font-size:var(--fs);font-weight:500}
+.chart-svg .cev{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:3 3;opacity:.5}
+.chart-svg .cevc{fill:var(--c,var(--accent))}
+.chart-svg .cevn{fill:var(--paper);font-size:calc(var(--fs) * .88);font-weight:700}
+.chart-svg .cbar-1{fill:var(--c,var(--accent))}
+.chart-svg .cbar-2{fill:var(--c,var(--accent));opacity:.35}
+.chart-key{list-style:none;padding:0;margin:.75rem 0 0;display:grid;gap:.3rem;
+  font-size:.78rem;color:var(--ink-3)}
+.chart-key li{display:flex;gap:.5rem;align-items:flex-start}
+.chart-key .n{flex:none;width:15px;height:15px;border-radius:50%;
+  background:var(--c,var(--accent));color:var(--paper);font-size:.62rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;margin-top:.1rem;
+  font-variant-numeric:tabular-nums}
+.chart-legend{list-style:none;padding:0;margin:.7rem 0 0;display:flex;flex-wrap:wrap;
+  gap:.3rem 1.2rem;font-size:.78rem;color:var(--ink-3)}
+.chart-legend li{display:flex;align-items:center}
+.chart-legend .sw{width:10px;height:10px;border-radius:2px;display:inline-block;
+  margin-right:.45rem;background:var(--c,var(--accent))}
+.chart-legend .sw-2{opacity:.35}
+figure.chart figcaption{margin-top:.8rem;font-size:.8rem;color:var(--ink-3);line-height:1.55;
+  border-top:1px solid var(--rule);padding-top:.6rem}
+figure.chart figcaption b{color:var(--ink-2);font-weight:600}
+figure.chart figcaption .src{display:block;margin-top:.1rem}
+
+/* Desk comment: a second voice inside a note */
+.deskcomment{margin:2.6rem 0;padding:1.4rem 1.5rem;border-left:3px solid var(--accent);
+  background:var(--paper-2);border-radius:0 6px 6px 0}
+.deskcomment > :first-child{margin-top:0}
+.deskcomment > :last-child{margin-bottom:0}
+.deskcomment h2{margin-top:0;font-size:1.32rem}
+.deskcomment > p:first-of-type em{display:block;font-style:normal;font-size:.72rem;
+  letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--accent);
+  margin-bottom:.2rem}
+.contrib{display:flex;align-items:center;gap:.45rem;margin:.1rem 0 0;font-size:.85rem;
+  color:var(--ink-3)}
+.arow-2{margin-top:.2rem}
+
+/* ===========================================================
    ABOUT
    =========================================================== */
 .about{padding:2rem 0 3.5rem}
@@ -513,6 +567,7 @@ footer nav a:hover{color:var(--ink)}
 </div>
 
 <script src="posts.js"></script>
+<script src="charts.js"></script>
 <script>
 /* =================================================================
    CONFIG
@@ -605,7 +660,11 @@ const plural = (n,w) => n + ' ' + w + (n===1?'':'s');
 
 function md(text){
   if (window.marked) {
-    const html = marked.parse(String(text).trim());
+    /* ":::desk ... :::" fences become a styled callout for a second voice. */
+    const src = String(text).trim().replace(/^:::desk[ \t]*\n([\s\S]*?)\n:::[ \t]*$/gm,
+      (_, inner) => '<aside class="deskcomment">'
+        + marked.parse(inner.trim()).replace(/\n{2,}/g, '\n') + '</aside>');
+    const html = marked.parse(src);
     return html.replace(/<table>/g,'<div class="table-scroll"><table>').replace(/<\/table>/g,'</table></div>');
   }
   return String(text).trim().split(/\n\s*\n/).map(p=>'<p>'+esc(p)+'</p>').join('');
@@ -623,10 +682,12 @@ const weeksBetween = (a,b) => Math.round((b.getTime()-a.getTime())/WEEK);
 const firstDate = posts.length ? posts[posts.length-1].date : null;
 const firstMonday = firstDate ? monday(firstDate) : null;
 
+/* Issue numbers run in publication order, so two notes in one week never collide. */
+const ISSUE_BY_SLUG = {};
+posts.slice().sort((a,b)=> a.date.localeCompare(b.date) || String(a.slug).localeCompare(String(b.slug)))
+  .forEach((p,i)=>{ ISSUE_BY_SLUG[p.slug] = i + 1; });
 function issueNo(post){
-  if(!firstMonday) return '';
-  const n = weeksBetween(firstMonday, monday(post.date)) + 1;
-  return 'No. ' + String(Math.max(1,n)).padStart(2,'0');
+  return 'No. ' + String(ISSUE_BY_SLUG[post && post.slug] || 1).padStart(2,'0');
 }
 const isThisWeek = post => firstMonday && monday(post.date).getTime() === monday(new Date()).getTime();
 
@@ -852,6 +913,7 @@ function teamStripHTML(){
 function renderHome(){
   setNav('home');
   document.title = 'Ascend Markets';
+  setMeta(META_DEFAULT.title, META_DEFAULT.desc);
   const latest = posts[0];
   app.innerHTML =
     '<section class="hero fade">'
@@ -893,6 +955,7 @@ function renderSection(key){
   }
   setNav('home', s.listed===false ? null : s.key);
   document.title = s.name + ' | Ascend Markets';
+  setMeta(s.name + ' | Ascend Markets', s.desc);
   const ps = postsIn(s.key);
   app.innerHTML =
     '<section class="sechero fade" style="'+secVar(s)+'">'
@@ -908,6 +971,15 @@ function renderSection(key){
 }
 
 /* --- article ----------------------------------------------------- */
+function contribLine(p){
+  const list = (p.contributors||[]).map(k=>AUTHORS[k]).filter(Boolean);
+  if(!list.length) return '';
+  return '<p class="contrib">' + list.map(a => {
+    const sec = resolveSec(a.section);
+    return avatarHTML(a,20,false) + '<span>Desk comment from ' + esc(a.name)
+      + (sec ? ', ' + esc(sec.name) : '') + '</span>';
+  }).join('') + '</p>';
+}
 function renderPost(slug){
   const i = posts.findIndex(p => p.slug === slug);
   if(i < 0){
@@ -921,6 +993,7 @@ function renderPost(slug){
   const p = posts[i], newer = posts[i-1], older = posts[i+1], s = sectionOf(p);
   setNav('home', s.listed===false ? null : s.key);
   document.title = p.title + ' | Ascend Markets';
+  setMeta(p.title, p.summary, p.ogImage);
   const related = posts.filter(o => o.slug!==p.slug && sectionOf(o).key===s.key).slice(0,3);
 
   app.innerHTML =
@@ -939,6 +1012,9 @@ function renderPost(slug){
     + '<span class="dot"></span><time datetime="'+esc(p.date)+'">'+esc(fmtLong(p.date))+'</time>'
     + '<span class="dot"></span><span>'+esc(readTime(p.body))+'</span>'
     + (p.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join('')
+    + '</div>'
+    + contribLine(p)
+    + '<div class="arow arow-2">'
     + '<button class="copy" type="button" data-copy>'
     + '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" '
     + 'stroke-linecap="round" aria-hidden="true">'
@@ -959,6 +1035,7 @@ function renderPost(slug){
         + '<strong>'+esc(newer.title)+'</strong></a>' : '')
       + '</nav>' : '')
     + '</article>';
+  if(window.renderCharts) renderCharts(app);
 }
 
 /* --- about ------------------------------------------------------- */
@@ -992,6 +1069,7 @@ function founderCard(a, eager){
 function renderAbout(){
   setNav('about');
   document.title = 'About | Ascend Markets';
+  setMeta('About | Ascend Markets', META_DEFAULT.desc);
   app.innerHTML =
     '<section class="about fade">'
     + '<h1>About Ascend Markets</h1>'
@@ -1047,6 +1125,26 @@ document.addEventListener('click', ev => {
 });
 
 /* --- router ------------------------------------------------------ */
+const META_DEFAULT = {
+  desc: document.querySelector('meta[name="description"]').content,
+  title: 'Ascend Markets'
+};
+function setMeta(title, desc, image){
+  const set = (sel, val) => { const el = document.querySelector(sel); if(el && val) el.content = val; };
+  set('meta[name="description"]', desc);
+  set('meta[property="og:title"]', title);
+  set('meta[property="og:description"]', desc);
+  set('meta[name="twitter:title"]', title);
+  set('meta[name="twitter:description"]', desc);
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if(ogUrl) ogUrl.content = 'https://ascendmarkets.co.uk/' + location.hash;
+  if(image){
+    const abs = 'https://ascendmarkets.co.uk/' + image.replace(/^\//,'');
+    set('meta[property="og:image"]', abs);
+    set('meta[name="twitter:image"]', abs);
+    set('meta[name="twitter:card"]', 'summary_large_image');
+  }
+}
 function route(){
   const h = location.hash.replace(/^#\/?/,'');
   if(h.startsWith('post/')) renderPost(decodeURIComponent(h.slice(5)));

@@ -64,7 +64,49 @@ Who is affected, and what the move says about the wider market.
 | `author` | `theo`, `christian` or `both`. Controls the byline, the avatars and the author filter. |
 | `tags` | Free text labels shown on the card and the article. |
 | `summary` | Shown on cards and as the standfirst on the article. |
+| `contributors` | Optional. Author keys for a desk comment, e.g. `["theo"]`. |
+| `ogImage` | Optional. Path to a 1200 x 630 share image. |
 | `body` | Markdown. `##` headings, `-` bullets, `>` pull quotes, `|` tables, `` `code` ``. |
+
+### Charts
+
+Charts live in `charts.js` and are placed in a note with a single line:
+
+```html
+<figure class="chart" data-chart="brent-price-2025-2026"></figure>
+```
+
+Each chart is drawn as inline SVG at the width of the column, redrawn on resize, and takes its
+colour from the note's section. The caption, figure number and source line all come from the chart's
+entry in `charts.js`, so a note never repeats them.
+
+**Never type data into a chart by hand.** Series that come from a public source are saved as CSV
+under `assets/data/` and that file is the record. The Brent series in `charts.js` is generated from
+`assets/data/brent-2025-2026.csv` (US EIA via FRED, series `DCOILBRENTEU`). To refresh it, download
+the CSV again, filter to the dates you want, drop the rows marked `.`, and regenerate the constant.
+
+### A desk comment from a second voice
+
+Wrap a second contributor's section in a `:::desk` fence and it renders as a callout:
+
+```markdown
+:::desk
+## Desk comment: Options & Futures
+
+*Theo Elwell, Options & Futures desk*
+
+The argument goes here.
+:::
+```
+
+Add their key to `contributors` in the note (`contributors: ["theo"]`) and a line reading
+"Desk comment from Theo Elwell, Options & Futures" appears under the byline.
+
+### Share image
+
+A note may set `ogImage: "assets/og/<slug>.png"`, used as the Open Graph and Twitter card image.
+`tools/og-card.html` builds one at 1200 x 630: edit the headline and chart id in that file, open it
+locally and screenshot it. This is optional; without it the note falls back to the site image.
 
 ### Writing the body
 

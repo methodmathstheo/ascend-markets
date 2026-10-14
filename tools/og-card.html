@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#0B1220;--paper-2:#101A28;--ink:#EBF0F7;--ink-2:#9EABBE;--ink-3:#8793A6;
+  --rule:#22304A;--rule-2:#30415F;--accent:#35C891;--c:#DDA75A;
+  --serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;width:1200px;height:630px;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);padding:46px 56px;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.top svg{width:30px;height:30px;color:var(--accent)}
+.wm{font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.02em;line-height:1}
+.sub{font-size:10px;letter-spacing:.34em;color:var(--ink-3);font-weight:600;margin-top:3px}
+h1{font-family:var(--serif);font-weight:500;font-size:42px;line-height:1.1;letter-spacing:-.028em;
+  margin:0 0 6px;max-width:19ch}
+.kick{font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--c);margin-bottom:10px}
+.wrapc{flex:1;display:flex;align-items:flex-end}
+#c{width:100%}
+.chart-svg{display:block;width:100%;height:auto;font-family:var(--sans);font-variant-numeric:tabular-nums;overflow:visible}
+.chart-svg .cg{stroke:var(--rule);stroke-width:1}
+.chart-svg .cref{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:4 4;opacity:.8}
+.chart-svg .cline{fill:none;stroke:var(--c);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.chart-svg .cl{fill:var(--ink-3);font-size:var(--fs)}
+.chart-svg .cev{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:3 3;opacity:.5}
+.chart-svg .cevc{fill:var(--c)}
+.chart-svg .cevn{fill:var(--paper);font-size:calc(var(--fs)*.88);font-weight:700}
+.chart-key,.chart-legend{display:none}
+.by{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--ink-3);margin-top:4px}
+</style></head><body>
+<div class="top">
+  <svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 28.5 L11.6 17.6 L15.7 20.8 L22 7"/><path d="M22 7 L29.5 28.5"/><path d="M14.8 22.6 H26.6"/></svg>
+  <div><div class="wm">Ascend</div><div class="sub">MARKETS</div></div>
+</div>
+<div class="kick">Commodities &middot; No. 02</div>
+<h1>The midterms, not the oil market, will end Brent's run above $100</h1>
+<div class="wrapc"><div id="c"></div></div>
+<div class="by"><span>Christian Walton, Head of Commodities</span><span>Brent crude, US$ per barrel. Source: US EIA via FRED</span></div>
+<script src="charts.js"></script>
+<script>
+const el=document.getElementById('c');
+el.innerHTML = ASCEND_CHARTS['brent-price-2025-2026'].build(1088, 236).svg;
+</script>
+</body></html>
