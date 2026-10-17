@@ -1,0 +1,48 @@
+{
+ "id": "C8",
+ "type": "step",
+ "title": "Markets price more Bank of England hikes than economists do",
+ "subtitle": "Bank Rate, per cent",
+ "source": "Market path: SONIA pricing via Mortgage One, read 12 October 2026. Economists: Capital Economics, Oxford Economics, Bank of America, Fidelity International, early October 2026",
+ "source_url": "https://www.mortgageonefinance.co.uk/interest-rate-projection",
+ "as_of": "2026-10-12",
+ "alt": "The market path reaches about 4.5 per cent by April 2027 where economists expect a pause at 4.25.",
+ "note": "About 4.50 against 4.25 at April 2027",
+ "series": [
+  {
+   "key": "rates",
+   "name": "Market path (SONIA)",
+   "data": [
+    3.75,
+    4.0,
+    null,
+    4.5,
+    4.9,
+    5.0
+   ]
+  },
+  {
+   "key": "bonds",
+   "name": "Economists",
+   "dashed": true,
+   "data": [
+    3.75,
+    4.0,
+    4.25,
+    4.25,
+    4.25,
+    4.25
+   ],
+   "tail_label": "pause expected",
+   "tail_from": 2
+  }
+ ],
+ "categories": [
+  "Oct 26",
+  "Nov 26",
+  "Feb 27",
+  "Apr 27",
+  "Oct 27",
+  "Early 28"
+ ]
+}

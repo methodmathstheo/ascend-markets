@@ -1,0 +1,28 @@
+{
+ "id": "C11",
+ "type": "bars",
+ "horizontal": true,
+ "title": "Traders are already positioned for a weaker pound",
+ "subtitle": "Share of options bearish on sterling, per cent, late September 2026",
+ "source": "GuruFocus, citing DTCC data, 28 September 2026",
+ "source_url": "https://www.gurufocus.com/news/9099356/gbpusd-options-pricing-reflects-risk-ahead-of-uk-budget-announcement",
+ "as_of": "2026-09-28",
+ "colour": "sterling",
+ "alt": "Two thirds of GBP/USD options expiring around Budget week bet on a weaker pound.",
+ "rows": [
+  {
+   "label": "GBP/USD, Budget week",
+   "value": 67,
+   "highlight": true
+  },
+  {
+   "label": "GBP/USD, all trades",
+   "value": 55
+  },
+  {
+   "label": "EUR/GBP, Budget week",
+   "value": 75
+  }
+ ],
+ "unit": "%"
+}

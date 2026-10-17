@@ -1,0 +1,56 @@
+{
+ "id": "C12",
+ "type": "panels",
+ "title": "Investors are using options more than ever",
+ "subtitle": "US listed options volume",
+ "source": "OCC September 2026 monthly volume report and OCC annual figures",
+ "source_url": "https://www.theocc.com/newsroom/views/2026/10-02-september-2026-monthly-volume-report",
+ "as_of": "2026-09-30",
+ "colour": "equities",
+ "alt": "Volume hit a record 15.21 billion contracts in 2025 and is running a further 20.6 per cent higher in 2026.",
+ "panels": [
+  {
+   "name": "Annual volume, billions of contracts",
+   "unit": "bn",
+   "rows": [
+    {
+     "label": "2019",
+     "value": 4.9,
+     "approx": true
+    },
+    {
+     "label": "2024",
+     "value": 12.22
+    },
+    {
+     "label": "2025",
+     "value": 15.21,
+     "highlight": true
+    }
+   ]
+  },
+  {
+   "name": "Growth to September 2026 vs 2025",
+   "unit": "%",
+   "rows": [
+    {
+     "label": "Total options",
+     "value": 20.6
+    },
+    {
+     "label": "Index options",
+     "value": 29.3
+    },
+    {
+     "label": "ETF options",
+     "value": 35.4,
+     "highlight": true
+    },
+    {
+     "label": "Equity options",
+     "value": 9.3
+    }
+   ]
+  }
+ ]
+}

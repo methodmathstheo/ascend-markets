@@ -1,0 +1,71 @@
+{
+ "id": "C5",
+ "type": "bars",
+ "diverging": true,
+ "title": "The October VIX future never priced above November",
+ "subtitle": "October VX minus November VX, index points, by settlement date",
+ "source": "SquawkFlow, Cboe daily settlements",
+ "source_url": "https://squawkflow.com/elections/2026",
+ "as_of": "2026-10-15",
+ "colour": "equities",
+ "zero_label": "Above zero = election premium",
+ "alt": "Every settlement since late September has been negative, so no election premium was ever priced.",
+ "rows": [
+  [
+   "28 Sep",
+   -0.77
+  ],
+  [
+   "29 Sep",
+   -0.7
+  ],
+  [
+   "30 Sep",
+   -0.59
+  ],
+  [
+   "1 Oct",
+   -0.52
+  ],
+  [
+   "2 Oct",
+   -0.7
+  ],
+  [
+   "5 Oct",
+   -0.68
+  ],
+  [
+   "6 Oct",
+   -0.56
+  ],
+  [
+   "7 Oct",
+   -0.31
+  ],
+  [
+   "8 Oct",
+   -0.38
+  ],
+  [
+   "9 Oct",
+   -0.73
+  ],
+  [
+   "12 Oct",
+   -0.83
+  ],
+  [
+   "13 Oct",
+   -0.75
+  ],
+  [
+   "14 Oct",
+   -0.42
+  ],
+  [
+   "15 Oct",
+   -0.5
+  ]
+ ]
+}

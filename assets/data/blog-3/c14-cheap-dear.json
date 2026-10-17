@@ -1,0 +1,40 @@
+{
+ "id": "C14",
+ "type": "table",
+ "title": "Where insurance is cheap, buy options. Where it is dear, use futures.",
+ "subtitle": "The tool for each asset class this autumn",
+ "source": "Levels as cited in the note",
+ "source_url": "",
+ "as_of": "2026-10-15",
+ "alt": "Options are the tool for equities where volatility is cheap, futures and forwards everywhere else.",
+ "rows": [
+  {
+   "key": "equities",
+   "asset": "Equities",
+   "price": "Cheap (VIX 16.45)",
+   "tool": "Put spread, collar, index futures",
+   "why": "Protection costs less than usual"
+  },
+  {
+   "key": "bonds",
+   "asset": "Bonds",
+   "price": "Expensive (MOVE 99)",
+   "tool": "Sell Long Gilt futures",
+   "why": "No premium to pay"
+  },
+  {
+   "key": "sterling",
+   "asset": "Sterling",
+   "price": "Budget premium (5.96%)",
+   "tool": "Forward",
+   "why": "Locks the rate without the premium"
+  },
+  {
+   "key": "rates",
+   "asset": "UK rates and property",
+   "price": "Hikes already priced",
+   "tool": "Buy SONIA futures",
+   "why": "Pays if the Bank does less than priced"
+  }
+ ]
+}

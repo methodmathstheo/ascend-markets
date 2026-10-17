@@ -1,0 +1,33 @@
+{
+ "id": "C9",
+ "type": "bars",
+ "horizontal": true,
+ "title": "Mortgage rates have run well ahead of Bank Rate",
+ "subtitle": "Per cent, October 2026",
+ "source": "HomeOwners Alliance, 15 October 2026",
+ "source_url": "https://hoa.org.uk/advice/guides-for-homeowners/for-owners/mortgage-rate-forecast/",
+ "as_of": "2026-10-15",
+ "colour": "rates",
+ "note": "Fixes price off swaps, not Bank Rate.",
+ "alt": "Average fixes near 6 per cent sit more than two points above Bank Rate at 3.75.",
+ "rows": [
+  {
+   "label": "Bank Rate",
+   "value": 3.75
+  },
+  {
+   "label": "One of the lowest five year fixes",
+   "value": 4.93
+  },
+  {
+   "label": "Average two year fix",
+   "value": 5.97
+  },
+  {
+   "label": "Average five year fix",
+   "value": 5.99,
+   "highlight": true
+  }
+ ],
+ "unit": "%"
+}

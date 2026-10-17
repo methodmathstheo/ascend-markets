@@ -1,0 +1,70 @@
+{
+ "id": "C6",
+ "type": "line",
+ "x": "category",
+ "title": "Options price election day like one extra trading session",
+ "subtitle": "Risk-neutral price of movement, not a forecast. One standard deviation SPX move, per cent",
+ "source": "SquawkFlow, delayed Cboe SPX chain",
+ "source_url": "https://squawkflow.com/elections/2026",
+ "as_of": "2026-10-15",
+ "alt": "The session after the vote prices a 1.00 per cent move against 0.68 per cent for an ordinary day.",
+ "note": "Latest: 1.00% against 0.68%",
+ "categories": [
+  "28 Sep",
+  "29 Sep",
+  "30 Sep",
+  "1 Oct",
+  "2 Oct",
+  "5 Oct",
+  "6 Oct",
+  "7 Oct",
+  "8 Oct",
+  "9 Oct",
+  "12 Oct",
+  "13 Oct",
+  "14 Oct",
+  "15 Oct"
+ ],
+ "series": [
+  {
+   "key": "equities",
+   "name": "Session after the vote (4 Nov)",
+   "data": [
+    0.71,
+    1.06,
+    1.13,
+    1.08,
+    1.07,
+    1.08,
+    1.06,
+    1.06,
+    1.07,
+    1.04,
+    1.01,
+    0.99,
+    1.08,
+    1.0
+   ]
+  },
+  {
+   "key": "rates",
+   "name": "Ordinary session",
+   "data": [
+    0.77,
+    0.77,
+    0.8,
+    0.79,
+    0.75,
+    0.73,
+    0.73,
+    0.69,
+    0.69,
+    0.62,
+    0.63,
+    0.63,
+    0.72,
+    0.68
+   ]
+  }
+ ]
+}

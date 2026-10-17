@@ -1,0 +1,21 @@
+{
+ "id": "C1",
+ "type": "pl",
+ "illustrative": true,
+ "title": "Three ways to hold the same shares through a risky month",
+ "subtitle": "Illustrative. Premium of 1.20 is an example, not a market price. Profit and loss at expiry, per share",
+ "source": "Illustrative example, not market data",
+ "source_url": "",
+ "as_of": "2026-10-15",
+ "alt": "A put spread keeps most of the upside while capping the loss between 95 and 90, where a short future removes both.",
+ "start": 100,
+ "x": [
+  80,
+  120
+ ],
+ "legs": {
+  "put_long": 95,
+  "put_short": 90,
+  "premium": 1.2
+ }
+}

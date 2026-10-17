@@ -395,6 +395,36 @@ figure.chart figcaption{margin-top:.8rem;font-size:.8rem;color:var(--ink-3);line
 figure.chart figcaption b{color:var(--ink-2);font-weight:600}
 figure.chart figcaption .src{display:block;margin-top:.1rem}
 
+figure.chart .ct{font-family:var(--serif);font-weight:500;font-size:1.08rem;line-height:1.3;
+  margin:0 0 .25rem;letter-spacing:-.015em;color:var(--ink)}
+figure.chart .cst{margin:0 0 .85rem;font-size:.82rem;color:var(--ink-3);line-height:1.45}
+.chart-svg .cdash{stroke-dasharray:5 4}
+.chart-svg .cend{font-size:calc(var(--fs) * .95);font-weight:600}
+.chart-svg .canch{fill:var(--paper);stroke-width:2}
+.chart-svg .cnote{fill:var(--ink-2);font-size:calc(var(--fs) * .92);font-weight:500}
+.cnote-out{margin:.55rem 0 0;font-size:.78rem;color:var(--ink-2)}
+.chart-panels{display:flex;gap:18px;flex-wrap:wrap}
+.cpanel{flex:1 1 250px;min-width:0}
+.cpname{margin:0 0 .45rem;font-size:.78rem;font-weight:600;color:var(--ink-2)}
+.chart-key2{list-style:none;padding:0;margin:.65rem 0 0;display:grid;gap:.3rem;
+  font-size:.76rem;color:var(--ink-3)}
+.chart-key2 li{display:flex;gap:.5rem;align-items:center}
+.chart-key2 .sw{width:9px;height:9px;border-radius:2px;flex:none}
+.chart-table-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px}
+.chart-table{border-collapse:collapse;width:100%;font-size:.86rem}
+.chart-table th,.chart-table td{text-align:left;padding:.6rem .75rem;
+  border-bottom:1px solid var(--rule);vertical-align:top}
+.chart-table thead th{font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--paper-2);font-weight:600}
+.chart-table tbody th{font-weight:600;color:var(--ink);white-space:nowrap}
+.chart-table tbody tr:last-child th,.chart-table tbody tr:last-child td{border-bottom:0}
+.chart-table .sw{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:.5rem}
+.chart-err{font-size:.82rem;color:var(--ink-3);padding:1.2rem 0;margin:0}
+.draft{color:var(--accent);font-weight:600}
+.is-preview .article::before{content:"Preview";position:fixed;top:0;right:0;z-index:70;
+  background:var(--accent);color:var(--paper);font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:700;padding:.3rem .7rem;border-bottom-left-radius:5px}
+
 /* Desk comment: a second voice inside a note */
 .deskcomment{margin:2.6rem 0;padding:1.4rem 1.5rem;border-left:3px solid var(--accent);
   background:var(--paper-2);border-radius:0 6px 6px 0}
@@ -568,6 +598,7 @@ footer nav a:hover{color:var(--ink)}
 
 <script src="posts.js"></script>
 <script src="charts.js"></script>
+<script src="chart-engine.js"></script>
 <script>
 /* =================================================================
    CONFIG
@@ -648,7 +679,11 @@ const app = document.getElementById('app');
 const progressEl = document.getElementById('progress');
 const ALL_POSTS = (typeof POSTS !== 'undefined' && Array.isArray(POSTS)) ? POSTS
   : (window.POSTS || []);
-const posts = ALL_POSTS.slice().sort((a,b)=> b.date.localeCompare(a.date));
+/* A note marked draft stays off the live site. Add ?preview=1 to the address to read it. */
+const PREVIEW = /(?:^|[?&])preview=1(?:&|$)/.test(location.search);
+const isLive = p => !p.draft && !(p.publishAt && p.publishAt > new Date().toISOString().slice(0,10));
+const posts = ALL_POSTS.filter(p => PREVIEW || isLive(p))
+  .slice().sort((a,b)=> b.date.localeCompare(a.date));
 
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1005,7 +1040,9 @@ function renderPost(slug){
     + '<header class="ahead">'
     + '<span class="kicker"><a class="sec-tag" href="#/section/'+s.key+'" '
     + 'style="text-decoration:none">'+esc(s.name)+'</a>'
-    + '<span class="dot"></span><span class="iss">'+esc(issueNo(p))+'</span></span>'
+    + '<span class="dot"></span><span class="iss">'+esc(issueNo(p))+'</span>'
+    + (isLive(p) ? '' : '<span class="dot"></span><span class="draft">Draft, not published</span>')
+    + '</span>'
     + '<h1>'+esc(p.title)+'</h1>'
     + '<p class="standfirst">'+esc(p.summary)+'</p>'
     + '<div class="arow">'+bylineHTML(p,26)
@@ -1036,6 +1073,7 @@ function renderPost(slug){
       + '</nav>' : '')
     + '</article>';
   if(window.renderCharts) renderCharts(app);
+  if(window.renderJsonCharts) renderJsonCharts(app);
 }
 
 /* --- about ------------------------------------------------------- */
@@ -1147,6 +1185,7 @@ function setMeta(title, desc, image){
 }
 function route(){
   const h = location.hash.replace(/^#\/?/,'');
+  if(PREVIEW) document.body.classList.add('is-preview');
   if(h.startsWith('post/')) renderPost(decodeURIComponent(h.slice(5)));
   else if(h.startsWith('section/')) renderSection(decodeURIComponent(h.slice(8)));
   else if(h === 'about') renderAbout();

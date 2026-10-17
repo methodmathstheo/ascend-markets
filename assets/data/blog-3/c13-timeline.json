@@ -1,0 +1,60 @@
+{
+ "id": "C13",
+ "type": "timeline",
+ "title": "Five events in 16 days, and the hedge that covers each",
+ "subtitle": "19 October to 9 November 2026",
+ "source": "Dates per the sources listed in the note",
+ "source_url": "",
+ "as_of": "2026-10-15",
+ "alt": "Five scheduled events fall between 21 October and 6 November, each covered by one of four hedges.",
+ "start": "2026-10-19",
+ "end": "2026-11-09",
+ "events": [
+  {
+   "date": "2026-10-21",
+   "label": "UK CPI"
+  },
+  {
+   "date": "2026-10-28",
+   "label": "Budget and Fed"
+  },
+  {
+   "date": "2026-11-03",
+   "label": "US midterms"
+  },
+  {
+   "date": "2026-11-05",
+   "label": "Bank of England"
+  },
+  {
+   "date": "2026-11-06",
+   "label": "US payrolls"
+  }
+ ],
+ "bars": [
+  {
+   "key": "equities",
+   "label": "Equity put spread",
+   "from": "2026-10-19",
+   "to": "2026-11-09"
+  },
+  {
+   "key": "bonds",
+   "label": "Short Long Gilt futures",
+   "from": "2026-10-26",
+   "to": "2026-10-30"
+  },
+  {
+   "key": "sterling",
+   "label": "GBP/USD forward",
+   "from": "2026-10-26",
+   "to": "2026-10-30"
+  },
+  {
+   "key": "rates",
+   "label": "Long SONIA futures",
+   "from": "2026-10-21",
+   "to": "2026-11-05"
+  }
+ ]
+}

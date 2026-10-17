@@ -108,6 +108,43 @@ A note may set `ogImage: "assets/og/<slug>.png"`, used as the Open Graph and Twi
 `tools/og-card.html` builds one at 1200 x 630: edit the headline and chart id in that file, open it
 locally and screenshot it. This is optional; without it the note falls back to the site image.
 
+### Drafts and scheduling
+
+A note can be staged without going live:
+
+```js
+draft: true,                 // never appears on the live site
+publishAt: "2026-10-26",     // or: appears by itself on this date
+```
+
+A note with either field is left out of the home page, the archive, the section pages, the cadence
+strip and the search of slugs, and its address returns "Article not found". To read it before it
+goes live, add `?preview=1` before the hash:
+
+```
+https://ascendmarkets.co.uk/?preview=1#/post/<slug>
+```
+
+Preview mode shows every staged note with a "Draft, not published" label. Remove `draft: true`, or
+let the `publishAt` date arrive, and the note appears on its own. Issue numbers are worked out from
+live notes, so a draft never takes a number from a published one.
+
+Staged notes still sit in a public repository, so treat them as visible to anyone who looks for them.
+
+### Data-driven charts
+
+Beyond the hand-built charts in `charts.js`, a note can use the engine in `chart-engine.js`:
+
+```html
+<figure class="chart" data-chart-json="assets/data/blog-3/c04-vix-curve.json"></figure>
+```
+
+Each JSON file carries its own data plus `source`, `source_url` and `as_of`, and the engine draws it
+as inline SVG at the column width. Supported `type` values are `line`, `step`, `bars` (vertical,
+horizontal or diverging), `panels`, `timeline`, `table` and `pl` (an option payoff). Asset classes
+keep one colour throughout: equities, bonds, sterling and UK rates map to the matching section
+colours.
+
 ### Writing the body
 
 - Markdown only. Tables are made scrollable automatically and use tabular figures.

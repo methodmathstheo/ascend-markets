@@ -1,0 +1,67 @@
+{
+ "id": "C4",
+ "type": "line",
+ "title": "The election hump in the VIX curve has gone",
+ "subtitle": "VIX futures settlement by expiry, index points",
+ "source": "SquawkFlow (Cboe settlements); Bloomberg, 25 August 2026",
+ "source_url": "https://squawkflow.com/elections/2026",
+ "as_of": "2026-10-14",
+ "colour": "equities",
+ "alt": "The October contract that spans election day now settles below November, where in August it sat above.",
+ "series": [
+  {
+   "key": "equities",
+   "name": "Settlement, 14 Oct 2026",
+   "data": [
+    null,
+    17.65,
+    18.08,
+    18.4,
+    19.23,
+    19.68,
+    19.84,
+    20.23,
+    20.38,
+    20.7
+   ]
+  },
+  {
+   "key": "bonds",
+   "name": "Snapshot, 25 Aug 2026",
+   "dashed": true,
+   "data": [
+    17.4,
+    19.0,
+    19.7,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  }
+ ],
+ "x": "category",
+ "categories": [
+  "Sep 26",
+  "Oct 26",
+  "Nov 26",
+  "Dec 26",
+  "Jan 27",
+  "Feb 27",
+  "Mar 27",
+  "Apr 27",
+  "May 27",
+  "Jun 27"
+ ],
+ "hline": {
+  "value": 16.45,
+  "label": "Spot VIX 16.45 (15 Oct)"
+ },
+ "note_at": {
+  "category": "Oct 26",
+  "text": "October contract covers 3 Nov election day"
+ }
+}

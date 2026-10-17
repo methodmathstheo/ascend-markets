@@ -43,6 +43,139 @@ Who is affected, and what the move says about the wider market.
 
 const POSTS = [
   {
+    slug: "insure-stocks-hedge-bonds",
+    title: "Blog #3: Insure your stocks with options. Hedge your bonds with futures.",
+    date: "2026-10-19",
+    draft: true,
+    section: "derivatives",
+    author: "theo",
+    tags: ["Options", "Futures", "Volatility", "Equities", "Bonds", "FX", "UK rates", "Property"],
+    dataAsOf: "15 October 2026",
+    summary: "With five market-moving events in 16 days, insurance on stocks is cheaper than usual while insurance on bonds and sterling carries a premium, so I would buy options on equities and use futures and forwards everywhere else.",
+    body: `
+**In one sentence:** with five market-moving events in 16 days, insurance on stocks is cheaper than usual while insurance on bonds and sterling carries a premium, so I would buy options on equities and use futures and forwards everywhere else.
+
+## The basics
+
+Futures, forwards and options all do one job: they fix a price today for something that happens later.
+
+- A **future** is an exchange-traded agreement to buy or sell at a set price on a set date. You post margin, a fraction of the contract's value, instead of paying in full.
+- A **forward** is the same agreement struck privately, usually with a bank. It is the standard tool for hedging currency.
+- An **option** is the right, but not the obligation, to buy (a call) or sell (a put) at a set price. The buyer pays a premium up front, and that premium is the most they can lose.
+
+| | Shares | Futures | Options (bought) |
+| --- | --- | --- | --- |
+| Cash up front | The full price | Margin only | The premium |
+| Profit from a fall | Only by shorting | Yes, sell the future | Yes, buy a put |
+| Worst case | Lose what you paid | Losses can exceed margin | Lose the premium |
+| Hedge without selling | No | Yes | Yes |
+| Direct exposure to rates, FX or volatility | No | Yes | Yes |
+
+The real edge over shares is that derivatives separate risk from ownership. You can keep a portfolio you believe in, switch off the risk you do not want for the next three weeks, then switch it back on.
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c01-three-ways.json"></figure>
+
+## 1. The story
+
+Inflation ran hot this week. US consumer prices beat forecasts on 14 October, and a day later September producer prices rose 1.3% in a single month against a 0.5% consensus. Futures now price a December Fed hike at 92%, on top of September's rise to 3.75% to 4.00%.
+
+Bonds have done the adjusting. The US 10-year yield touched 5.34% on 1 October, the highest since 2002. The UK 10-year has reached 5.44%, the highest since 2007, and the 30-year gilt is above 6%. Average five-year mortgage fixes are near 6% while Bank Rate sits at 3.75%. Sterling fell to 1.3137 on 14 October, an 11-month low.
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c07-yields.json"></figure>
+
+Stocks have barely noticed: the S&P 500 closed at 7,744 on Thursday and the VIX at 16.45. Investors are still reaching for derivatives, with US options volume running 21% ahead of last year's record pace. Five scheduled events now land in 16 days: UK CPI (21 Oct), the Budget and the Fed (28 Oct), the midterms (3 Nov), the Bank of England (5 Nov) and US payrolls (6 Nov).
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c12-options-volume.json"></figure>
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c13-timeline.json"></figure>
+
+## 2. The numbers
+
+Implied volatility is the price of insurance in the options market, and right now it is out of line across asset classes.
+
+| Asset class | Gauge | Latest | Versus normal |
+| --- | --- | --- | --- |
+| Equities | VIX, S&P 500 implied vol | 16.45 (15 Oct) | 15% below its long-run average of 19.4 |
+| Bonds | MOVE, US Treasury implied vol | 99 (14 Oct) | 78% above its January low of 55.8 |
+| Sterling | GBP/USD one-month implied vol | 5.96% (28 Sep) | 0.77 points above realised, with expiry over the Budget |
+| UK rates | Bank Rate implied by SONIA | About 4.5% by April 2027 (12 Oct) | Three hikes priced; economists expect two |
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c02-vix-move.json"></figure>
+
+Three details sharpen the picture.
+
+- **The election is priced as a one-day event.** SPX options price a 1.00% move for the session after the vote, against 0.68% for an ordinary day. Yet the October VIX future, whose window spans 3 November, settled 0.50 points below November on 15 October. In late August the same two contracts traded at 19 and 19.7.
+- **Sterling bears are crowded.** Of GBP/USD options expiring around Budget week, 67% bet on a weaker pound, against 55% across all trades (late September data).
+- **The rates market is ahead of the Bank.** BoE chief economist Huw Pill said this week he is sceptical of the four hikes in a year that markets imply.
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c06-election-day.json"></figure>
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c04-vix-curve.json"></figure>
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c05-oct-minus-nov.json"></figure>
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c03-sterling-premium.json"></figure>
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c11-positioning.json"></figure>
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c08-bank-rate.json"></figure>
+
+## 3. Why it matters
+
+My rule for this autumn: buy options where insurance is cheap, and use futures and forwards where it is dear. Futures and forwards carry no premium, so their cost does not rise when fear does.
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c14-cheap-dear.json"></figure>
+
+- **Equities: buy the put spread.** Buy an S&P 500 or FTSE 100 put about 5% below the market, sell one about 10% below, and choose an expiry after 6 November. One trade covers all five events while US equity vol sits 15% below average. For a single concentrated holding, a collar (selling an upside call to fund a put) builds the same floor at close to zero cost. To cut market exposure without selling a share, sell index futures against part of the book.
+- **Bonds: sell futures, not options.** At a MOVE of 99, gilt and Treasury options are expensive. Selling Long Gilt futures into the Budget cuts duration at no premium, and the position closes in one trade the day after.
+- **Sterling: use a forward and lean against the crowd.** If the Budget is credible, a crowded short in sterling unwinds fast, and a rebounding pound is exactly what hurts a UK investor in US stocks. A forward locks today's rate without paying the Budget premium built into options.
+- **Property: the hedge is already in the price.** Fixed mortgages price off swaps, and the swap curve assumes three hikes by April against economists' two. Fixing now locks those hikes in, and a rate cap, an option on rates, costs more while rate volatility is high. My view is the opposite trade: buying SONIA futures pays if the Bank delivers fewer hikes than priced, the move that would pull mortgage rates back down.
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c09-mortgages.json"></figure>
+
+<figure class="chart" data-chart-json="assets/data/blog-3/c10-sterling.json"></figure>
+
+The bond and sterling hedges cover opposite Budget outcomes, and that is the point. I do not need to call the Budget, only to survive it. Spread across all four asset classes, these positions switch off this month's risks without selling a single holding.
+
+## 4. The other side
+
+The best case against me is that known events rarely deliver. Volatility tends to be bought before scheduled events and sold the morning after, so a put spread can lose value through a quiet election night. The VIX curve has sat in contango for more than 120 sessions, a regime that pays volatility sellers, not buyers.
+
+Futures hedges have their own cost: they give up upside, and margin is called daily. And if the Bank really does hike four times, buying SONIA futures is simply the wrong side.
+
+## 5. What I'm watching
+
+- **21 October, UK CPI.** A hot print makes three hikes look cheap and weakens my SONIA view; a soft one strengthens it.
+- **28 October, the Budget and the Fed.** Chancellor John Healey's first Budget lands hours before the Fed decision. This is the day the bond and sterling hedges are built for.
+- **3 to 6 November, midterms, Bank of England, payrolls.** If the VIX is still below 18 going into election day, the put spread stays on through payrolls. If it spikes above 25 first, I take profit rather than wait for expiry.
+
+## Sources
+
+- [FXStreet: US PPI and Fed hike odds, 15 Oct](https://www.fxstreet.com/news/british-pound-surges-as-hot-us-ppi-fails-to-revive-fed-hike-bets-202610151546)
+- [FXStreet: BoE poll and UK CPI date, 15 Oct](https://www.fxstreet.com/news/pound-climbs-on-a-weaker-dollar-and-a-uk-growth-surprise-202610152225)
+- [Vantage Markets: US CPI and sterling's 11-month low, 15 Oct](https://www.vantagemarkets.com/market-analysis/why-pound-recovered-dollar-cpi-spike-faded-gbpusd-october-15-2026/)
+- [Trading Economics: Fed September hike](https://tradingeconomics.com/united-states/interest-rate)
+- [Amundi: US 10-year at 5.34%](https://research-center.amundi.com/article/markets-weigh-rising-yields-and-ai-exuberance)
+- [TradingNews: gilt yields at 5.44%, 30-year above 6%](https://www.tradingnews.com/news/sterling-holds-132229-as-boe-rate-supprt-offsets-19-year-high-gilt-yields)
+- [HomeOwners Alliance: UK mortgage rates, Oct 2026](https://hoa.org.uk/advice/guides-for-homeowners/for-owners/mortgage-rate-forecast/)
+- [Investrade: market review, 15 Oct](https://investrade.com/market-review-october-15-2026/)
+- [OCC: September 2026 volume report](https://www.theocc.com/newsroom/views/2026/10-02-september-2026-monthly-volume-report)
+- [AD HOC NEWS: VIX close, 15 Oct](https://www.ad-hoc-news.de/boerse/news/marktberichte/vix-closes-2-5-percent-lower-after-hot-ppi-data/70333685)
+- [BigGo Finance: VIX long-run average](https://finance.biggo.com/news/d9ce71ef-c8d5-4b39-bc42-57017bc17ab4)
+- [CNBC: MOVE index](https://www.cnbc.com/quotes/.MOVE)
+- [GuruFocus: GBP/USD options ahead of the Budget, 28 Sep](https://www.gurufocus.com/news/9099356/gbpusd-options-pricing-reflects-risk-ahead-of-uk-budget-announcement)
+- [Mortgage One: SONIA-implied Bank Rate path](https://www.mortgageonefinance.co.uk/interest-rate-projection)
+- [Success Knocks: economists' Bank Rate forecasts](https://successknocks.com/uk-mortgage-rate-forecasts-2026-2027/)
+- [Tradingpedia: Huw Pill on four hikes, 15 Oct](https://www.tradingpedia.com/2026/10/15/sterling-holds-firm-as-markets-weigh-uk-data-fed-path/)
+- [SquawkFlow: election pricing and VIX futures gap](https://squawkflow.com/elections/2026)
+- [Bloomberg: VIX curve in late August](https://www.bloomberg.com/news/articles/2026-08-25/vix-curve-bump-shows-stock-market-anxiety-growing-by-midterms)
+- [thetrading.tools: VIX term structure](https://www.thetrading.tools/manuals/vix-term-structure)
+- [Cambridge Network: Budget date](https://www.cambridgenetwork.co.uk/news/healey-sets-pre-halloween-autumn-budget)
+
+*For education only, not investment advice.*
+`
+  },
+  {
     slug: "midterms-oil-brent-100",
     title: "The midterms, not the oil market, will end Brent's run above $100",
     date: "2026-10-14",
