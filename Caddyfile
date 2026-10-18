@@ -8,6 +8,9 @@
 	encode zstd gzip
 
 	header {
+		# Now the certificate is valid, tell browsers to always use https.
+		# No preload: that list is effectively permanent.
+		Strict-Transport-Security "max-age=31536000"
 		X-Content-Type-Options "nosniff"
 		X-Frame-Options "DENY"
 		Referrer-Policy "strict-origin-when-cross-origin"
