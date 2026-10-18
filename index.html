@@ -681,7 +681,28 @@ const ALL_POSTS = (typeof POSTS !== 'undefined' && Array.isArray(POSTS)) ? POSTS
   : (window.POSTS || []);
 /* A note marked draft stays off the live site. Add ?preview=1 to the address to read it. */
 const PREVIEW = /(?:^|[?&])preview=1(?:&|$)/.test(location.search);
-const isLive = p => !p.draft && !(p.publishAt && p.publishAt > new Date().toISOString().slice(0,10));
+
+/* publishAt is written in UK time, as "2026-10-19" or "2026-10-19T09:00".
+   This converts it to the exact instant, honouring British Summer Time. */
+function ukTime(stamp){
+  const [datePart, timePart] = String(stamp).split('T');
+  const [Y, M, D] = datePart.split('-').map(Number);
+  const [h, mi] = (timePart || '00:00').split(':').map(Number);
+  const guess = Date.UTC(Y, M - 1, D, h || 0, mi || 0);
+  try {
+    const f = new Intl.DateTimeFormat('en-GB', {timeZone:'Europe/London', hour12:false,
+      year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'});
+    const q = {};
+    f.formatToParts(new Date(guess)).forEach(part => { q[part.type] = part.value; });
+    const seen = Date.UTC(+q.year, +q.month - 1, +q.day, +q.hour % 24, +q.minute);
+    return guess - (seen - guess);           /* undo the London offset */
+  } catch(e){ return guess; }
+}
+const isLive = (p, now) => {
+  if(p.draft) return false;
+  if(!p.publishAt) return true;
+  return (now == null ? Date.now() : now) >= ukTime(p.publishAt);
+};
 const posts = ALL_POSTS.filter(p => PREVIEW || isLive(p))
   .slice().sort((a,b)=> b.date.localeCompare(a.date));
 

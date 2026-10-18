@@ -58,6 +58,24 @@ A normal paragraph.
 
 Tables become scrollable on phones automatically, and figures use tabular numerals.
 
+## Staging a note before it goes live
+
+Two optional fields hold a note back:
+
+```js
+draft: true,                      // stays off the site until you remove this line
+publishAt: "2026-10-26T09:00",    // appears by itself at 9am UK time on that date
+```
+
+A held note is invisible on the site and its address returns "Article not found". To read it first,
+put `?preview=1` before the `#` in the address:
+
+```
+https://ascendmarkets.co.uk/?preview=1#/post/your-slug
+```
+
+You can edit any note in the file, not just your own, including ones already published.
+
 ## Rules of the house
 
 - British spelling.

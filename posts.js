@@ -46,7 +46,7 @@ const POSTS = [
     slug: "insure-stocks-hedge-bonds",
     title: "Blog #3: Insure your stocks with options. Hedge your bonds with futures.",
     date: "2026-10-19",
-    draft: true,
+    publishAt: "2026-10-19T09:00",
     section: "derivatives",
     author: "theo",
     tags: ["Options", "Futures", "Volatility", "Equities", "Bonds", "FX", "UK rates", "Property"],

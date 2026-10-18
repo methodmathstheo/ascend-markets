@@ -113,9 +113,13 @@ locally and screenshot it. This is optional; without it the note falls back to t
 A note can be staged without going live:
 
 ```js
-draft: true,                 // never appears on the live site
-publishAt: "2026-10-26",     // or: appears by itself on this date
+draft: true,                      // never appears on the live site
+publishAt: "2026-10-26T09:00",    // or: appears by itself at this moment
 ```
+
+`publishAt` is read as UK time and handles British Summer Time, so `T09:00` means nine in the
+morning in London whatever the season. A date on its own means midnight. The note appears for every
+reader as their clock passes that moment, with no deploy needed.
 
 A note with either field is left out of the home page, the archive, the section pages, the cadence
 strip and the search of slugs, and its address returns "Article not found". To read it before it
