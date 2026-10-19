@@ -1,27 +1,29 @@
+
+Index code · TXT
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ascend Markets</title>
-<meta name="description" content="Ascend Markets: weekly market notes by Christian Walton, Theo Elwell, Jimmy Carlton, Zac Kemp and Billy Hyams. One market story a week, explained properly.">
+<meta name="description" content="Ascend Markets: weekly market notes by Christian Walton, Theo Elwell, Jimmy Carlton, Zac Kemp, Billy Hyams and Ben Patrick. One market story a week, explained properly.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme:light)">
 <meta name="theme-color" content="#0B1220" media="(prefers-color-scheme:dark)">
-
+ 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ascend Markets">
 <meta property="og:title" content="Ascend Markets">
-<meta property="og:description" content="Weekly market notes from five students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
+<meta property="og:description" content="Weekly market notes from six students. One story a week: what happened, why it matters, and what to watch next.">
 <link rel="canonical" href="https://ascendmarkets.co.uk/">
 <meta property="og:url" content="https://ascendmarkets.co.uk/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://ascendmarkets.co.uk/assets/logo.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ascend Markets">
-<meta name="twitter:description" content="Weekly market notes from five students, one desk each. One story a week: what happened, why it matters, and what to watch next.">
-
+<meta name="twitter:description" content="Weekly market notes from six students. One story a week: what happened, why it matters, and what to watch next.">
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
@@ -76,7 +78,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
 .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 .label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--ink-3)}
 .rule-t{border-top:1px solid var(--rule)}
-
+ 
 /* ===========================================================
    MASTHEAD
    =========================================================== */
@@ -101,7 +103,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
 .dateline{text-align:right;font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;
   color:var(--ink-3);line-height:1.5;font-variant-numeric:tabular-nums;white-space:nowrap}
 .dateline b{color:var(--ink-2);font-weight:600}
-
+ 
 /* Section nav */
 .secnav-wrap{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .secnav{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
@@ -116,7 +118,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
 .secnav a:hover{color:var(--ink)}
 .secnav a:hover::after,.secnav a[aria-current="page"]::after{transform:scaleX(1)}
 .secnav a[aria-current="page"]{color:var(--ink)}
-
+ 
 /* ===========================================================
    HOME: HERO
    =========================================================== */
@@ -135,7 +137,14 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
   font-weight:600;color:var(--ink-3);margin-top:.12rem}
 .teamstrip a:hover .n{color:var(--accent)}
 .teamstrip a:hover .avatar{border-color:var(--accent)}
-
+.teamstrip .ts-founders{gap:1rem clamp(1.5rem,4vw,3rem);margin-bottom:1.1rem}
+.teamstrip .ts-founders a{gap:.85rem}
+.teamstrip .ts-founders .n{font-family:var(--serif);font-size:1.3rem;letter-spacing:-.02em;line-height:1.15}
+.teamstrip .ts-founders .r{color:var(--accent);margin-top:.25rem}
+.teamstrip .ts-rest{padding-top:1rem;border-top:1px solid var(--rule)}
+.teamstrip .ts-rest .n{font-size:.86rem;color:var(--ink-2)}
+.teamstrip .ts-rest .r{font-size:.76rem;text-transform:none;letter-spacing:0;font-weight:400}
+ 
 /* Avatars */
 .avatar{position:relative;display:inline-block;width:var(--s,28px);height:var(--s,28px);
   border-radius:50%;overflow:hidden;border:1px solid var(--rule-2);background:var(--accent-soft);
@@ -147,10 +156,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
   object-position:50% 0%}   /* portraits put the face at 40% height: this centres it in the circle */
 .avatars{display:inline-flex;align-items:center}
 .avatars .avatar+.avatar{margin-left:calc(var(--s,28px) * -.32);box-shadow:0 0 0 2px var(--paper)}
-
+ 
 /* Byline */
 .byline{display:inline-flex;align-items:center;gap:.45rem;color:var(--ink-2);font-size:.86rem}
-
+ 
 /* ===========================================================
    FEATURED
    =========================================================== */
@@ -175,7 +184,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
 .sec-tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
   color:var(--c,var(--accent))}
 .dot{width:3px;height:3px;border-radius:50%;background:var(--rule-2);flex:none}
-
+ 
 /* ===========================================================
    CADENCE
    =========================================================== */
@@ -209,7 +218,7 @@ a.cell:hover{transform:scale(1.2)}
 .legend .empty i{background:transparent;border:1px solid var(--rule-2)}
 .cadence p{margin:0;color:var(--ink-2);font-size:.92rem;font-variant-numeric:tabular-nums}
 .cadence p strong{color:var(--ink);font-weight:600}
-
+ 
 /* ===========================================================
    SECTIONS GRID
    =========================================================== */
@@ -232,7 +241,7 @@ a.cell:hover{transform:scale(1.2)}
   font-variant-numeric:tabular-nums}
 .grid a .foot .latest{display:block;color:var(--ink-2);margin-top:.15rem;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
+ 
 /* ===========================================================
    ARCHIVE LIST
    =========================================================== */
@@ -269,7 +278,7 @@ a.cell:hover{transform:scale(1.2)}
   border-radius:4px;max-width:58ch;margin:0;background:var(--paper-2)}
 .empty-state a{color:var(--accent)}
 .emptywrap{padding:.6rem 0 3.4rem}
-
+ 
 /* ===========================================================
    SECTION PAGE
    =========================================================== */
@@ -280,7 +289,7 @@ a.cell:hover{transform:scale(1.2)}
 .sechero p{margin:0;color:var(--ink-2);font-size:1.08rem;max-width:58ch}
 .sechero .count{margin-top:1.1rem;font-size:.84rem;color:var(--ink-3);
   font-variant-numeric:tabular-nums}
-
+ 
 /* ===========================================================
    ARTICLE
    =========================================================== */
@@ -304,7 +313,7 @@ a.cell:hover{transform:scale(1.2)}
 .copy:hover{color:var(--ink);border-color:var(--ink-3)}
 .copy[data-done="1"]{color:var(--accent);border-color:var(--accent)}
 .copy svg{width:12px;height:12px}
-
+ 
 .prose{max-width:68ch;font-size:1.1rem;line-height:1.74}
 .prose>:first-child{margin-top:0}
 .prose p,.prose ul,.prose ol{margin:0 0 1.3rem}
@@ -336,7 +345,7 @@ a.cell:hover{transform:scale(1.2)}
 .prose pre code{background:none;padding:0}
 .prose hr{border:0;border-top:1px solid var(--rule);margin:2.6rem 0}
 .prose img{margin:1.6rem 0;border-radius:4px}
-
+ 
 .more{border-top:1px solid var(--rule);margin-top:3.2rem;padding-top:1.5rem}
 .more h2{font-family:var(--serif);font-weight:500;font-size:1.25rem;margin:0 0 1.1rem;
   letter-spacing:-.018em}
@@ -353,7 +362,7 @@ a.cell:hover{transform:scale(1.2)}
   letter-spacing:-.015em}
 .pager a:hover strong{color:var(--accent)}
 .pager .next{text-align:right;grid-column:2}
-
+ 
 /* ===========================================================
    CHARTS
    =========================================================== */
@@ -394,7 +403,7 @@ figure.chart figcaption{margin-top:.8rem;font-size:.8rem;color:var(--ink-3);line
   border-top:1px solid var(--rule);padding-top:.6rem}
 figure.chart figcaption b{color:var(--ink-2);font-weight:600}
 figure.chart figcaption .src{display:block;margin-top:.1rem}
-
+ 
 figure.chart .ct{font-family:var(--serif);font-weight:500;font-size:1.08rem;line-height:1.3;
   margin:0 0 .25rem;letter-spacing:-.015em;color:var(--ink)}
 figure.chart .cst{margin:0 0 .85rem;font-size:.82rem;color:var(--ink-3);line-height:1.45}
@@ -424,7 +433,7 @@ figure.chart .cst{margin:0 0 .85rem;font-size:.82rem;color:var(--ink-3);line-hei
 .is-preview .article::before{content:"Preview";position:fixed;top:0;right:0;z-index:70;
   background:var(--accent);color:var(--paper);font-size:.66rem;letter-spacing:.12em;
   text-transform:uppercase;font-weight:700;padding:.3rem .7rem;border-bottom-left-radius:5px}
-
+ 
 /* Desk comment: a second voice inside a note */
 .deskcomment{margin:2.6rem 0;padding:1.4rem 1.5rem;border-left:3px solid var(--accent);
   background:var(--paper-2);border-radius:0 6px 6px 0}
@@ -437,7 +446,7 @@ figure.chart .cst{margin:0 0 .85rem;font-size:.82rem;color:var(--ink-3);line-hei
 .contrib{display:flex;align-items:center;gap:.45rem;margin:.1rem 0 0;font-size:.85rem;
   color:var(--ink-3)}
 .arow-2{margin-top:.2rem}
-
+ 
 /* ===========================================================
    ABOUT
    =========================================================== */
@@ -454,7 +463,7 @@ figure.chart .cst{margin:0 0 .85rem;font-size:.82rem;color:var(--ink-3);line-hei
 .portrait .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-family:var(--serif);font-weight:500;font-size:2.6rem;letter-spacing:.02em;color:var(--accent)}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.founder h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.022em;
+.founder h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,4vw,2.1rem);letter-spacing:-.022em;
   margin:0 0 .3rem;line-height:1.2}
 .founder .titleline{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin:0 0 .25rem}
 .founder .cofounder{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
@@ -467,6 +476,13 @@ a.desk:hover{border-bottom-color:currentColor}
 .founder .course{margin:0 0 1rem;font-size:.88rem;color:var(--ink-3)}
 .team-label{margin:0 0 .9rem}
 .founder .bio{margin:0 0 1.1rem;color:var(--ink-2);max-width:60ch}
+.members-label{margin-top:2.6rem}
+.members{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.members li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
+  gap:.2rem 1.5rem;padding:1.05rem 0;border-bottom:1px solid var(--rule)}
+.members .mname{display:block;font-weight:500;font-size:1rem;color:var(--ink-2)}
+.members .mnote{display:block;font-size:.9rem;color:var(--accent);font-weight:500;margin-top:.1rem}
+.members .mcourse{font-size:.92rem;color:var(--ink-3)}
 .contact{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin:0;padding:0;list-style:none}
 .contact li{font-size:.9rem;color:var(--ink-3)}
 .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-2);
@@ -477,7 +493,7 @@ a.desk:hover{border-bottom-color:currentColor}
 .about .body{max-width:66ch}
 .about .body p{margin:0 0 1.1rem;color:var(--ink-2)}
 .about .body p strong{color:var(--ink);font-weight:600}
-
+ 
 /* ===========================================================
    NOT FOUND
    =========================================================== */
@@ -489,7 +505,7 @@ a.desk:hover{border-bottom-color:currentColor}
   color:var(--ink);padding:.5rem 1.1rem;border-radius:999px;font-size:.9rem;font-weight:500;
   transition:background .2s ease,color .2s ease}
 .btn:hover{background:var(--ink);color:var(--paper)}
-
+ 
 /* ===========================================================
    FOOTER
    =========================================================== */
@@ -499,7 +515,7 @@ footer p{margin:0;max-width:72ch}
 footer nav{display:flex;gap:1.1rem}
 footer nav a{text-decoration:none;color:var(--ink-3)}
 footer nav a:hover{color:var(--ink)}
-
+ 
 /* ===========================================================
    MOTION
    =========================================================== */
@@ -509,7 +525,7 @@ footer nav a:hover{color:var(--ink)}
 .fade:nth-child(3){animation-delay:.1s}
 .fade:nth-child(4){animation-delay:.15s}
 .fade:nth-child(5){animation-delay:.2s}
-
+ 
 /* ===========================================================
    RESPONSIVE
    =========================================================== */
@@ -552,7 +568,7 @@ footer nav a:hover{color:var(--ink)}
 <body>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <a class="skip" href="#app">Skip to content</a>
-
+ 
 <div class="wrap">
   <header class="masthead">
     <a class="lockup" href="#/" aria-label="Ascend Markets, home">
@@ -576,13 +592,13 @@ footer nav a:hover{color:var(--ink)}
     </div>
   </header>
 </div>
-
+ 
 <div class="secnav-wrap">
   <div class="wrap">
     <nav class="secnav" id="secnav" aria-label="Sections"></nav>
   </div>
 </div>
-
+ 
 <div class="wrap">
   <main id="app" tabindex="-1"></main>
   <footer>
@@ -595,7 +611,7 @@ footer nav a:hover{color:var(--ink)}
     </div>
   </footer>
 </div>
-
+ 
 <script src="posts.js"></script>
 <script src="charts.js"></script>
 <script src="chart-engine.js"></script>
@@ -616,12 +632,11 @@ const SECTIONS = [
   /* Editorial is a housekeeping category: it appears in filters, not in the sections grid. */
   {key:'editorial',   name:'Editorial',        desc:'Notes about the blog itself.',                                    light:'#5E6472', dark:'#A3ADBE', listed:false}
 ];
-
+ 
 const AUTHORS = {
   christian: {
     key:'christian', name:'Christian Walton', first:'Christian', initials:'CW',
     founder:true,
-    desk:'Head of Commodities', section:'commodities',
     course:'Mathematics with Data Science, LSE',
     bio:'Christian is a second-year BSc Mathematics with Data Science student at the London School of Economics. He works through the data behind each story, from pricing and volatility to the statistics underneath the headline numbers.',
     email:'c.walton2@lse.ac.uk',
@@ -632,7 +647,6 @@ const AUTHORS = {
   theo: {
     key:'theo', name:'Theo Elwell', first:'Theo', initials:'TE',
     founder:true,
-    desk:'Head of Options & Futures', section:'derivatives',
     course:'Economics, Loughborough University',
     bio:'Theo is a final-year BSc Economics student at Loughborough University and an options and futures analyst on the Loughborough Quantitative and Discretionary Fund. He built and designed this website, and codes each note in HTML from the data the team brings him.',
     email:'T.Elwell1-24@student.lboro.ac.uk',
@@ -640,38 +654,27 @@ const AUTHORS = {
     photo:'assets/founders/theo.jpg',
     alt:'Portrait of Theo Elwell, co-founder of Ascend Markets'
   },
+  /* Team members: name and degree only, no photo. To add someone, copy a block.
+     note is optional: leave it out if not needed. */
   jimmy: {
     key:'jimmy', name:'Jimmy Carlton', first:'Jimmy', initials:'JC',
-    desk:'Head of Fixed Income', section:'fixedincome', extra:'King of Banter',
-    course:'Economics, Accounting and Finance, University of Kent',
-    bio:'Jimmy Carlton studies Economics, Accounting and Finance at the University of Kent. He covers fixed income, from government curves to corporate credit, and doubles as rugby social secretary and club legend.',
-    email:'Jc2315@kent.ac.uk',
-    phone:'+44 7834 720207', tel:'+447834720207',
-    photo:'assets/founders/jimmy.jpg',
-    alt:'Portrait of Jimmy Carlton, head of fixed income at Ascend Markets'
+    course:'Economics, Accounting and Finance, University of Kent'
   },
   zac: {
     key:'zac', name:'Zac Kemp', first:'Zac', initials:'ZK',
-    desk:'Head of Macro News', section:'macro',
-    course:'Mathematics, University of Nottingham',
-    bio:'Zac Kemp is a Mathematics student at the University of Nottingham. He heads macro news, tracking the data releases, central bank decisions and policy shifts that set the backdrop for every other section. He doubles as padel society football manager and Fortnite professional.',
-    email:'pmyzk2@nottingham.ac.uk',
-    phone:'+44 7493 214246', tel:'+447493214246',
-    photo:'assets/founders/zac.jpg',
-    alt:'Portrait of Zac Kemp, head of macro news at Ascend Markets'
+    course:'Mathematics, University of Nottingham'
   },
   billy: {
     key:'billy', name:'Billy Hyams', first:'Billy', initials:'BH',
-    desk:'Head of Real Estate', section:'realestate',
-    course:'Economics, University of Nottingham',
-    bio:'Billy Hyams is an Economics student at the University of Nottingham. He covers real estate, from housing and commercial property to the listed landlords and the cost of financing them.',
-    email:'leybh12@nottingham.ac.uk',
-    phone:'+44 7852 151955', tel:'+447852151955',
-    photo:'assets/founders/billy.jpg',
-    alt:'Portrait of Billy Hyams, head of real estate at Ascend Markets'
+    course:'Economics, University of Nottingham'
+  },
+  ben: {
+    key:'ben', name:'Ben Patrick', first:'Ben', initials:'BP',
+    course:'Economics and Politics, LSE',
+    note:'Incoming BNP Paribas Summer Analyst'
   }
 };
-
+ 
 /* =================================================================
    SITE LOGIC (nothing to edit weekly)
    ================================================================= */
@@ -681,7 +684,7 @@ const ALL_POSTS = (typeof POSTS !== 'undefined' && Array.isArray(POSTS)) ? POSTS
   : (window.POSTS || []);
 /* A note marked draft stays off the live site. Add ?preview=1 to the address to read it. */
 const PREVIEW = /(?:^|[?&])preview=1(?:&|$)/.test(location.search);
-
+ 
 /* publishAt is written in UK time, as "2026-10-19" or "2026-10-19T09:00".
    This converts it to the exact instant, honouring British Summer Time. */
 function ukTime(stamp){
@@ -705,7 +708,7 @@ const isLive = (p, now) => {
 };
 const posts = ALL_POSTS.filter(p => PREVIEW || isLive(p))
   .slice().sort((a,b)=> b.date.localeCompare(a.date));
-
+ 
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtDate = d => new Date(d+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
@@ -713,7 +716,7 @@ const fmtLong = d => new Date(d+'T12:00:00').toLocaleDateString('en-GB',{day:'nu
 const fmtShort = d => d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
 const readTime = t => Math.max(1, Math.round(String(t).trim().split(/\s+/).length/220)) + ' min read';
 const plural = (n,w) => n + ' ' + w + (n===1?'':'s');
-
+ 
 function md(text){
   if (window.marked) {
     /* ":::desk ... :::" fences become a styled callout for a second voice. */
@@ -734,10 +737,10 @@ function monday(d){
 }
 const WEEK = 604800000;
 const weeksBetween = (a,b) => Math.round((b.getTime()-a.getTime())/WEEK);
-
+ 
 const firstDate = posts.length ? posts[posts.length-1].date : null;
 const firstMonday = firstDate ? monday(firstDate) : null;
-
+ 
 /* Issue numbers run in publication order, so two notes in one week never collide. */
 const ISSUE_BY_SLUG = {};
 posts.slice().sort((a,b)=> a.date.localeCompare(b.date) || String(a.slug).localeCompare(String(b.slug)))
@@ -746,7 +749,7 @@ function issueNo(post){
   return 'No. ' + String(ISSUE_BY_SLUG[post && post.slug] || 1).padStart(2,'0');
 }
 const isThisWeek = post => firstMonday && monday(post.date).getTime() === monday(new Date()).getTime();
-
+ 
 /* --- sections and authors --------------------------------------- */
 const SEC_BY_KEY = Object.fromEntries(SECTIONS.map(s=>[s.key,s]));
 /* Renamed sections: old keys and old links keep working. */
@@ -757,7 +760,7 @@ const sectionOf = p => resolveSec(p && p.section) || FALLBACK_SEC;
 const secVar = s => '--c:var(--sec-' + s.key + ')';
 const listedSections = () => SECTIONS.filter(s => s.listed !== false);
 const postsIn = key => posts.filter(p => sectionOf(p).key === key);
-
+ 
 function authorsOf(p){
   const a = p && p.author;
   if(Array.isArray(a)){
@@ -770,12 +773,12 @@ function authorsOf(p){
 }
 const authorNames = p => authorsOf(p).map(a=>a.name).join(' and ');
 const writesFor = (p,key) => authorsOf(p).some(a=>a.key===key);
-
+ 
 function avatarHTML(a, size, eager){
   return '<span class="avatar" style="--s:'+size+'px">'
     + '<span class="mono" aria-hidden="true">'+esc(a.initials)+'</span>'
-    + '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt)+'" width="'+size+'" height="'+size+'"'
-    + ' decoding="async" loading="'+(eager?'eager':'lazy')+'" onerror="this.remove()">'
+    + (a.photo ? '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt)+'" width="'+size+'" height="'+size+'"'
+    + ' decoding="async" loading="'+(eager?'eager':'lazy')+'" onerror="this.remove()">' : '')
     + '</span>';
 }
 function avatarsHTML(p, size){
@@ -786,7 +789,7 @@ function avatarsHTML(p, size){
 function bylineHTML(p, size){
   return '<span class="byline">'+avatarsHTML(p,size||24)+'<span>'+esc(authorNames(p))+'</span></span>';
 }
-
+ 
 /* --- section colour variables, generated from SECTIONS ----------- */
 (function injectSectionColours(){
   const light = SECTIONS.map(s=>'--sec-'+s.key+':'+s.light+';').join('');
@@ -798,24 +801,24 @@ function bylineHTML(p, size){
   el.textContent = css;
   document.head.appendChild(el);
 })();
-
+ 
 /* --- chrome ------------------------------------------------------ */
 document.getElementById('yr').textContent = new Date().getFullYear();
-
+ 
 (function buildDateline(){
   const el = document.getElementById('dateline');
   const latest = posts[0];
   const today = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   el.innerHTML = (latest ? '<b>'+esc(issueNo(latest))+'</b> &middot; ' : '') + esc(today);
 })();
-
+ 
 (function buildSecNav(){
   const nav = document.getElementById('secnav');
   nav.innerHTML = '<a href="#/" data-nav="home">All notes</a>' + listedSections().map(s =>
     '<a href="#/section/'+s.key+'" data-sec="'+s.key+'" style="'+secVar(s)+'">'+esc(s.name)+'</a>'
   ).join('');
 })();
-
+ 
 function setNav(which, secKey){
   document.querySelectorAll('[data-nav]').forEach(a=>{
     if(a.dataset.nav===which && !secKey) a.setAttribute('aria-current','page');
@@ -826,11 +829,11 @@ function setNav(which, secKey){
     else a.removeAttribute('aria-current');
   });
 }
-
+ 
 /* --- cadence ----------------------------------------------------- */
 const byWeek = new Map();
 posts.forEach(p => { const k = monday(p.date).getTime(); if(!byWeek.has(k)) byWeek.set(k, p); });
-
+ 
 function weekList(){
   if(!posts.length) return [];
   const now = monday(new Date());
@@ -863,19 +866,19 @@ function cadenceHTML(){
       + '<i>'+esc(s.name+' · '+authorNames(p))+'</i>'
       + '</span></a>';
   }).join('');
-
+ 
   const used = [];
   SECTIONS.forEach(s => { if(posts.some(p=>sectionOf(p).key===s.key)) used.push(s); });
   const legend = used.map(s =>
     '<span style="'+secVar(s)+'"><i></i>'+esc(s.name)+'</span>').join('')
     + '<span class="empty"><i></i>No note</span>';
-
+ 
   const n = posts.length, wk = weeks.length, streak = currentStreak();
   const everyWeek = byWeek.size === weeks.length;
   const line = '<strong>'+plural(n,'note')+'</strong> across '+plural(wk,'week')+', '
     + (everyWeek ? 'published every week since ' : 'the first published ')
     + fmtDate(firstDate) + '.';
-
+ 
   return '<section class="cadence fade" aria-labelledby="cadence-h">'
     + '<div class="head"><h2 class="label" id="cadence-h">Publishing record</h2>'
     + '<p class="streak">Current streak: <b>'+plural(streak,'week')+'</b></p></div>'
@@ -883,7 +886,7 @@ function cadenceHTML(){
     + '<div class="legend">'+legend+'</div>'
     + '<p>'+line+'</p></section>';
 }
-
+ 
 /* --- shared card and row builders -------------------------------- */
 function postRow(p){
   const s = sectionOf(p);
@@ -897,7 +900,7 @@ function postRow(p){
     + '<span>'+esc(readTime(p.body))+'</span></div></div></a></li>';
 }
 const postListHTML = list => '<ol class="posts">' + list.map(postRow).join('') + '</ol>';
-
+ 
 function featuredHTML(p){
   const s = sectionOf(p);
   return '<section class="featured fade" style="'+secVar(s)+'" aria-labelledby="feat-h">'
@@ -913,10 +916,10 @@ function featuredHTML(p){
     + '<div class="foot">'+bylineHTML(p,26)+'<span class="dot"></span>'
     + '<span>'+esc(readTime(p.body))+'</span></div></div></a></section>';
 }
-
+ 
 /* --- home -------------------------------------------------------- */
 let activeSection = 'All', activeAuthor = 'All';
-
+ 
 function filteredPosts(){
   return posts.filter(p =>
     (activeSection==='All' || sectionOf(p).key===activeSection) &&
@@ -958,13 +961,18 @@ function sectionsGridHTML(){
     + '<p class="label">Seven asset classes, one note a week</p></div>'
     + '<div class="grid">'+cards+'</div></section>';
 }
-const homeRole = a => a.founder ? 'Co-founder' : (a.desk || '');
+const homeRole = a => a.founder ? 'Co-founder' : (a.course || '');
 function teamStripHTML(){
-  const items = Object.values(AUTHORS).map(a =>
-    '<li><a href="#/about">' + avatarHTML(a,34,false)
+  const item = (a,size) =>
+    '<li><a href="#/about">' + avatarHTML(a,size,false)
     + '<span class="who"><span class="n">'+esc(a.name)+'</span>'
-    + '<span class="r">'+esc(homeRole(a))+'</span></span></a></li>').join('');
-  return '<div class="teamstrip fade"><span class="label">The team</span><ul>'+items+'</ul></div>';
+    + '<span class="r">'+esc(homeRole(a))+'</span></span></a></li>';
+  const all = Object.values(AUTHORS);
+  const founders = all.filter(a=>a.founder).map(a=>item(a,56)).join('');
+  const rest = all.filter(a=>!a.founder).map(a=>item(a,26)).join('');
+  return '<div class="teamstrip fade"><span class="label">The team</span>'
+    + '<ul class="ts-founders">'+founders+'</ul>'
+    + (rest ? '<ul class="ts-rest">'+rest+'</ul>' : '') + '</div>';
 }
 function renderHome(){
   setNav('home');
@@ -974,8 +982,8 @@ function renderHome(){
   app.innerHTML =
     '<section class="hero fade">'
     + '<h1>Notes on markets, every week.</h1>'
-    + '<p class="lead">We&#39;re five students across four universities, each covering a desk. '
-    + 'Every week we break down one market story: what happened, why it matters, and what to '
+    + '<p class="lead">A student-led market research platform. Each week we take one story '
+    + 'moving markets and break it down: what happened, why it matters, and what to '
     + 'watch next.</p>'
     + '</section>'
     + teamStripHTML()
@@ -997,7 +1005,7 @@ function wireFilters(){
     if(body) body.innerHTML = archiveBodyHTML();
   }));
 }
-
+ 
 /* --- section page ------------------------------------------------ */
 function renderSection(key){
   const s = resolveSec(key);
@@ -1025,7 +1033,7 @@ function renderSection(key){
         + 'week, so this section will fill out as we go. In the meantime, the other sections are '
         + 'listed on the <a href="#/">home page</a>.</p></section>');
 }
-
+ 
 /* --- article ----------------------------------------------------- */
 function contribLine(p){
   const list = (p.contributors||[]).map(k=>AUTHORS[k]).filter(Boolean);
@@ -1051,7 +1059,7 @@ function renderPost(slug){
   document.title = p.title + ' | Ascend Markets';
   setMeta(p.title, p.summary, p.ogImage);
   const related = posts.filter(o => o.slug!==p.slug && sectionOf(o).key===s.key).slice(0,3);
-
+ 
   app.innerHTML =
     '<article class="article fade" style="'+secVar(s)+'">'
     + '<a class="back" href="#/">'
@@ -1096,25 +1104,14 @@ function renderPost(slug){
   if(window.renderCharts) renderCharts(app);
   if(window.renderJsonCharts) renderJsonCharts(app);
 }
-
+ 
 /* --- about ------------------------------------------------------- */
 function founderCard(a, eager){
   const contact = ['<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>'];
   if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.tel || a.phone.replace(/\s+/g,''))+'">'
     + esc(a.phone)+'</a></li>');
-  const sec = resolveSec(a.section);
-  const deskEl = a.desk
-    ? (sec ? '<a class="desk" href="#/section/'+sec.key+'">'+esc(a.desk)+'</a>'
-           : '<span class="desk">'+esc(a.desk)+'</span>')
-    : '';
-  const desk = '<p class="titleline">'
-    + (a.founder ? '<span class="cofounder">Co-founder</span>'
-                 + (deskEl ? '<span class="tsep" aria-hidden="true">&middot;</span>' : '') : '')
-    + (a.extra ? '<span class="cofounder">'+esc(a.extra)+'</span>'
-               + (deskEl ? '<span class="tsep" aria-hidden="true">&middot;</span>' : '') : '')
-    + deskEl
-    + '</p>';
-  return '<div class="founder"'+(sec ? ' style="'+secVar(sec)+'"' : '')+'>'
+  const desk = '<p class="titleline"><span class="cofounder">Co-founder</span></p>';
+  return '<div class="founder">'
     + '<div class="portrait">'
     + '<span class="mono" aria-hidden="true">'+esc(a.initials)+'</span>'
     + '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt)+'" width="800" height="1000" '
@@ -1125,6 +1122,15 @@ function founderCard(a, eager){
     + '<p class="bio">'+esc(a.bio)+'</p>'
     + '<ul class="contact">'+contact.join('')+'</ul></div></div>';
 }
+function membersHTML(){
+  const list = Object.values(AUTHORS).filter(a=>!a.founder);
+  if(!list.length) return '';
+  return '<p class="label team-label members-label">Part of our team</p><ul class="members">'
+    + list.map(a => '<li><div><span class="mname">'+esc(a.name)+'</span>'
+      + (a.note ? '<span class="mnote">'+esc(a.note)+'</span>' : '') + '</div>'
+      + '<span class="mcourse">'+esc(a.course || '')+'</span></li>').join('')
+    + '</ul>';
+}
 function renderAbout(){
   setNav('about');
   document.title = 'About | Ascend Markets';
@@ -1132,12 +1138,13 @@ function renderAbout(){
   app.innerHTML =
     '<section class="about fade">'
     + '<h1>About Ascend Markets</h1>'
-    + '<p class="lead">One market story a week, written by five students: what happened, why it '
+    + '<p class="lead">One market story a week, written by six students: what happened, why it '
     + 'matters, and what to watch next.</p>'
     + '<p class="label team-label">The team</p>'
     + '<div class="founders">'
-    + Object.values(AUTHORS).map((a,i)=>founderCard(a, i===0)).join('')
+    + Object.values(AUTHORS).filter(a=>a.founder).map((a,i)=>founderCard(a, i===0)).join('')
     + '</div>'
+    + membersHTML()
     + '<div class="body"><h3>Why this blog</h3>'
     + '<p>We started writing a weekly note to sharpen our thinking about markets and to build a '
     + 'public record of it. Each piece takes one story and works through the numbers behind it.</p>'
@@ -1148,7 +1155,7 @@ function renderAbout(){
     + '<p>Everything here is our own analysis, written for learning and discussion. None of it is '
     + 'investment advice.</p></div></section>';
 }
-
+ 
 /* --- reading progress, copy link --------------------------------- */
 function updateProgress(){
   const art = document.querySelector('.article');
@@ -1160,7 +1167,7 @@ function updateProgress(){
 }
 window.addEventListener('scroll', updateProgress, {passive:true});
 window.addEventListener('resize', updateProgress);
-
+ 
 document.addEventListener('click', ev => {
   const btn = ev.target.closest && ev.target.closest('[data-copy]');
   if(!btn) return;
@@ -1182,7 +1189,7 @@ document.addEventListener('click', ev => {
     document.body.removeChild(t);
   }
 });
-
+ 
 /* --- router ------------------------------------------------------ */
 const META_DEFAULT = {
   desc: document.querySelector('meta[name="description"]').content,
@@ -1219,3 +1226,5 @@ route();
 </script>
 </body>
 </html>
+ 
+Claude finished the response
