@@ -640,6 +640,7 @@ const AUTHORS = {
     bio:'Christian is a second-year BSc Mathematics with Data Science student at the London School of Economics. He works through the data behind each story, from pricing and volatility to the statistics underneath the headline numbers.',
     email:'c.walton2@lse.ac.uk',
     phone:'+44 7843 160935', tel:'+447843160935',
+    linkedin:'',
     photo:'assets/founders/christian.jpg',
     alt:'Portrait of Christian Walton, co-founder of Ascend Markets'
   },
@@ -650,6 +651,7 @@ const AUTHORS = {
     bio:'Theo is a final-year BSc Economics student at Loughborough University and an options and futures analyst on the Loughborough Quantitative and Discretionary Fund. He built and designed this website, and codes each note in HTML from the data the team brings him.',
     email:'T.Elwell1-24@student.lboro.ac.uk',
     phone:'+44 7471 901337', tel:'+447471901337',
+    linkedin:'',
     photo:'assets/founders/theo.jpg',
     alt:'Portrait of Theo Elwell, co-founder of Ascend Markets'
   },
@@ -1105,10 +1107,17 @@ function renderPost(slug){
 }
  
 /* --- about ------------------------------------------------------- */
+/* "https://www.linkedin.com/in/jane-smith/" shows as "in/jane-smith" */
+function linkedinLabel(url){
+  const m = String(url).match(/linkedin\.com\/(in\/[^/?#]+)/i);
+  return m ? m[1] : 'Profile';
+}
 function founderCard(a, eager){
   const contact = ['<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>'];
   if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.tel || a.phone.replace(/\s+/g,''))+'">'
     + esc(a.phone)+'</a></li>');
+  if(a.linkedin) contact.push('<li>LinkedIn <a href="'+esc(a.linkedin)+'" target="_blank" '
+    + 'rel="noopener noreferrer">'+esc(linkedinLabel(a.linkedin))+'</a></li>');
   const desk = '<p class="titleline"><span class="cofounder">Co-founder</span></p>';
   return '<div class="founder">'
     + '<div class="portrait">'
