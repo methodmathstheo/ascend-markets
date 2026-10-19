@@ -636,6 +636,7 @@ const AUTHORS = {
   christian: {
     key:'christian', name:'Christian Walton', first:'Christian', initials:'CW',
     founder:true,
+    desk:'Head of Commodities', section:'commodities',
     course:'Mathematics with Data Science, LSE',
     bio:'Christian is a second-year BSc Mathematics with Data Science student at the London School of Economics. He works through the data behind each story, from pricing and volatility to the statistics underneath the headline numbers.',
     email:'c.walton2@lse.ac.uk',
@@ -647,6 +648,7 @@ const AUTHORS = {
   theo: {
     key:'theo', name:'Theo Elwell', first:'Theo', initials:'TE',
     founder:true,
+    desk:'Head of Options & Futures', section:'derivatives',
     course:'Economics, Loughborough University',
     bio:'Theo is a final-year BSc Economics student at Loughborough University and an options and futures analyst on the Loughborough Quantitative and Discretionary Fund. He built and designed this website, and codes each note in HTML from the data the team brings him.',
     email:'T.Elwell1-24@student.lboro.ac.uk',
@@ -655,26 +657,52 @@ const AUTHORS = {
     photo:'assets/founders/theo.jpg',
     alt:'Portrait of Theo Elwell, co-founder of Ascend Markets'
   },
-  /* Team members: name and degree only, no photo. To add someone, copy a block.
-     note is optional: leave it out if not needed. */
   jimmy: {
     key:'jimmy', name:'Jimmy Carlton', first:'Jimmy', initials:'JC',
-    course:'Economics, Accounting and Finance, University of Kent'
+    desk:'Head of Fixed Income', section:'fixedincome', extra:'King of Banter',
+    course:'Economics, Accounting and Finance, University of Kent',
+    bio:'Jimmy Carlton studies Economics, Accounting and Finance at the University of Kent. He covers fixed income, from government curves to corporate credit, and doubles as rugby social secretary and club legend.',
+    email:'Jc2315@kent.ac.uk',
+    phone:'+44 7834 720207', tel:'+447834720207',
+    linkedin:'',
+    photo:'assets/founders/jimmy.jpg',
+    alt:'Portrait of Jimmy Carlton, head of fixed income at Ascend Markets'
   },
   zac: {
     key:'zac', name:'Zac Kemp', first:'Zac', initials:'ZK',
-    course:'Mathematics, University of Nottingham'
+    desk:'Head of Macro News', section:'macro',
+    course:'Mathematics, University of Nottingham',
+    bio:'Zac Kemp is a Mathematics student at the University of Nottingham. He heads macro news, tracking the data releases, central bank decisions and policy shifts that set the backdrop for every other section. He doubles as padel society football manager and Fortnite professional.',
+    email:'pmyzk2@nottingham.ac.uk',
+    phone:'+44 7493 214246', tel:'+447493214246',
+    linkedin:'',
+    photo:'assets/founders/zac.jpg',
+    alt:'Portrait of Zac Kemp, head of macro news at Ascend Markets'
   },
   billy: {
     key:'billy', name:'Billy Hyams', first:'Billy', initials:'BH',
-    course:'Economics, University of Nottingham'
+    desk:'Head of Real Estate', section:'realestate',
+    course:'Economics, University of Nottingham',
+    bio:'Billy Hyams is an Economics student at the University of Nottingham. He covers real estate, from housing and commercial property to the listed landlords and the cost of financing them.',
+    email:'leybh12@nottingham.ac.uk',
+    phone:'+44 7852 151955', tel:'+447852151955',
+    linkedin:'',
+    photo:'assets/founders/billy.jpg',
+    alt:'Portrait of Billy Hyams, head of real estate at Ascend Markets'
   },
   ben: {
     key:'ben', name:'Ben Patrick', first:'Ben', initials:'BP',
+    note:'Incoming BNP Paribas Summer Analyst',
     course:'Economics and Politics, LSE',
-    note:'Incoming BNP Paribas Summer Analyst'
+    bio:'',
+    email:'',
+    phone:'', tel:'',
+    linkedin:'',
+    photo:'assets/founders/ben.jpg',
+    alt:'Portrait of Ben Patrick of Ascend Markets'
   }
 };
+
  
 /* =================================================================
    SITE LOGIC (nothing to edit weekly)
@@ -962,7 +990,7 @@ function sectionsGridHTML(){
     + '<p class="label">Seven asset classes, one note a week</p></div>'
     + '<div class="grid">'+cards+'</div></section>';
 }
-const homeRole = a => a.founder ? 'Co-founder' : (a.course || '');
+const homeRole = a => a.founder ? 'Co-founder' : (a.desk || a.note || a.course || '');
 function teamStripHTML(){
   const item = (a,size) =>
     '<li><a href="#/about">' + avatarHTML(a,size,false)
@@ -1113,31 +1141,35 @@ function linkedinLabel(url){
   return m ? m[1] : 'Profile';
 }
 function founderCard(a, eager){
-  const contact = ['<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>'];
+  const contact = [];
+  if(a.email) contact.push('<li>Email <a href="mailto:'+esc(a.email)+'">'+esc(a.email)+'</a></li>');
   if(a.phone) contact.push('<li>Phone <a href="tel:'+esc(a.tel || a.phone.replace(/\s+/g,''))+'">'
     + esc(a.phone)+'</a></li>');
   if(a.linkedin) contact.push('<li>LinkedIn <a href="'+esc(a.linkedin)+'" target="_blank" '
     + 'rel="noopener noreferrer">'+esc(linkedinLabel(a.linkedin))+'</a></li>');
-  const desk = '<p class="titleline"><span class="cofounder">Co-founder</span></p>';
-  return '<div class="founder">'
+  const sec = resolveSec(a.section);
+  const deskEl = a.desk
+    ? (sec ? '<a class="desk" href="#/section/'+sec.key+'">'+esc(a.desk)+'</a>'
+           : '<span class="desk">'+esc(a.desk)+'</span>')
+    : (a.note ? '<span class="desk">'+esc(a.note)+'</span>' : '');
+  const sep = '<span class="tsep" aria-hidden="true">&middot;</span>';
+  const title = '<p class="titleline">'
+    + (a.founder ? '<span class="cofounder">Co-founder</span>' + (deskEl ? sep : '') : '')
+    + deskEl
+    + (a.extra ? (deskEl ? sep : '') + '<span class="cofounder">'+esc(a.extra)+'</span>' : '')
+    + '</p>';
+  return '<div class="founder"'+(sec ? ' style="'+secVar(sec)+'"' : '')+'>'
     + '<div class="portrait">'
     + '<span class="mono" aria-hidden="true">'+esc(a.initials)+'</span>'
-    + '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt)+'" width="800" height="1000" '
-    + 'decoding="async" loading="'+(eager?'eager':'lazy')+'" onerror="this.remove()">'
+    + (a.photo ? '<img src="'+esc(a.photo)+'" alt="'+esc(a.alt || ('Portrait of '+a.name))+'" '
+        + 'width="800" height="1000" decoding="async" loading="'+(eager?'eager':'lazy')
+        + '" onerror="this.remove()">' : '')
     + '</div><div><h2>'+esc(a.name)+'</h2>'
-    + desk
+    + title
     + (a.course ? '<p class="course">'+esc(a.course)+'</p>' : '')
-    + '<p class="bio">'+esc(a.bio)+'</p>'
-    + '<ul class="contact">'+contact.join('')+'</ul></div></div>';
-}
-function membersHTML(){
-  const list = Object.values(AUTHORS).filter(a=>!a.founder);
-  if(!list.length) return '';
-  return '<p class="label team-label members-label">Part of our team</p><ul class="members">'
-    + list.map(a => '<li><div><span class="mname">'+esc(a.name)+'</span>'
-      + (a.note ? '<span class="mnote">'+esc(a.note)+'</span>' : '') + '</div>'
-      + '<span class="mcourse">'+esc(a.course || '')+'</span></li>').join('')
-    + '</ul>';
+    + (a.bio ? '<p class="bio">'+esc(a.bio)+'</p>' : '')
+    + (contact.length ? '<ul class="contact">'+contact.join('')+'</ul>' : '')
+    + '</div></div>';
 }
 function renderAbout(){
   setNav('about');
@@ -1150,9 +1182,8 @@ function renderAbout(){
     + 'matters, and what to watch next.</p>'
     + '<p class="label team-label">The team</p>'
     + '<div class="founders">'
-    + Object.values(AUTHORS).filter(a=>a.founder).map((a,i)=>founderCard(a, i===0)).join('')
+    + Object.values(AUTHORS).map((a,i)=>founderCard(a, i===0)).join('')
     + '</div>'
-    + membersHTML()
     + '<div class="body"><h3>Why this blog</h3>'
     + '<p>We started writing a weekly note to sharpen our thinking about markets and to build a '
     + 'public record of it. Each piece takes one story and works through the numbers behind it.</p>'
