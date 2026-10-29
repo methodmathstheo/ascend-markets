@@ -42,6 +42,80 @@ Who is affected, and what the move says about the wider market.
    --------------------------------------------------------------- */
 
 const POSTS = [
+     {
+    slug: "ai-borrowing-boom-bond-yields",
+    title: "AI's borrowing boom: is it pushing up bond yields?",
+    date: "2026-10-26",
+    publishAt: "2026-10-26T08:00",
+    section: "fixedincome",
+    author: "jimmy",
+    tags: ["Bonds", "AI", "US"],
+    dataAsOf: "23 October 2026",
+    summary: "Big Tech has switched from funding AI out of cash to borrowing in the bond market. This note looks at whether that extra supply is pushing up yields, and what would prove it.",
+    body: `
+## 1. The story
+
+The pace of investment in AI is unprecedented. AI-related companies' use of credit markets has accelerated and is set to increase further as financing needs increase [[1]](https://nai500.com/blog/2026/09/ai-hyperscalers-turn-to-debt-as-bond-spreads-widen/), while governments may also need to borrow to support the infrastructure behind it, such as electricity networks. At the same time, Global Sovereign Bond Market issuance is at a historically high level in dollar terms [2]. Together, rising corporate financing needs and elevated government borrowing raise an important question for financial markets: as the supply of bonds increases, will investor demand keep pace, or will borrowers be forced to offer higher yields to attract capital?
+
+<figure class="chart"><img src="assets/data/blog-4/c01-global-bond-issuance.svg" alt="Stacked bars of global OECD sovereign, EMDE sovereign and corporate bond issuance from 2007 to 2026, reaching about 29 trillion dollars in 2026, with issuance as a share of GDP at 23.3 per cent, below the 2020 peak of 27.5 per cent." width="760" height="510" loading="lazy" style="width:100%;height:auto"></figure>
+
+## 2. The numbers
+
+Four figures show the scale of AI investment and the borrowing needed for it:
+
+| Measure | Latest | Context | Source |
+| --- | --- | --- | --- |
+| AI hyperscaler bond issuance | $420bn (2027 forecast) | Gross issuance projected to rise 60% from 2026 estimates | Goldman Sachs via Reuters [[1]](https://nai500.com/blog/2026/09/ai-hyperscalers-turn-to-debt-as-bond-spreads-widen/) |
+| Hyperscaler bond issuance, 2026 to date | ~$220bn (to 10 Aug 2026) | Already roughly double the 2025 total | BNP Paribas via Reuters [[4]](https://mlq.ai/news/hyperscaler-bond-issuance-reaches-about-220-billion-as-ai-financing-costs-rise/) |
+| US corporate bond issuance | $2.46tn (2026 forecast) | Net issuance forecast to rise 30% year on year, led by AI | Barclays via Reuters [[3]](https://www.itiger.com/hant/news/2603931398) |
+| AI-related bond spreads | 115bps vs 78bps (Sep 2026) | AI issuers compared with the wider investment-grade market | Reuters, Goldman Sachs, ICE BofA [[1]](https://nai500.com/blog/2026/09/ai-hyperscalers-turn-to-debt-as-bond-spreads-widen/) |
+
+- Major technology companies have massively increased the scale of their AI capital expenditure. The five largest hyperscalers are expected to spend about $750bn in 2026 [[4]](https://mlq.ai/news/hyperscaler-bond-issuance-reaches-about-220-billion-as-ai-financing-costs-rise/), and Goldman Sachs expects spending to potentially top $1tn in 2027 [[5]](https://cryptobriefing.com/hyperscalers-borrow-billions-ai-debt-concerns/).
+- Capital expenditure has needed financing, and these companies have increased their bond issuance to all-time highs, from an average of $28bn a year in 2020–24 to $121bn in 2025 [[3]](https://www.itiger.com/hant/news/2603931398).
+- Investors demand more compensation to hold AI-related corporate debt than the broader investment-grade market (115bps to 78bps), partly to compensate for the growing supply of debt, as well as for longer maturities and a wider range of credit ratings, from Microsoft (AAA) to Oracle (BBB) [[4]](https://mlq.ai/news/hyperscaler-bond-issuance-reaches-about-220-billion-as-ai-financing-costs-rise/).
+- Demand for this debt is thinning: order books on hyperscaler bond deals fell from about 5x the amount offered in February to about 2x in July 2026 [[1]](https://nai500.com/blog/2026/09/ai-hyperscalers-turn-to-debt-as-bond-spreads-widen/).
+
+<figure class="chart"><img src="assets/data/blog-4/c02-bigtech-ai-debt.svg" alt="Horizontal bars of 2026 bond issuance to 7 July: Amazon 92 billion dollars, Alphabet 77 billion including up to 25 billion pending, Meta 25 billion and Oracle 25 billion." width="760" height="410" loading="lazy" style="width:100%;height:auto"></figure>
+
+- Demand for US government debt has held up so far: the 10-year Treasury auction on 7 October 2026 had a bid-to-cover ratio of 2.77x [[6]](https://yourbestsavings.com/treasury-yields/), above the 2.4–2.5x range it averaged from 2017 to 2024 [7].
+- Yields have still risen. The 10-year yield closed at 5.31% on 5 October, the highest close since the FRED series began in 2003 [[8]](https://www.leadlagreport.com/the-10-year-hit-5-31-the-bond-market-says-it-is-not-inflation/), which suggests investors are demanding higher returns to absorb the extra supply.
+- Factors influencing yields also include government borrowing, inflation expectations, and central bank policy.
+
+## 3. Why it matters
+
+The AI boom requires substantial capital expenditure, and companies will issue corporate bonds, whilst governments may issue debt to finance the supporting infrastructure needed, such as electricity networks. The increased supply of bonds, through bond issuance, would put downward pressure on prices and upward pressure on yields, as borrowers, including governments, will be forced to pay higher premiums for investors to purchase their bonds if supply increases at a faster rate than demand.
+
+A BIS study finds that the adoption of AI leads to a permanent increase in productivity that differs across sectors, and that AI will significantly raise output, consumption and investment in the short and long run [[9]](https://www.bis.org/publ/work1179.htm). The effect on inflation depends crucially on whether households and firms correctly anticipate the impact of AI. If they underestimate the higher future productivity, there will be initial disinflation, although over time general equilibrium forces lead to moderate inflation. In contrast, if households and firms correctly anticipate the higher future productivity, inflation rises immediately [[9]](https://www.bis.org/publ/work1179.htm).
+
+Higher long-term yields could increase mortgage rates, corporate borrowing costs and government debt-servicing expenses. This may make future investment more expensive, including investment in AI itself.
+
+## 4. The other side
+
+Higher AI investment does not necessarily mean weaker demand for government bonds. In 2025, debt financed only around a third of the five largest hyperscalers' capital expenditure, so most AI spending has been funded internally [[10]](https://www.advisorperspectives.com/commentaries/2026/08/13/ai-infrastructure-spending-free-cash-flow-levels), although capex is now on track to overtake their operating cash flow around Q3 2026 [[11]](https://epoch.ai/data-insights/hyperscaler-capex-vs-cash-flow). Meanwhile, safe-asset demand remains strong: foreign investors made net purchases of $300.7bn of long-term US securities in August 2026 [[12]](https://home.treasury.gov/news/press-releases/sb0662). AI-driven productivity could also boost output and tax revenues; Goldman Sachs estimates generative AI could lift US labour productivity growth by around 1.5 percentage points a year over a decade of widespread adoption [[13]](https://www.goldmansachs.com/insights/articles/ai-may-start-to-boost-us-gdp-in-2027). Bond yields also respond to monetary policy, inflation, deficits and global capital flows, not AI alone. The key question is whether AI financing pressures are large enough to move yields once these forces are accounted for.
+
+## 5. What I'm watching
+
+Three indicators could confirm or weaken the thesis. First, AI capital expenditure and debt issuance: quarterly earnings from major technology firms will show whether new infrastructure is increasingly debt-financed. Second, US Treasury yields and inflation expectations: movements in the 10-year nominal yield (5.00% on 23 October [[14]](https://www.forbes.com/advisor/investing/treasury-rates/)), real yields (2.84%) and market-based inflation compensation (2.35%) [[15]](https://spotthemoney.com/rates/tips/) reveal whether investors are demanding higher returns. Third, productivity and CPI data will show whether efficiency gains are starting to offset investment-driven cost pressures. I would be persuaded that AI is materially affecting bond markets if rising AI-related bond issuance coincided with higher real yields, while inflation expectations and monetary policy stayed broadly stable. That combination would point to AI financing demand, rather than wider economic changes, as the driver.
+
+## References
+
+1. NAI500 (Sep 2026), citing Reuters, Goldman Sachs, ICE BofA and Apollo. *AI hyperscalers turn to debt as bond spreads widen*. [nai500.com](https://nai500.com/blog/2026/09/ai-hyperscalers-turn-to-debt-as-bond-spreads-widen/)
+2. OECD (2026). *Global Debt Report 2026*.
+3. Reuters (15 Jan 2026), via Tiger Brokers. *AI hyperscalers will drive higher US corporate bond supply in 2026, analysts say*. [itiger.com](https://www.itiger.com/hant/news/2603931398)
+4. MLQ.ai (Aug 2026), citing Reuters, BNP Paribas and S&P Global Ratings. *Hyperscaler bond issuance reaches about $220 billion as AI financing costs rise*. [mlq.ai](https://mlq.ai/news/hyperscaler-bond-issuance-reaches-about-220-billion-as-ai-financing-costs-rise/)
+5. Crypto Briefing (Oct 2026), citing Goldman Sachs. *Big Tech is borrowing hundreds of billions for AI*. [cryptobriefing.com](https://cryptobriefing.com/hyperscalers-borrow-billions-ai-debt-concerns/)
+6. YourBestSavings (Oct 2026). *Treasury yields today*, including auction results. [yourbestsavings.com](https://yourbestsavings.com/treasury-yields/)
+7. Hutchins Center on Fiscal & Monetary Policy at Brookings, using Bureau of the Public Debt data. *Bid-to-cover for 10-year Treasury*.
+8. Lead-Lag Report (21 Oct 2026). *The 10-year hit 5.31%. The bond market says it is not inflation*. [leadlagreport.com](https://www.leadlagreport.com/the-10-year-hit-5-31-the-bond-market-says-it-is-not-inflation/)
+9. Aldasoro, I., Doerr, S., Gambacorta, L. and Rees, D. (2024). *The impact of artificial intelligence on output and inflation*. BIS Working Paper No. 1179. [bis.org](https://www.bis.org/publ/work1179.htm)
+10. Advisor Perspectives (Aug 2026). *AI infrastructure spending and free cash flow levels*. [advisorperspectives.com](https://www.advisorperspectives.com/commentaries/2026/08/13/ai-infrastructure-spending-free-cash-flow-levels)
+11. Epoch AI (16 Jun 2026). *Hyperscaler capex is on trend to outpace their cash inflows by the end of 2026*. [epoch.ai](https://epoch.ai/data-insights/hyperscaler-capex-vs-cash-flow)
+12. US Treasury (16 Oct 2026). *Treasury International Capital data for August*. [home.treasury.gov](https://home.treasury.gov/news/press-releases/sb0662)
+13. Goldman Sachs Research. *AI may start to boost US GDP in 2027*. [goldmansachs.com](https://www.goldmansachs.com/insights/articles/ai-may-start-to-boost-us-gdp-in-2027)
+14. Forbes Advisor (23 Oct 2026). *Treasury rates today*. [forbes.com](https://www.forbes.com/advisor/investing/treasury-rates/)
+15. Spot the Money (14 Oct 2026), using the US Treasury daily real yield curve. *TIPS real yields today*. [spotthemoney.com](https://spotthemoney.com/rates/tips/)
+`
+  },
   {
     slug: "insure-stocks-hedge-bonds",
     title: "Blog #3: Insure your stocks with options. Hedge your bonds with futures.",
