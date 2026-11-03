@@ -43,6 +43,68 @@ Who is affected, and what the move says about the wider market.
 
 const POSTS = [
      {
+    slug: "uk-budget-energy-relief-debt-interest",
+    title: "UK Budget: Relief today, room for growth tomorrow?",
+    date: "2026-11-02",
+    section: "macro",
+    author: "christian",
+    tags: ["Budget", "Gilts", "UK"],
+    dataAsOf: "28 October 2026",
+    summary: "The Budget eases this winter's energy bills, but a £67.5bn rise in forecast debt interest makes July's decision on the electricity VAT cut harder.",
+    body: `
+## 1. What's happened
+
+The UK's Autumn Budget, delivered on 28 October, focused on easing the pressure on households facing high energy costs. Chancellor John Healey announced a £100 payment for households in England in council tax bands A to D, with payments starting in January 2027. He also extended the VAT cut on electricity until July 2027. The Treasury estimates that extending the cut will take around £50 off a typical household's annual electricity costs under the April price cap.
+
+For households, the difference is how that support reaches them. The £100 goes directly into bank accounts, giving families some flexibility over which winter bills to cover. The VAT cut works through the electricity bill itself, so the saving depends on how much electricity a household uses. To help fund the payment, the Chancellor will temporarily double the tax surcharge on bank profits from 3% to 6% for 15 months from January.
+
+Both measures offer some breathing room this winter. The harder decision comes when the VAT cut expires in July. If energy prices are still high, letting the cut lapse would put upward pressure on bills, while extending it again would mean giving up tax revenue for longer. That choice comes as the Treasury already expects to spend more on debt interest than it forecast in the spring.
+
+## 2. The numbers
+
+<figure class="chart"><img src="assets/data/blog-5/c01-debt-interest-revisions.png" alt="Bar chart of upward revisions to the OBR's UK debt interest forecast since March 2026: £15.4bn in 2026/27, £16.0bn in 2027/28, £12.0bn in 2028/29, £12.0bn in 2029/30 and £12.1bn in 2030/31, a total of £67.5bn." width="760" height="433" loading="lazy" style="width:100%;height:auto"></figure>
+
+Over the five financial years from 2026/27 to 2030/31, the Office for Budget Responsibility expects the UK to spend £67.5 billion more on debt interest than it forecast in March. The largest revision is in 2027/28, when the forecast interest bill is £16 billion higher than previously expected.
+
+The largest revision comes in 2027/28, when the OBR expects the government to spend £16 billion more on debt interest than it forecast in March. By 2030/31, the gap is still £12.1 billion. That matters because the pressure on the public finances is expected to outlast this winter's energy support. If electricity prices remain high when the VAT cut expires in July 2027, the Chancellor will have to weigh the cost to households of letting bills rise against the tax revenue the Treasury would forgo by extending the cut.
+
+<figure class="chart"><img src="assets/data/blog-5/c02-gilt-yield.png" alt="Line chart of the daily UK 10-year gilt yield from 2 March to 28 October 2026, rising from about 4.37% to 5.31% on Budget day, with most of the rise coming before the Budget." width="760" height="433" loading="lazy" style="width:100%;height:auto"></figure>
+
+One figure to watch is the yield on the UK's ten-year government bond, or gilt. It gives an indication of what investors charge the government to borrow for a decade. A rise in yields takes time to feed through to the public finances because existing fixed-rate gilts keep paying the same interest until they mature. The pressure builds as the Treasury issues new debt or replaces maturing bonds at higher rates.
+
+The UK's 10-year gilt yield rose from 4.37% on 2 March to 5.31% on budget day. It was already at 5.30% on 27 October, so almost all of that rise had taken place before the announcement.
+
+## 3. Why it matters
+
+For households, the question is what happens next winter. The £100 payment will help eligible households cover some of this winter's costs, while the VAT cut keeps electricity bills lower until July 2027. Neither measure reduces the underlying cost of supplying electricity. If energy prices remain high when the cut expires, households could enter the following winter facing higher bills just as they start using more energy again.
+
+For the Treasury, a higher interest bill makes that decision harder. More tax revenue going towards debt interest leaves less available for measures such as energy relief. If bills are still high in July, the Chancellor could extend the VAT cut for everyone or concentrate support on households least able to absorb the increase. The first option reaches more people, while the second can deliver more help per household for the same overall cost.
+
+For markets, the timing of the rise in gilt yields matters. The UK's ten-year yield stood at 5.30% the day before the Budget and 5.31% on the day itself. The Chancellor was already facing higher borrowing costs when he announced the measures. If yields stay elevated, the effect will build gradually as older, cheaper debt matures and the government replaces it at higher rates. That is why the path of yields over the coming months matters more for the Treasury's interest bill than the small move on Budget day.
+
+## 4. Our assessment
+
+In our view, the Budget strikes a reasonable balance for this winter. The £100 payment gives eligible households flexibility over which bills to cover, while the VAT cut keeps electricity bills lower for a wider group. The weakness is that neither measure accounts fully for a household's ability to pay. Two families on similar incomes can fall on opposite sides of the council tax band cut-off, while the largest cash savings from the VAT cut go to those who use the most electricity.
+
+That distinction matters when the VAT cut comes up for review in July. If energy prices have eased enough to offset the return of VAT, we think the Chancellor should let the cut expire as planned. If bills remain high, we would favour directing further support towards households on low incomes or with unavoidable heating costs. With the Treasury already facing a higher debt interest bill than it forecast in March, that approach would concentrate the available money where it is likely to make the greatest difference for those struggling.
+
+## 5. What to keep an eye on
+
+- **5 November 2026: Bank of England rate decision.** Watch how the 10-year gilt yield responds to the Bank's inflation forecast. Even if Bank Rate stays unchanged, investors may revise their expectations for future interest rates.
+- **18 November 2026: October inflation figures.** The electricity and gas figures will show how much energy contributed to inflation when the Chancellor announced the Budget.
+- **By 25 November 2026: Winter energy price cap.** Ofgem will announce the rates households on capped tariffs will pay from January to March, giving a clearer sense of how far the £100 payment will go for eligible households this winter.
+- **May 2027: Summer energy price cap.** Ofgem's July to September rates will show whether energy prices have eased enough to cushion the scheduled expiry of the electricity VAT cut in July. That will help shape the case for further support.
+
+## 6. Sources
+
+- [HM Treasury, Budget 2026](https://www.gov.uk/government/publications/budget-2026-document) (as of 28/10/26)
+- [Office for Budget Responsibility, Economic and fiscal outlook, October 2026](https://obr.uk/efo/economic-and-fiscal-outlook-october-2026/) (as of 28/10/26)
+- [Bank of England, daily 10-year nominal gilt par yield (IUDMNPY)](https://www.bankofengland.co.uk)
+- [Office for National Statistics](https://www.ons.gov.uk)
+- [Ofgem](https://www.ofgem.gov.uk)
+`
+  },
+     {
     slug: "ai-borrowing-boom-bond-yields",
     title: "AI's borrowing boom: is it pushing up bond yields?",
     date: "2026-10-26",
