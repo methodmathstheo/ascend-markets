@@ -47,7 +47,7 @@ const POSTS = [
     title: "UK Budget: Relief today, room for growth tomorrow?",
     date: "2026-11-02",
     section: "macro",
-    author: "christian",
+    author: "zac",
     tags: ["Budget", "Gilts", "UK"],
     dataAsOf: "28 October 2026",
     summary: "The Budget eases this winter's energy bills, but a £67.5bn rise in forecast debt interest makes July's decision on the electricity VAT cut harder.",
