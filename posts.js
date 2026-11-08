@@ -42,6 +42,96 @@ Who is affected, and what the move says about the wider market.
    --------------------------------------------------------------- */
 
 const POSTS = [
+   Claude
+Posts entry · JS
+  {
+    slug: "midterms-ai-regulation-risk-overpriced",
+    title: "Markets are overpricing the AI regulation risk from the midterms",
+    date: "2026-11-09",
+    publishAt: "2026-11-09T08:00",
+    section: "equities",
+    author: ["christian", "ben"],
+    tags: ["AI", "Midterms", "US"],
+    dataAsOf: "7 November 2026",
+    summary: "The post-midterm sell-off in AI stocks prices in far tougher regulation than a divided Washington is likely to deliver before 2028, because of Trump's veto, his China strategy and a Democratic Congress focused on investigating his administration.",
+    body: `
+## 1. The story
+ 
+US tech stocks tumbled after Democrats' wins in the midterm elections. By midday in New York the Nasdaq 100 was down 5.6% and the Philadelphia Semiconductor Index 10.5% [1]. By the close, the Nasdaq 100 had fallen 6.4%, its worst day since 2020, and the semiconductor index more than 12% [[2]](https://finance.yahoo.com/markets/stocks/articles/oversold-ai-chip-stocks-nasdaq-144740381.html).
+ 
+Candidates who campaigned against data centres won important races in states including Texas, Ohio and Georgia. "With the blue wave, investors fear that peak [AI capital spending] is behind us," Charles-Henry Monchau, chief investment officer at SYZ Group, told the Financial Times. Retail traders, usually quick to buy dips, were "heavy sellers" of tech names on Thursday, according to Vanda Research [1]. The sell-off then spread, with the S&P 500 closing down 4.4% [[2]](https://finance.yahoo.com/markets/stocks/articles/oversold-ai-chip-stocks-nasdaq-144740381.html).
+ 
+<figure class="chart"><img src="assets/data/blog-6/c01-ai-stocks-5-nov.png" alt="Bar chart of daily changes at about 6pm UTC on 5 November 2026: Sandisk down 20.1%, AMD down 15.7%, CoreWeave down 12.8%, Qualcomm down 11.3% and the Nasdaq 100 down 6.0%. Source: Financial Times." width="760" height="385" loading="lazy" style="width:100%;height:auto"></figure>
+ 
+## 2. The numbers
+ 
+The election did not start this sell-off; it accelerated one that was already under way. Before the vote, hedge funds were underweight the broader AI trade for the first time since early 2023, according to Morgan Stanley prime brokerage data [[3]](https://in.investing.com/news/stock-market-news/ai-sector-outlook-darkens-as-democrat-wins-threaten-900b-capex-cycle-93CH-5677959).
+ 
+| Measure | Move | Context | Source |
+| --- | --- | --- | --- |
+| Philadelphia Semiconductor Index | -12%+ | Closing fall, roughly double the Nasdaq 100's 6.4% | [[2]](https://finance.yahoo.com/markets/stocks/articles/oversold-ai-chip-stocks-nasdaq-144740381.html) |
+| Goldman Sachs broad AI basket | -15% in October | Already more than 24% below its peak before Wednesday's session | [[4]](https://finance.yahoo.com/technology/ai/articles/ai-data-center-stocks-drop-100424346.html) |
+| 47 AI and chip stocks | -$5tn | Market value lost since 6 October | [[3]](https://in.investing.com/news/stock-market-news/ai-sector-outlook-darkens-as-democrat-wins-threaten-900b-capex-cycle-93CH-5677959) |
+| Texas and Georgia | about one-third | Share of US AI data-centre spending and projects; both elected Democratic governors | [[5]](https://finance.yahoo.com/technology/ai/articles/ai-data-centre-stocks-fall-113933216.html) |
+ 
+The move also partly reversed the next day: US stocks rose on Friday, led by a rebound in many of the same AI names caught up in the rout [[6]](https://www.morningstar.com/markets/global-tech-selloff-spreads-ai-stocks-show-signs-recovery).
+ 
+## 3. Why it matters
+ 
+The market is reading the result as a regulation shock to the AI capex cycle. We think that reading is too pessimistic, for three reasons. We are not alone: Barclays argues some of the selling may exceed what actual policy risks can explain [[7]](https://news.futunn.com/en/post/1003817935/the-blue-wave-has-severely-shaken-faith-in-the-technology), and UBS sees the pullback as a "positioning reset" rather than a lasting downturn in the AI investment cycle [[6]](https://www.morningstar.com/markets/global-tech-selloff-spreads-ai-stocks-show-signs-recovery).
+ 
+- **Trump's veto.** Democrats lack a supermajority, and overriding a veto requires two-thirds of both houses of Congress, which has happened only twice since 2009 [[8]](https://ballotpedia.org/Daily_Brew_04-14-2023:_Survey_response_2) [[9]](https://www.indiatvnews.com/news/world/us-midterm-elections-2026-how-trump-can-use-his-veto-powers-to-block-the-democrats-legislative-agenda-2026-11-05-1058732). Trump has strong reasons to veto any regulation he deems too strong: he sees the AI boom as cementing America's economic position, and as a term-limited lame duck his concern is legacy, not re-election.
+- **China.** AI strength gives Trump leverage in negotiations with China, the likely winner of any American AI downturn. Chinese stocks rallied after the midterms, with Hong Kong's Hang Seng up 3.7% [[10]](https://www.scmp.com/business/china-business/article/3373336/china-stocks-extend-rebound-state-support-us-midterm-results).
+- **Congress's priorities.** Democrats campaigned on affordability and corruption, so investigations into Trump officials may dominate this session. Hakeem Jeffries, the likely next Speaker, has spoken of an "AI safety crisis" and called unenforceable voluntary industry agreements insufficient [[11]](https://www.yahoo.com/news/politics/articles/exclusive-jeffries-calls-ai-safety-002016141.html) [[12]](https://www.trendingtopics.eu/midterms-democrats-ai-data-centers-labs-setback/), and Democrats' majorities will let them hold hearings [[12]](https://www.trendingtopics.eu/midterms-democrats-ai-data-centers-labs-setback/). But there is little consensus on how far to go: most Democrats support regulation, very few support stronger restrictions.
+ 
+The banks largely agree. JPMorgan sees no material change to 2027 capex forecasts, though tighter regulation could have some impact from 2028 [[13]](https://www.aol.com/articles/smart-people-saying-midterms-impact-155405000.html). State Street expects AI investment to stay robust in 2027 [[14]](https://www.foxbusiness.com/politics/new-political-landscape-facing-ai-after-democrats-midterm-gains). One view even argues capex cuts could lengthen the AI cycle by preventing overbuilding [[15]](https://seekingalpha.com/article/4962081-selling-ai-because-of-democrats-is-insane).
+ 
+## 4. The other side
+ 
+The strongest counter-argument is state-level action, which needs no congressional majority. Texas holds 27% of planned US data-centre power capacity, and Governor-elect Gina Hinojosa campaigned on pausing new data-centre approvals until new laws are in place [[16]](https://finance.yahoo.com/markets/stocks/articles/texas-blue-wave-could-threaten-153956098.html). UBS flagged that pauses in states like Texas could hurt the outlook for AI infrastructure and cloud companies [[14]](https://www.foxbusiness.com/politics/new-political-landscape-facing-ai-after-democrats-midterm-gains), estimating that around 30% of expected US data-centre capacity additions in 2028 could be at risk [[17]](https://za.investing.com/news/stock-market-news/nasdaq-100-eyes-18-trillion-loss-as-democratic-win-sparks-ai-delay-fears-4555558), and Bank of America's Michael Hartnett warned before the vote that Democrats winning the Senate and the Texas governorship could trigger a slump of more than 10% into year-end [[18]](https://www.cnbc.com/2026/11/04/ai-stocks-texas-governor-data-centers.html). Nor is the pressure confined to Texas: local ballot measures across ten states nearly all backed data-centre restrictions [[19]](https://cfr.org/articles/the-midterms-rattled-ai-stocks-heres-what-to-watch-in-the-broader-economy).
+ 
+The sell-off may also reflect fundamentals rather than mispriced regulation: it was partly triggered by lacklustre results from chipmakers Qualcomm and Arm on Wednesday night [[20]](https://www.nbcnews.com/news/us-news/stocks-blue-wave-ai-construction-trump-arch-morning-rundown-rcna607801).
+ 
+However, the Texas ban largely continues outgoing Governor Greg Abbott's own moratorium [[21]](https://rbnenergy.com/daily-posts/blog/texas-moratorium-data-center-grid-connections-disrupts-us-project-pipeline), and it would apply only to new projects, not those already operating or under construction [[22]](https://abc13.com/post/governor-elect-gina-hinojosa-vows-ban-future-data-centers-texas/20021143/). Democrats pushing a moratorium may also face pushback from the construction unions that backed their campaigns [[23]](https://www.technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput/).
+ 
+## 5. What we're watching
+ 
+- **Hakeem Jeffries's priorities.** If AI hearings and legislation lead his agenda ahead of investigations, our view weakens.
+- **Texas data-centre legislation.** How far the new laws go will show whether state action can achieve what Congress cannot. Watch the January legislative session and any executive orders once Hinojosa takes office [[16]](https://finance.yahoo.com/markets/stocks/articles/texas-blue-wave-could-threaten-153956098.html).
+- **Industry negotiation.** CoreWeave's CEO has already written to Hinojosa offering to cooperate; whether other firms follow will show how binding the moratorium becomes [[24]](https://finance.biggo.com/news/af45c1e9-6891-450f-9350-68f276126b1a).
+- **Iran.** There is heavy Wall Street chatter that significant US action in Iran, similar to February 2026, was delayed until after the midterms. That would override the election's impact and trigger a major rebalancing, with energy and defence rising and tech and AI falling.
+ 
+## References
+ 
+1. Financial Times (Nov 2026). Nasdaq 100 and Philadelphia Semiconductor Index intraday moves; Charles-Henry Monchau (SYZ Group) quote; Vanda Research retail-flow data.
+2. Yahoo Finance / Investing.com (Nov 2026). *Oversold AI and chip stocks after the Nasdaq's worst day since 2020*. [finance.yahoo.com](https://finance.yahoo.com/markets/stocks/articles/oversold-ai-chip-stocks-nasdaq-144740381.html)
+3. Investing.com (Nov 2026). *AI sector outlook darkens as Democrat wins threaten $900bn capex cycle*. [investing.com](https://in.investing.com/news/stock-market-news/ai-sector-outlook-darkens-as-democrat-wins-threaten-900b-capex-cycle-93CH-5677959)
+4. Yahoo Finance (Nov 2026). *AI data center stocks drop*. [finance.yahoo.com](https://finance.yahoo.com/technology/ai/articles/ai-data-center-stocks-drop-100424346.html)
+5. Yahoo Finance (Nov 2026). *AI Data Centre Stocks Fall as Democratic Midterm Victory Raises Regulatory Concerns*. [finance.yahoo.com](https://finance.yahoo.com/technology/ai/articles/ai-data-centre-stocks-fall-113933216.html)
+6. Morningstar (Nov 2026). *AI Stocks Bounce Back After Thursday's Selloff*. [morningstar.com](https://www.morningstar.com/markets/global-tech-selloff-spreads-ai-stocks-show-signs-recovery)
+7. Futu News (Nov 2026), citing Barclays and Jefferies. *The "Blue Wave" has severely shaken faith in the technology sector*. [news.futunn.com](https://news.futunn.com/en/post/1003817935/the-blue-wave-has-severely-shaken-faith-in-the-technology)
+8. Ballotpedia (Apr 2023). *Daily Brew: How many times has Congress overridden a presidential veto since 2008?* [ballotpedia.org](https://ballotpedia.org/Daily_Brew_04-14-2023:_Survey_response_2)
+9. India TV News (5 Nov 2026). *How Trump can use his veto powers to block the Democrats' legislative agenda*. [indiatvnews.com](https://www.indiatvnews.com/news/world/us-midterm-elections-2026-how-trump-can-use-his-veto-powers-to-block-the-democrats-legislative-agenda-2026-11-05-1058732)
+10. South China Morning Post (5 Nov 2026). *China stocks extend rebound on state support, US midterm results*. [scmp.com](https://www.scmp.com/business/china-business/article/3373336/china-stocks-extend-rebound-state-support-us-midterm-results)
+11. USA Today via Yahoo News (Oct 2026). *Jeffries calls AI a "safety crisis," backs rigid guardrails*. [yahoo.com](https://www.yahoo.com/news/politics/articles/exclusive-jeffries-calls-ai-safety-002016141.html)
+12. Trending Topics (Nov 2026). *A.I. Data Centers and Labs Face a Setback After Democrats' Win*. [trendingtopics.eu](https://www.trendingtopics.eu/midterms-democrats-ai-data-centers-labs-setback/)
+13. AOL (Nov 2026). *What smart people are saying about the midterm's impact on data centers and the AI trade*. [aol.com](https://www.aol.com/articles/smart-people-saying-midterms-impact-155405000.html)
+14. Fox Business (Nov 2026). *How Democrats' midterm gains could reshape the political landscape for AI*. [foxbusiness.com](https://www.foxbusiness.com/politics/new-political-landscape-facing-ai-after-democrats-midterm-gains)
+15. Seeking Alpha (Nov 2026). *Selling AI because of Democrats is insane*. [seekingalpha.com](https://seekingalpha.com/article/4962081-selling-ai-because-of-democrats-is-insane)
+16. Yahoo Finance (Nov 2026), citing Wells Fargo. *Texas Blue Wave Could Threaten 27% Of Planned U.S. Data Center Power*. [finance.yahoo.com](https://finance.yahoo.com/markets/stocks/articles/texas-blue-wave-could-threaten-153956098.html)
+17. Reuters via Investing.com (5 Nov 2026). *Nasdaq 100 eyes $1.8 trillion loss as Democratic win sparks AI delay fears*. [investing.com](https://za.investing.com/news/stock-market-news/nasdaq-100-eyes-18-trillion-loss-as-democratic-win-sparks-ai-delay-fears-4555558)
+18. CNBC (4 Nov 2026). [cnbc.com](https://www.cnbc.com/2026/11/04/ai-stocks-texas-governor-data-centers.html)
+19. Council on Foreign Relations (Nov 2026). *The Midterms Rattled AI Stocks. Here's What to Watch in the Broader Economy*. [cfr.org](https://cfr.org/articles/the-midterms-rattled-ai-stocks-heres-what-to-watch-in-the-broader-economy)
+20. NBC News (Nov 2026). *Stocks tumble as midterms fuel AI fears*. [nbcnews.com](https://www.nbcnews.com/news/us-news/stocks-blue-wave-ai-construction-trump-arch-morning-rundown-rcna607801)
+21. RBN Energy (Nov 2026). *Texas Moratorium on Data Center Grid Connections Disrupts U.S. Project Pipeline*. [rbnenergy.com](https://rbnenergy.com/daily-posts/blog/texas-moratorium-data-center-grid-connections-disrupts-us-project-pipeline)
+22. ABC13 Houston (Nov 2026). *Governor-elect Gina Hinojosa vows to pause future data centers until new regulations are in place*. [abc13.com](https://abc13.com/post/governor-elect-gina-hinojosa-vows-ban-future-data-centers-texas/20021143/)
+23. MIT Technology Review (4 Nov 2026). *Texas was the new epicenter of the AI data center buildout. That might be kaput*. [technologyreview.com](https://www.technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput/)
+24. BigGo Finance (Nov 2026). *CoreWeave CEO Writes to Texas Governor-Elect, Offers to Work With Her on Data Center Moratorium Pledge*. [finance.biggo.com](https://finance.biggo.com/news/af45c1e9-6891-450f-9350-68f276126b1a)
+`
+  },
+ 
+Claude finished the response
+
      {
     slug: "uk-budget-energy-relief-debt-interest",
     title: "UK Budget: Relief today, room for growth tomorrow?",
