@@ -46,7 +46,6 @@ const POSTS = [
     slug: "midterms-ai-regulation-risk-overpriced",
     title: "Markets are overpricing the AI regulation risk from the midterms",
     date: "2026-11-09",
-    publishAt: "2026-11-09T08:00",
     section: "equities",
     author: ["christian", "ben"],
     tags: ["AI", "Midterms", "US"],
