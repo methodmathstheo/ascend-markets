@@ -58,7 +58,7 @@ US tech stocks tumbled after Democrats' wins in the midterm elections. By midday
 
 Candidates who campaigned against data centres won important races in states including Texas, Ohio and Georgia. "With the blue wave, investors fear that peak [AI capital spending] is behind us," Charles-Henry Monchau, chief investment officer at SYZ Group, told the Financial Times. Retail traders, usually quick to buy dips, were "heavy sellers" of tech names on Thursday, according to Vanda Research [1]. The sell-off then spread, with the S&P 500 closing down 4.4% [[2]](https://finance.yahoo.com/markets/stocks/articles/oversold-ai-chip-stocks-nasdaq-144740381.html).
 
-<figure class="chart"><img src="assets/data/blog-6/c01-ai-stocks-5-nov.png" alt="Bar chart of daily changes at about 6pm UTC on 5 November 2026: Sandisk down 20.1%, AMD down 15.7%, CoreWeave down 12.8%, Qualcomm down 11.3% and the Nasdaq 100 down 6.0%. Source: Financial Times." width="760" height="385" loading="lazy" style="width:100%;height:auto"></figure>
+<figure class="chart"><img src="assets/data/blog-6/c01-ai-stocks-5-nov.png?v=2" alt="Bar chart of daily changes at about 6pm UTC on 5 November 2026: Sandisk down 20.1%, AMD down 15.7%, CoreWeave down 12.8%, Qualcomm down 11.3% and the Nasdaq 100 down 6.0%. Source: Financial Times." width="760" height="385" loading="lazy" style="width:100%;height:auto"></figure>
 
 ## 2. The numbers
 
