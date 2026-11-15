@@ -42,6 +42,70 @@ Who is affected, and what the move says about the wider market.
    --------------------------------------------------------------- */
 
 const POSTS = [
+     {
+    slug: "apollo-ai-lending-risk-underpriced",
+    title: "Lenders are charging almost nothing for extra AI risk, just as rates start to bite",
+    date: "2026-11-16",
+    section: "fixedincome",
+    author: "george",
+    tags: ["Private Credit", "AI", "Rates"],
+    summary: "With interest rates rising again, the lenders funding the AI boom are being paid almost nothing extra for the risk, and Apollo's record quarter shows the strain is starting to show.",
+    body: `
+## 1. The story
+
+Apollo originated a record $114bn of loans in the third quarter, taking the total over the past twelve months to $356bn [[1]](https://www.sec.gov/Archives/edgar/data/0001858681/000185868126000063/agmearningsrelease3q2026.htm).
+
+On its preferred measure, adjusted net income, Apollo earned $1.3bn ($2.07 a share). This tracks recurring earnings from fees and from Athene, Apollo's insurance arm. It also leaves out unrealised mark-to-market moves. On that basis, it looks healthy.
+
+The official accounts tell a different story. Apollo reported a GAAP net loss of $1.06bn, or -$1.78 a share [[1]](https://www.sec.gov/Archives/edgar/data/0001858681/000185868126000063/agmearningsrelease3q2026.htm). The main cause was a fall in the value of Athene's bond holdings as interest rates rose. Under mark-to-market accounting, assets are recorded at today's prices, so a fall in value counts as a loss even if nothing is sold. Investment results swung from a $3.0bn gain in the second quarter to a $3.4bn loss in the third.
+
+## 2. The numbers
+
+<figure class="chart"><img src="assets/data/blog-7/c01-apollo-withdrawals.png" alt="Bar chart of withdrawal requests at Apollo Debt Solutions as a share of outstanding shares: 11.2% in Q1 2026, 16.8% in Q2 and 14.7% in Q3, all well above the 5% quarterly cap. Source: Apollo Debt Solutions BDC SEC filings; Reuters." width="760" height="428" loading="lazy" style="width:100%;height:auto"></figure>
+
+At its peak in the second quarter, investors asked to take out 16.8% of the money in Apollo's fund. By the third quarter that had fallen to 14.7% [[2]](https://www.sec.gov/Archives/edgar/data/1837532/000119312526119949/d94402d8k.htm) [[3]](https://www.dealstreetasia.com/stories/apollo-private-credit-fund-2-495897). But the fund only pays out 5% each quarter, so most people asking for their money back are still waiting for part of it. The good news for Apollo is that the queue is getting shorter. Most of the latest requests came from people who were already waiting, rather than new ones.
+
+<figure class="chart"><img src="assets/data/blog-7/c02-ai-loan-spread.png" alt="Bar chart of the average spread over the base rate on private loans: 6.2 percentage points for AI-related loans against 6.1 for other private credit loans, a difference of 0.1 points. Source: Bank for International Settlements, January 2026." width="760" height="428" loading="lazy" style="width:100%;height:auto"></figure>
+
+When a lender takes on more risk, it should charge more interest. The Bank for International Settlements, a body owned by the world's central banks, compared what lenders charge on AI-related loans with other private loans. AI loans paid just 0.1 points more [[4]](https://research.socialcapital.com/p/private-credit).
+
+That is a very small extra reward. Many of these loans depend on just a few companies, and they are often backed by computer chips that can go out of date within a few years. The BIS suggested either lenders are not charging enough for the risk, or share investors are too optimistic about AI profits, or both.
+
+## 3. Why it matters
+
+The numbers tell one story. Apollo is lending more than ever, it is charging very little extra for AI risk, and both its insurance business and its investment fund are under strain. Interest rates link all three. Higher rates caused Apollo's accounting loss. They make it harder for AI projects to earn enough to repay what they borrow. And they mean savers can earn a decent return elsewhere, so a fund that won't let them leave becomes a harder sell.
+
+Apollo is now one of the largest private credit lenders, meaning funds and insurers lend directly, rather than through traditional banks or the bond market.
+
+Interest rates are not coming down soon, and that matters well beyond Apollo. The Federal Reserve raised rates in September, and another rise in December is widely expected. On 5 November the Bank of England followed, raising Bank Rate to 4%, its first rise in more than three years, by a vote of 8-1 [[6]](https://za.investing.com/news/economy-news/bank-of-england-raises-rates-for-first-time-since-2023-warns-more-likely-4555606).
+
+More of the money for the AI build-out is now coming from private lenders such as Ares and Apollo. Ares estimates that about $1.3 trillion will be spent on data centres in 2027 alone [[5]](https://pitchbook.com/news/articles/private-credit-chases-opportunities-in-data-center-bonanza-despite-risks). This quietly shifts the risk of the AI boom. If projects struggle, the losses will land with lenders and their investors, not just tech shareholders.
+
+The money behind these loans comes from annuities, pension funds and investment funds sold to individuals. Savers in Apollo's own fund are already waiting to get their money out and will have received only around three-quarters of what they asked for this year. If AI lending goes wrong, it reaches people's retirement savings.
+
+## 4. The other side
+
+Apollo's record quarter is not a sign of crisis, but it is a sign of risk being underpriced. Private credit funds borrow far less than banks did before 2008. Funds like Apollo's are limited by law to around $2 of debt for every $1 of their own money, whereas Lehman Brothers was borrowing roughly $30 before it collapsed. The concern is what lenders are accepting in return. Protections such as Broadcom's on the safest part of the loan justify part of that low price, but not all of it.
+
+What happens next depends largely on interest rates. If rates stay high and AI profits disappoint, we expect the strain to show up in lending before it shows up in share prices. Lenders would charge more on new deals and the flow of money into AI would slow. If central banks stop raising rates early next year and AI companies keep growing their revenue, today's thin pricing will look justified. The AI boom has been judged on share prices. The next test may come from the lenders.
+
+## 5. What we're watching
+
+- **UK October inflation figures (18 November).** With more inflation in the pipeline, a high figure would make another rise more likely.
+- **Ares and Blue Owl withdrawal results (coming weeks).** Showing whether savers are still attempting to leave private credit.
+- **Federal Reserve meeting (8 to 9 December).** A further rise is widely expected and would add pressure on AI borrowers and Athene's bond holdings [[7]](https://www.federalreserve.gov/newsevents/2026-december.htm).
+
+## References
+
+1. Apollo Global Management (Nov 2026). *Q3 2026 earnings release*. [sec.gov](https://www.sec.gov/Archives/edgar/data/0001858681/000185868126000063/agmearningsrelease3q2026.htm)
+2. Apollo Debt Solutions BDC (2026). *Q1 2026 shareholder letter*. [sec.gov](https://www.sec.gov/Archives/edgar/data/1837532/000119312526119949/d94402d8k.htm)
+3. Reuters (22 Sep 2026). *Apollo private credit fund redemption requests ease in third quarter*. [dealstreetasia.com](https://www.dealstreetasia.com/stories/apollo-private-credit-fund-2-495897)
+4. Social Capital research, citing Bank for International Settlements data. *Private credit*. [research.socialcapital.com](https://research.socialcapital.com/p/private-credit)
+5. PitchBook. *Private credit chases opportunities in data center bonanza, despite risks*. [pitchbook.com](https://pitchbook.com/news/articles/private-credit-chases-opportunities-in-data-center-bonanza-despite-risks)
+6. Reuters via Investing.com (5 Nov 2026). *Bank of England raises rates for first time since 2023, warns more likely*. [investing.com](https://za.investing.com/news/economy-news/bank-of-england-raises-rates-for-first-time-since-2023-warns-more-likely-4555606)
+7. Federal Reserve. *December 2026 calendar*. [federalreserve.gov](https://www.federalreserve.gov/newsevents/2026-december.htm)
+`
+  },
 {
     slug: "midterms-ai-regulation-risk-overpriced",
     title: "Markets are overpricing the AI regulation risk from the midterms",
